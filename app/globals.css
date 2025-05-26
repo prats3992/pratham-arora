@@ -1,0 +1,70 @@
+/* Loading fonts from Google Fonts using Next.js best practices */
+/* Fonts are now loaded in layout.tsx using next/font */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 44 38% 95%;
+  --foreground: 300 10% 32%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 300 10% 32%;
+
+  --primary: 183 62% 28%;
+  --primary-foreground: 44 38% 95%;
+
+  --secondary: 38 78% 42%;
+  --secondary-foreground: 0 0% 100%;
+
+  --accent: 300 10% 32%;
+  --accent-foreground: 0 0% 100%;
+
+  --muted: 44 38% 95%;
+  --muted-foreground: 300 10% 32%;
+
+  --border: 44 30% 83%;
+  --input: 44 30% 83%;
+
+  --ring: 183 62% 28%;
+
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 300 10% 12%;
+  --foreground: 44 38% 95%;
+
+  --card: 300 10% 18%;
+  --card-foreground: 44 38% 95%;
+
+  --primary: 183 62% 38%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 38 78% 42%;
+  --secondary-foreground: 0 0% 100%;
+
+  --accent: 44 30% 83%;
+  --accent-foreground: 300 10% 12%;
+
+  --muted: 300 10% 20%;
+  --muted-foreground: 44 30% 83%;
+
+  --border: 300 10% 25%;
+  --input: 300 10% 25%;
+
+  --ring: 183 62% 38%;
+}
+
+body {
+  @apply bg-background text-foreground;
+}
+
+.font-body {
+  font-family: "Nunito", sans-serif;
+}
+
+.font-display {
+  font-family: "Playfair Display", serif;
+}
