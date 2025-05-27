@@ -3,7 +3,7 @@
 import type React from "react"
 
 import Link from "next/link"
-import { ArrowLeft, Code, Coffee, Gamepad2, Music } from "lucide-react"
+import { ArrowLeft, Code, Coffee, Gamepad2, BookHeart, Cake } from "lucide-react"
 
 export default function AboutPage() {
   return (
@@ -31,19 +31,11 @@ export default function AboutPage() {
                 <h2 className="text-2xl font-bold mb-4 text-[#1a6e73] font-display">My Journey</h2>
                 <div className="prose text-[#5e4b56] font-body">
                   <p className="mb-4">
-                    Hello! I'm Alex, a passionate Computer Science student currently in my third year at Tech
-                    University. My journey into programming began in high school when I discovered the magic of turning
-                    ideas into interactive experiences.
+                    Hi there! I am Pratham, a passionate software engineer with a wide range of interests and hobbies. In my free time, you can find me reading a good book, playing basketball, or working on a new coding project. I am always looking for new challenges and opportunities to learn and grow. I also love teaching coding to beginners and helping them discover the joys of programming.
                   </p>
-                  <p className="mb-4">
-                    What started as curiosity about how websites work has evolved into a deep passion for full-stack
-                    development, AI/ML, and creating solutions that make a difference. I believe in writing clean,
-                    efficient code and building applications that users love.
-                  </p>
-                  <p>
-                    When I'm not coding, you'll find me exploring new technologies, contributing to open-source
-                    projects, or mentoring fellow students in our university's coding club.
-                  </p>
+                  {/* <p className="mb-4">
+                  
+                  </p> */}
                 </div>
               </div>
             </div>
@@ -55,17 +47,17 @@ export default function AboutPage() {
                   <SkillCategory
                     icon={<Code className="h-5 w-5" />}
                     title="Programming Languages"
-                    skills={["JavaScript/TypeScript", "Python", "Java", "C++", "SQL"]}
+                    skills={["JavaScript/TypeScript", "Python", "C", "C++", "Bash"]}
                   />
                   <SkillCategory
                     icon={<Coffee className="h-5 w-5" />}
                     title="Technologies & Frameworks"
-                    skills={["React/Next.js", "Node.js", "Express", "MongoDB", "PostgreSQL"]}
+                    skills={["React/Next.js", "Tailwind CSS", "Firebase", ]}
                   />
                   <SkillCategory
                     icon={<Gamepad2 className="h-5 w-5" />}
                     title="Interests"
-                    skills={["AI/Machine Learning", "Game Development", "Open Source", "UI/UX Design"]}
+                    skills={["AI/Machine Learning", "Web Development", "UI/UX Design"]}
                   />
                 </div>
               </div>
@@ -77,16 +69,16 @@ export default function AboutPage() {
               <h2 className="text-2xl font-bold mb-4 font-display">Fun Facts About Me</h2>
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="hover:scale-105 transition-transform duration-300">
-                  <Music className="h-8 w-8 mx-auto mb-2" />
-                  <p className="font-body">I compose electronic music in my spare time</p>
+                  <BookHeart className="h-8 w-8 mx-auto mb-2" />
+                  <p className="font-body">I love teaching coding to beginners</p>
                 </div>
                 <div className="hover:scale-105 transition-transform duration-300">
-                  <Coffee className="h-8 w-8 mx-auto mb-2" />
-                  <p className="font-body">Coffee enthusiast - I've tried 47 different brewing methods</p>
+                  <Cake className="h-8 w-8 mx-auto mb-2" />
+                    <p className="font-body">Big foodie—dessert before the meal is my style!</p>
                 </div>
                 <div className="hover:scale-105 transition-transform duration-300">
                   <Gamepad2 className="h-8 w-8 mx-auto mb-2" />
-                  <p className="font-body">Speedrun classic platformer games on weekends</p>
+                    <p className="font-body">I'm best at RPGs—other genres, not so much!</p>
                 </div>
               </div>
             </div>

@@ -17,9 +17,8 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  title: "Alex.dev - CS Portfolio Adventure",
-  description: "A CS student portfolio presented as a Choose Your Own Adventure experience",
-    generator: 'v0.dev'
+  title: "Pratham Arora | Portfolio",
+  description: "Welcome to my portfolio! Explore my projects, skills, and experiences.",
 }
 
 export default function RootLayout({

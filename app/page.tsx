@@ -12,7 +12,7 @@ export default function HomePage() {
       <header className="py-6 px-4 md:px-6 border-b border-[#e0d9c5] sticky top-0 bg-[#f5f3ee] z-50">
         <div className="container mx-auto flex justify-between items-center">
           <Link href="/" className="text-2xl font-bold text-[#1a6e73] transition-colors hover:text-[#c17f16]">
-            Alex.dev
+            Pratham Arora
           </Link>
 
           {/* Desktop Navigation */}
@@ -92,7 +92,7 @@ export default function HomePage() {
           <div className="prose max-w-none mb-8 text-[#5e4b56] font-body">
             <p className="text-lg">
               You stand at a crossroads in the vast landscape of technology. Your choices will reveal different aspects
-              of my journey, skills, and projects. Choose wisely, adventurer!
+              of my journey, skills, and projects.
             </p>
           </div>
 
@@ -145,26 +145,28 @@ export default function HomePage() {
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">
-              <h3 className="text-2xl font-bold mb-2 font-display">Alex.dev</h3>
+              <h3 className="text-2xl font-bold mb-2 font-display">Pratham Arora</h3>
               <p className="text-[#e0d9c5] font-body">Crafting digital adventures since 2020</p>
             </div>
             <div className="flex space-x-6">
-              <a href="https://github.com" className="text-white hover:text-[#c17f16] transition-colors">
+              <a href="https://github.com/prats3992" className="text-white hover:text-[#c17f16] transition-colors">
                 <Github className="h-6 w-6" />
                 <span className="sr-only">GitHub</span>
               </a>
-              <a href="https://linkedin.com" className="text-white hover:text-[#c17f16] transition-colors">
+              <a href="https://www.linkedin.com/in/pratham3992arora/" className="text-white hover:text-[#c17f16] transition-colors">
                 <Linkedin className="h-6 w-6" />
                 <span className="sr-only">LinkedIn</span>
               </a>
-              <a href="mailto:alex@example.com" className="text-white hover:text-[#c17f16] transition-colors">
+              <a href="mailto:pratham.arora@plaksha.edu.in" className="text-white hover:text-[#c17f16] transition-colors">
                 <Mail className="h-6 w-6" />
                 <span className="sr-only">Email</span>
               </a>
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-[#e0d9c5] text-center text-[#e0d9c5] font-body">
-            <p>© {new Date().getFullYear()} Alex.dev. All rights reserved.</p>
+            <p>
+              Built with passion and curiosity by Pratham Arora.
+            </p>
           </div>
         </div>
       </footer>

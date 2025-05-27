@@ -163,7 +163,7 @@ function ProjectCard({
 }) {
   return (
     <div
-      className={`bg-white rounded-xl shadow-lg p-6 md:p-8 border-2 border-[#e0d9c5] hover:shadow-xl hover:scale-[1.01] transition-all duration-300 animate-in slide-in-from-bottom duration-700 ${delay}`}
+      className={`bg-white rounded-xl shadow-lg p-6 md:p-8 border-2 border-[#e0d9c5] hover:shadow-xl hover:scale-[1.01] transition-all animate-in slide-in-from-bottom duration-700 ${delay}`}
     >
       {/* Header Section */}
       <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">

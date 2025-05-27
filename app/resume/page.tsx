@@ -26,20 +26,20 @@ export default function ResumePage() {
 
         <div className="max-w-4xl mx-auto">
           <header className="text-center mb-12 animate-in slide-in-from-bottom duration-700 delay-200">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 text-[#1a6e73] font-display">Alex Developer</h1>
-            <p className="text-xl text-[#5e4b56] font-body mb-6">Computer Science Student & Full-Stack Developer</p>
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 text-[#1a6e73] font-display">Pratham Arora</h1>
+            <p className="text-xl text-[#5e4b56] font-body mb-6">Computer Science Student</p>
             <div className="flex flex-wrap justify-center gap-4 text-[#5e4b56] font-body">
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4" />
-                alex.developer@email.com
+                pratham.arora@plaksha.edu.in
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
-                (555) 123-4567
+                +91 98108 55594
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
-                San Francisco, CA
+                Plaksha University, Punjab
               </div>
             </div>
           </header>
@@ -50,15 +50,15 @@ export default function ResumePage() {
                 <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
                   <div>
                     <h3 className="text-xl font-bold text-[#1a6e73] font-display">
-                      Bachelor of Science in Computer Science
+                      B.Tech in Computer Science and AI
                     </h3>
-                    <p className="text-[#c17f16] font-semibold font-body">Tech University</p>
-                    <p className="text-[#5e4b56] font-body">GPA: 3.8/4.0 • Dean's List</p>
+                    <p className="text-[#c17f16] font-semibold font-body">Plaksha University</p>
+                    <p className="text-[#5e4b56] font-body">GPA: 8.02/10.0</p>
                   </div>
                   <div className="text-[#5e4b56] font-body mt-2 md:mt-0">
                     <div className="flex items-center gap-2">
                       <Calendar className="h-4 w-4" />
-                      Expected May 2025
+                      Expected August 2026
                     </div>
                   </div>
                 </div>
@@ -122,19 +122,15 @@ export default function ResumePage() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <SkillGroup
                     title="Programming Languages"
-                    skills={["JavaScript/TypeScript", "Python", "Java", "C++", "SQL", "HTML/CSS"]}
+                    skills={["JavaScript/TypeScript", "Python", "C++", "C", "Bash"]}
                   />
                   <SkillGroup
                     title="Frameworks & Libraries"
-                    skills={["React", "Next.js", "Node.js", "Express", "Vue.js", "Django"]}
+                    skills={["Next.js", "FastAPI"]}
                   />
                   <SkillGroup
                     title="Databases & Tools"
-                    skills={["MongoDB", "PostgreSQL", "Git", "Docker", "AWS", "Firebase"]}
-                  />
-                  <SkillGroup
-                    title="Concepts & Methodologies"
-                    skills={["Agile Development", "RESTful APIs", "Responsive Design", "Testing", "CI/CD"]}
+                    skills={["Git", "Firebase"]}
                   />
                 </div>
               </div>

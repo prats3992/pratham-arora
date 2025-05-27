@@ -3,8 +3,13 @@
 import type React from "react"
 
 import Link from "next/link"
-import { ArrowLeft, Mail, Github, Linkedin, MapPin, Send } from "lucide-react"
+import { ArrowLeft, Mail, Github, Linkedin, Send, CheckCircle, XCircle } from "lucide-react" // Added CheckCircle and XCircle
 import { useState } from "react"
+import {
+  Alert,
+  AlertDescription,
+  AlertTitle,
+} from "@/components/ui/alert" // Import ShadCN Alert components
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -14,15 +19,36 @@ export default function ContactPage() {
     message: "",
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(null) // Added for feedback
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+    setSubmitStatus(null) // Reset status
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (response.ok) {
+        setSubmitStatus("success")
+        setFormData({ name: "", email: "", subject: "", message: "" })
+      } else {
+        const errorData = await response.json();
+        console.error("Server error:", errorData.message);
+        setSubmitStatus("error")
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error)
+      setSubmitStatus("error")
+    }
+
     setIsSubmitting(false)
-    alert("Message sent! I'll get back to you soon.")
-    setFormData({ name: "", email: "", subject: "", message: "" })
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -134,6 +160,32 @@ export default function ContactPage() {
                       </>
                     )}
                   </button>
+                  {submitStatus === "success" && (
+                    <Alert variant="default" className="mt-4 border-green-500 text-green-700">
+                      <div className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                        <div className="flex-grow">
+                          <AlertTitle className="font-bold">Success!</AlertTitle>
+                          <AlertDescription>
+                            Your message has been sent. I\\'ll get back to you soon!
+                          </AlertDescription>
+                        </div>
+                      </div>
+                    </Alert>
+                  )}
+                  {submitStatus === "error" && (
+                    <Alert variant="destructive" className="mt-4">
+                      <div className="flex items-start">
+                        <XCircle className="h-5 w-5 mr-2 flex-shrink-0 mt-0.5" />
+                        <div className="flex-grow">
+                          <AlertTitle className="font-bold">Error</AlertTitle>
+                          <AlertDescription>
+                            Failed to send message. Please try again later or contact me directly.
+                          </AlertDescription>
+                        </div>
+                      </div>
+                    </Alert>
+                  )}
                 </form>
               </div>
             </div>
@@ -145,27 +197,27 @@ export default function ContactPage() {
                   <ContactMethod
                     icon={<Mail className="h-5 w-5" />}
                     label="Email"
-                    value="alex.developer@email.com"
-                    href="mailto:alex.developer@email.com"
+                    value="pratham.arora@plaksha.edu.in"
+                    href="mailto:pratham.arora@plaksha.edu.in"
                   />
                   <ContactMethod
                     icon={<Github className="h-5 w-5" />}
                     label="GitHub"
-                    value="@alexdev"
-                    href="https://github.com"
+                    value="@prats3992"
+                    href="https://github.com/prats3992"
                   />
                   <ContactMethod
                     icon={<Linkedin className="h-5 w-5" />}
                     label="LinkedIn"
-                    value="Alex Developer"
-                    href="https://linkedin.com"
+                    value="Pratham Arora"
+                    href="https://www.linkedin.com/in/pratham3992arora/"
                   />
-                  <ContactMethod
+                  {/* <ContactMethod
                     icon={<MapPin className="h-5 w-5" />}
                     label="Location"
                     value="San Francisco, CA"
                     href="#"
-                  />
+                  /> */}
                 </div>
               </div>
 
@@ -203,7 +255,12 @@ function ContactMethod({
   label,
   value,
   href,
-}: { icon: React.ReactNode; label: string; value: string; href: string }) {
+}: {
+  icon: React.ReactNode
+  label: string
+  value: string
+  href: string
+}) {
   return (
     <a
       href={href}
