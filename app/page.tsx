@@ -2,10 +2,61 @@
 
 import Link from "next/link"
 import { ChevronRight, Github, Linkedin, Mail, Menu, X } from "lucide-react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { initializeApp } from "firebase/app"
+import { getDatabase, ref, onValue } from "firebase/database"
+
+// Firebase configuration
+const firebaseConfig = {
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+}
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig)
+const database = getDatabase(app)
+
+interface Project {
+  id: string
+  title: string
+  description: string
+  tags: string[]
+  status: string
+  date: string
+  githubUrl: string
+  liveUrl?: string
+  featured?: boolean
+}
 
 export default function HomePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [featuredProjects, setFeaturedProjects] = useState<Project[]>([])
+
+  useEffect(() => {
+    const projectsRef = ref(database, "projects")
+    const unsubscribe = onValue(projectsRef, (snapshot) => {
+      const data = snapshot.val()
+      if (data) {
+        const projectsList = Object.keys(data).map((key) => ({
+          id: key,
+          ...data[key],
+        }))
+        // Get featured projects, limit to 2 for home page
+        const featured = projectsList
+          .filter(p => p.featured)
+          .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+          .slice(0, 2)
+        setFeaturedProjects(featured)
+      }
+    })
+
+    return () => unsubscribe()
+  }, [])
 
   return (
     <div className="min-h-screen flex flex-col bg-[#f5f3ee]">
@@ -125,19 +176,31 @@ export default function HomePage() {
         </section>
 
         <section className="max-w-4xl mx-auto text-center mb-16">
-          <h2 className="text-3xl font-bold mb-6 text-[#1a6e73] font-display">Featured Quest Completion</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <FeaturedProject
-              title="AI Pathfinding Visualizer"
-              description="An interactive tool demonstrating various pathfinding algorithms with visual feedback"
-              tags={["React", "TypeScript", "Algorithms"]}
-            />
-            <FeaturedProject
-              title="Sustainable Smart Home API"
-              description="Backend system for monitoring and optimizing home energy usage"
-              tags={["Node.js", "Express", "IoT", "MongoDB"]}
-            />
-          </div>
+          <h2 className="text-3xl font-bold mb-6 text-[#1a6e73] font-display">Featured Quest Completions</h2>
+          {featuredProjects.length > 0 ? (
+            <div className="grid md:grid-cols-2 gap-8">
+              {featuredProjects.map((project, index) => (
+                <FeaturedProject
+                  key={project.id}
+                  title={project.title}
+                  description={project.description}
+                  tags={project.tags.slice(0, 3)} // Show only first 3 tags
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="bg-white rounded-xl shadow-lg p-8 border-2 border-[#e0d9c5]">
+              <p className="text-[#5e4b56] font-body">
+                Featured projects will appear here once you upload your project data to Firebase.
+              </p>
+              <Link 
+                href="/projects" 
+                className="inline-flex items-center mt-4 text-[#1a6e73] hover:text-[#c17f16] transition-colors duration-300"
+              >
+                View All Projects <ChevronRight className="h-4 w-4 ml-1" />
+              </Link>
+            </div>
+          )}
         </section>
       </main>
 

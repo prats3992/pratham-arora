@@ -48,8 +48,7 @@ export default function ProjectsPage() {
         }))
         setProjects(projectsList.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()))
       } else {
-        // Set default projects if none exist
-        setProjects(defaultProjects)
+        setProjects([])
       }
       setLoading(false)
     })
@@ -57,47 +56,36 @@ export default function ProjectsPage() {
     return () => unsubscribe()
   }, [])
 
-  const defaultProjects: Project[] = [
-    {
-      id: "1",
-      title: "AI Pathfinding Visualizer",
-      description:
-        "An interactive web application that demonstrates various pathfinding algorithms including A*, Dijkstra's, and BFS. Features real-time visualization, customizable grid obstacles, and performance metrics comparison.",
-      tags: ["React", "TypeScript", "Canvas API", "Algorithms"],
-      status: "Featured Quest",
-      date: "2024-12-01",
-      githubUrl: "https://github.com",
-      liveUrl: "https://pathfinding-demo.com",
-      featured: true,
-    },
-    {
-      id: "2",
-      title: "Sustainable Smart Home API",
-      description:
-        "A comprehensive backend system for monitoring and optimizing home energy usage. Includes IoT device integration, real-time data processing, and machine learning predictions for energy efficiency.",
-      tags: ["Node.js", "Express", "MongoDB", "IoT", "Machine Learning"],
-      status: "Major Quest",
-      date: "2024-11-15",
-      githubUrl: "https://github.com",
-      featured: true,
-    },
-    {
-      id: "3",
-      title: "Campus Event Discovery Platform",
-      description:
-        "A full-stack web application helping students discover and organize campus events. Features user authentication, event creation, RSVP system, and real-time notifications.",
-      tags: ["Next.js", "PostgreSQL", "Prisma", "Tailwind CSS"],
-      status: "Collaborative Quest",
-      date: "2024-10-20",
-      githubUrl: "https://github.com",
-      liveUrl: "https://campus-events.com",
-    },
-  ]
-
   if (loading) {
     return (
       <div className="min-h-screen bg-[#f5f3ee] flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#1a6e73]"></div>
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#1a6e73] mx-auto mb-4"></div>
+          <p className="text-[#5e4b56] font-body">Loading your digital adventures...</p>
+        </div>
+      </div>
+    )
+  }
+
+  if (projects.length === 0) {
+    return (
+      <div className="min-h-screen bg-[#f5f3ee] animate-in fade-in duration-700">
+        <div className="container mx-auto px-4 md:px-6 py-12">
+          <Link
+            href="/"
+            className="inline-flex items-center text-[#1a6e73] hover:text-[#c17f16] transition-colors duration-300 mb-8 group"
+          >
+            <ArrowLeft className="h-4 w-4 mr-2 group-hover:-translate-x-1 transition-transform duration-300" />
+            Back to Adventure Hub
+          </Link>
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-[#1a6e73] font-display">Quest Completions</h1>
+            <div className="bg-white rounded-xl shadow-lg p-12 border-2 border-[#e0d9c5]">
+              <p className="text-xl text-[#5e4b56] font-body mb-4">No projects found!</p>
+              <p className="text-[#5e4b56] font-body">Please upload your project data to Firebase to see your adventures here.</p>
+            </div>
+          </div>
+        </div>
       </div>
     )
   }
@@ -130,9 +118,9 @@ export default function ProjectsPage() {
           <div className="text-center animate-in slide-in-from-bottom duration-700 delay-800">
             <div className="bg-white rounded-xl shadow-lg p-8 border-2 border-[#e0d9c5] inline-block">
               <h2 className="text-2xl font-bold mb-4 text-[#1a6e73] font-display">Quest Statistics</h2>
-              <div className="grid grid-cols-3 gap-6 text-center">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
                 <div className="hover:scale-105 transition-transform duration-300">
-                  <div className="text-3xl font-bold text-[#c17f16] font-display">{projects.length}+</div>
+                  <div className="text-3xl font-bold text-[#c17f16] font-display">{projects.length}</div>
                   <div className="text-[#5e4b56] font-body">Projects Completed</div>
                 </div>
                 <div className="hover:scale-105 transition-transform duration-300">
@@ -142,7 +130,13 @@ export default function ProjectsPage() {
                   <div className="text-[#5e4b56] font-body">Technologies Used</div>
                 </div>
                 <div className="hover:scale-105 transition-transform duration-300">
-                  <div className="text-3xl font-bold text-[#c17f16] font-display">2</div>
+                  <div className="text-3xl font-bold text-[#c17f16] font-display">
+                    {projects.filter(p => p.featured).length}
+                  </div>
+                  <div className="text-[#5e4b56] font-body">Featured Projects</div>
+                </div>
+                <div className="hover:scale-105 transition-transform duration-300">
+                  <div className="text-3xl font-bold text-[#c17f16] font-display">3+</div>
                   <div className="text-[#5e4b56] font-body">Years of Adventure</div>
                 </div>
               </div>

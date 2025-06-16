@@ -1,0 +1,308 @@
+{
+  "personalInfo": {
+    "name": "Pratham Arora",
+    "title": "Computer Science Student",
+    "email": "pratham3992@gmail.com",
+    "phone": "+91 98108 55594",
+    "location": "Plaksha University, Punjab",
+    "github": "https://github.com/prats3992",
+    "linkedin": "https://www.linkedin.com/in/pratham3992arora",
+    "website": "https://pratham-arora.vercel.app/"
+  },
+  "education": [
+    {
+      "institution": "Plaksha University",
+      "degree": "B.Tech. Computer Science & Artificial Intelligence",
+      "cgpa": "8.02",
+      "startDate": "August 2022",
+      "endDate": "August 2026",
+      "relevantCoursework": [
+        "Data Structures & Algorithms",
+        "Database Systems", 
+        "Software Engineering",
+        "Machine Learning",
+        "Web Development"
+      ]
+    },
+    {
+      "institution": "Delhi Public School Ghaziabad Vasundhara",
+      "degree": "PCM with CS | CBSE",
+      "percentage": "89.2",
+      "startDate": "July 2020",
+      "endDate": "July 2022"
+    },
+    {
+      "institution": "Delhi Public School Ghaziabad Vasundhara", 
+      "degree": "Class 10 | CBSE",
+      "percentage": "98.0",
+      "startDate": "July 2018",
+      "endDate": "July 2020"
+    }
+  ],
+  "experience": [
+    {
+      "title": "AI Intern, LLM Pipeline Development",
+      "company": "Cotality",
+      "location": "Remote",
+      "startDate": "June 2025",
+      "endDate": "Present",
+      "achievements": [
+        "Developing an LLM-based pipeline to automatically document repository codebases for internal knowledge transfer and onboarding",
+        "Building intelligent documentation system that helps internal users understand repository structure, functionality, and component locations",
+        "Creating automated API documentation generation that updates dynamically with code modifications and additions",
+        "Implementing comprehensive documentation pipeline to streamline developer onboarding and improve codebase accessibility"
+      ]
+    },
+    {
+      "title": "Freelance Web Developer",
+      "company": "Freelance",
+      "location": "Remote",
+      "startDate": "May 2025",
+      "endDate": "June 2025",
+      "achievements": [
+        "Developed a professional website for a CA firm using Next.js, Tailwind CSS, and Firebase for backend services",
+        "Implemented a user-friendly content management system enabling the client to easily update website content independently",
+        "Designed responsive layouts optimized for professional service presentation and client accessibility"
+      ]
+    },
+    {
+      "title": "SDE Intern, Robotics, Computer Vision",
+      "company": "Orangewood Labs",
+      "location": "Bangalore, India",
+      "startDate": "June 2024",
+      "endDate": "July 2024",
+      "achievements": [
+        "Enhanced RoboGPT by developing new functionalities for food preparation tasks, contributing to the modular design of the system",
+        "Integrated a vision stack to improve the accuracy of object pose detection, reducing error margins in robotic movements",
+        "Collaborated with the Food Robotics team to refine and implement key processes, such as coffee preparation, within the robotic workflow"
+      ]
+    },
+    {
+      "title": "Freelance Tutor",
+      "company": "Self-Employed", 
+      "location": "Remote",
+      "startDate": "June 2023",
+      "endDate": "May 2024",
+      "achievements": [
+        "Specialized in teaching Python fundamentals, helping students build a strong foundation in coding",
+        "Designed and implemented interactive lesson plans tailored to individual learning styles, enhancing student engagement",
+        "Provided personalized coaching that boosted students' confidence and proficiency in Python programming"
+      ]
+    },
+    {
+      "title": "Summer Internship - Computer Vision",
+      "company": "Plaksha University",
+      "location": "Punjab, India",
+      "startDate": "June 2023",
+      "endDate": "August 2023",
+      "achievements": [
+        "Developed computer vision algorithms to accurately identify crops and segment weeds under the guidance of Prof. Sandeep Manjanna",
+        "Focused on optimizing computer vision and image processing techniques, incorporating the Segment Anything Model for enhanced results",
+        "Improved the efficiency of programs by refining algorithms and optimizing code performance"
+      ]
+    }
+  ],
+  "leadership": [
+    {
+      "title": "Head of Web Development",
+      "organization": "LEAP.AI@Plaksha",
+      "startDate": "Feb. 2024",
+      "endDate": "Feb. 2025",
+      "achievements": [
+        "Currently serving as Head of Web Development for the Club Website, in addition to creating engaging content for Socials",
+        "Contributed to the design and development of the LEAP.AI@Plaksha Club website, enhancing its functionality and user interface",
+        "Worked closely with the team to ensure seamless integration of content and design elements across digital platforms"
+      ]
+    },
+    {
+      "title": "Tech Team Member",
+      "organization": "E-Cell@Plaksha",
+      "startDate": "April 2024",
+      "endDate": "Sept. 2024",
+      "achievements": [
+        "Developed and maintained the club's website and event-specific pages, ensuring a seamless user experience",
+        "Spearheaded the creation of the Club Merchandise Store, integrating it with the existing digital infrastructure",
+        "Collaborated with team members to implement innovative tech solutions for club operations and outreach"
+      ]
+    },
+    {
+      "title": "Head of Procurement",
+      "organization": "Plaksha Baking Club",
+      "startDate": "Jan. 2024",
+      "endDate": "Dec. 2024",
+      "achievements": [
+        "Led the procurement process, sourcing high-quality baking ingredients and equipment within budget constraints",
+        "Conducted market research to find the best vendors and compare pricing for budget efficiency"
+      ]
+    }
+  ],
+  "skills": {
+    "programmingLanguages": [
+      "Python",
+      "C/C++", 
+      "JavaScript/TypeScript",
+      "HTML/CSS",
+      "MATLAB",
+      "Bash",
+      "SQL"
+    ],
+    "tools": [
+      "GitHub",
+      "Linux", 
+      "VS Code",
+      "GitHub Pages",
+      "Google Maps API",
+      "Google Sheets API", 
+      "Gemini API",
+      "OpenAI API"
+    ],
+    "frameworks": [
+      "Next.js",
+      "FastAPI"
+    ],
+    "databases": [
+      "Firebase"
+    ],
+    "hardware": [
+      "Arduino",
+      "Raspberry Pi",
+      "ESP 32"
+    ]
+  },
+  "projects": [
+    {
+      "id": "resume-builder",
+      "title": "Resume Builder & Interview GPT",
+      "description": "Developed a comprehensive resume builder application with AI-powered resume generation using Gemini API. Created well-designed, professional resume templates with user-friendly data input and real-time preview functionality. Built a sister project - Interview GPT - to help users improve interview skills, get DSA preparation guidance, and analyze skill gaps against job requirements.",
+      "tags": ["Next.js", "Tailwind", "Firebase", "Gemini API"],
+      "status": "Featured Quest",
+      "date": "2025-01-01",
+      "githubUrl": "https://github.com/prats3992",
+      "liveUrl": "",
+      "featured": true
+    },
+    {
+      "id": "c-compiler",
+      "title": "C Compiler & Coding Teaching Platform", 
+      "description": "Designed an interactive coding platform, inspired by Scratch, to teach programming visually. Implemented AST visualization to help users understand how their code is processed. Provided live feedback on user code, helping learners understand syntax, structure, and execution.",
+      "tags": ["Next.js", "TypeScript", "AST Visualization"],
+      "status": "Featured Quest",
+      "date": "2025-01-01",
+      "githubUrl": "https://github.com/prats3992",
+      "liveUrl": "",
+      "featured": true
+    },
+    {
+      "id": "sports-fest-site",
+      "title": "Sports Fest Site",
+      "description": "Designed and developed a fully responsive website for Eklavya '25, the university's annual sports fest. Ensured responsiveness across all screen sizes, optimizing accessibility for participants and viewers. Leveraged Next.js and framer-motion for buttery smooth animations and sleek page transitions.",
+      "tags": ["Next.js", "TypeScript", "Framer Motion"],
+      "status": "Major Quest", 
+      "date": "2025-01-01",
+      "githubUrl": "https://github.com/prats3992",
+      "liveUrl": "",
+      "featured": true
+    },
+    {
+      "id": "basketball-scoreboard",
+      "title": "Basketball Scoreboard & Individual Data Tracker",
+      "description": "Built a real-time basketball scoreboard with a focus on speed and ease of use for scorekeepers. Improved UI after 6 months of stress testing, adding undo buttons and repositioning controls for optimal usability. Implemented real-time stats tracking for rebounds and shot accuracy, instantly displaying player performance.",
+      "tags": ["Next.js", "TypeScript", "Firebase", "Real-time Systems"],
+      "status": "Major Quest",
+      "date": "2023-12-01",
+      "githubUrl": "https://github.com/prats3992",
+      "liveUrl": "",
+      "featured": true
+    },
+    {
+      "id": "ui-wireframe-generator",
+      "title": "UI Wireframe Generator",
+      "description": "Explored an existing Self-Attention GAN (SAGAN) model as the baseline for UI wireframe generation. Investigated various attention modules and adopted Cross-Attention, modifying SAGAN to a Cross-Attention GAN (CAGAN) model. Fine-tuned a LLaMA model with segmented images and labeled JSON data to generate JSON outputs from user prompts.",
+      "tags": ["Python", "PyTorch", "Meta LLaMA", "Computer Vision"],
+      "status": "Major Quest",
+      "date": "2024-08-01",
+      "githubUrl": "https://github.com/prats3992",
+      "liveUrl": "",
+      "featured": false
+    },
+    {
+      "id": "kelp-segmentation",
+      "title": "Kelp Segmentation",
+      "description": "Researched current segmentation techniques for satellite images of trees, particularly focusing on Kelp. Built a custom Convolutional Neural Network (CNN) model to filter out noisy images and enhance data quality. Developed a U-Net architecture for image segmentation, achieving a Dice score of 0.55, with the highest score in the competition being 0.73.",
+      "tags": ["Python", "PyTorch", "U-Net", "Image Segmentation"],
+      "status": "Major Quest",
+      "date": "2024-01-01",
+      "githubUrl": "https://github.com/prats3992",
+      "liveUrl": "",
+      "featured": false
+    },
+    {
+      "id": "dating-parody-app",
+      "title": "Dating Parody App",
+      "description": "Developed a semi-functional dating app UI in Flutter, matching users based on humorous 'red flags.' Developed the matching algorithm using Python and Firebase, though it remained separate from the UI. Gained hands-on experience with Firebase real-time database operations.",
+      "tags": ["Flutter", "Firebase", "Python", "Mobile Development"],
+      "status": "Solo Quest",
+      "date": "2024-01-01",
+      "githubUrl": "https://github.com/prats3992",
+      "liveUrl": "",
+      "featured": false
+    },
+    {
+      "id": "linux-how-to",
+      "title": "Linux How-To",
+      "description": "Compiled comprehensive documentation of essential Linux commands, providing users with a valuable reference. Designed a user-friendly interface that includes tables and Mermaid graphs to visually represent information. Implemented a dynamic workflow that stores information in Markdown files and renders it on the website in real time.",
+      "tags": ["HTML/CSS", "JavaScript", "GitHub Pages", "Documentation"],
+      "status": "Solo Quest",
+      "date": "2023-12-01",
+      "githubUrl": "https://github.com/prats3992",
+      "liveUrl": "",
+      "featured": false
+    },
+    {
+      "id": "bash-cheatsheet",
+      "title": "Bash CheatSheet",
+      "description": "Compiled comprehensive documentation of essential Bash commands, providing users with a valuable reference. Designed a user-friendly interface that includes tables and Mermaid graphs to visually represent information. Implemented a dynamic workflow that stores information in Markdown files and renders it on the website in real time.",
+      "tags": ["HTML/CSS", "JavaScript", "GitHub Pages", "Documentation"],
+      "status": "Solo Quest",
+      "date": "2023-12-01",
+      "githubUrl": "https://github.com/prats3992",
+      "liveUrl": "",
+      "featured": false
+    },
+    {
+      "id": "c-vrp-time-window",
+      "title": "C-VRP with Time Window Constraints",
+      "description": "Explored mathematical methods for solving the Vehicle Routing Problem (VRP) with capacity and time window constraints. Utilized the Google Direction Matrix API to incorporate real-world location data into the VRP solution. Employed Google OR Tools and Google Maps API to generate and visualize efficient routes for the given constraints.",
+      "tags": ["Python", "Google OR Tools", "Google Maps API", "Optimization"],
+      "status": "Solo Quest",
+      "date": "2023-09-01",
+      "githubUrl": "https://github.com/prats3992",
+      "liveUrl": "",
+      "featured": false
+    },
+    {
+      "id": "weighbridge",
+      "title": "Weighbridge",
+      "description": "Collaborated on a project involving the use of Arduino, load cells, and a 16-bit LCD display to measure vehicle weight. Engineered separate platforms for each wheel to enhance precision and accuracy in weight calculations. Demonstrated proficiency in integrating hardware components and applying engineering principles to solve practical problems.",
+      "tags": ["Arduino Uno", "Hardware Integration", "Embedded Systems"],
+      "status": "Collaborative Quest",
+      "date": "2023-08-01",
+      "githubUrl": "https://github.com/prats3992",
+      "liveUrl": "",
+      "featured": false
+    }
+  ],
+  "hobbies": [
+    {
+      "title": "Member of the Basketball Team",
+      "startDate": "Dec. 2022",
+      "endDate": "April 2025"
+    },
+    {
+      "title": "Blogger",
+      "description": "Wrote personal and technical blogs.",
+      "startDate": "Sept. 2021",
+      "endDate": "Oct. 2023"
+    }
+  ]
+}
