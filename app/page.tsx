@@ -84,48 +84,73 @@ export default function HomePage() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-[#1a6e73] hover:text-[#c17f16] transition-colors"
+            className="md:hidden text-[#1a6e73] hover:text-[#c17f16] transition-all duration-300 p-2 rounded-lg hover:bg-[#e0d9c5] transform hover:scale-110"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            <div className="relative w-6 h-6">
+              <span className={`absolute block w-6 h-0.5 bg-current transform transition-all duration-300 ${
+                mobileMenuOpen ? 'rotate-45 translate-y-0' : '-translate-y-2'
+              }`} />
+              <span className={`absolute block w-6 h-0.5 bg-current transform transition-all duration-300 ${
+                mobileMenuOpen ? 'opacity-0' : 'opacity-100'
+              }`} />
+              <span className={`absolute block w-6 h-0.5 bg-current transform transition-all duration-300 ${
+                mobileMenuOpen ? '-rotate-45 translate-y-0' : 'translate-y-2'
+              }`} />
+            </div>
+            <span className="sr-only">{mobileMenuOpen ? 'Close menu' : 'Open menu'}</span>
           </button>
         </div>
 
         {/* Mobile Navigation */}
-        {mobileMenuOpen && (
-          <nav className="md:hidden mt-4 pb-4 border-t border-[#e0d9c5] pt-4 animate-in slide-in-from-top duration-300">
-            <div className="flex flex-col space-y-3">
+        <div className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out ${
+          mobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        }`}>
+          <nav className="mt-4 pb-4 border-t border-[#e0d9c5] pt-4 bg-gradient-to-b from-[#f5f3ee] to-white rounded-b-lg shadow-lg">
+            <div className="flex flex-col space-y-1">
               <Link
                 href="/about"
-                className="text-[#5e4b56] hover:text-[#c17f16] transition-colors duration-300 py-2"
+                className="text-[#5e4b56] hover:text-[#c17f16] hover:bg-[#e0d9c5] transition-all duration-300 py-3 px-4 rounded-lg transform hover:translate-x-2 hover:shadow-md"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                About
+                <div className="flex items-center">
+                  <span className="font-medium">About</span>
+                  <ChevronRight className="h-4 w-4 ml-auto opacity-0 hover:opacity-100 transition-opacity duration-300" />
+                </div>
               </Link>
               <Link
                 href="/projects"
-                className="text-[#5e4b56] hover:text-[#c17f16] transition-colors duration-300 py-2"
+                className="text-[#5e4b56] hover:text-[#c17f16] hover:bg-[#e0d9c5] transition-all duration-300 py-3 px-4 rounded-lg transform hover:translate-x-2 hover:shadow-md"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Projects
+                <div className="flex items-center">
+                  <span className="font-medium">Projects</span>
+                  <ChevronRight className="h-4 w-4 ml-auto opacity-0 hover:opacity-100 transition-opacity duration-300" />
+                </div>
               </Link>
               <Link
                 href="/contact"
-                className="text-[#5e4b56] hover:text-[#c17f16] transition-colors duration-300 py-2"
+                className="text-[#5e4b56] hover:text-[#c17f16] hover:bg-[#e0d9c5] transition-all duration-300 py-3 px-4 rounded-lg transform hover:translate-x-2 hover:shadow-md"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Contact
+                <div className="flex items-center">
+                  <span className="font-medium">Contact</span>
+                  <ChevronRight className="h-4 w-4 ml-auto opacity-0 hover:opacity-100 transition-opacity duration-300" />
+                </div>
               </Link>
               <Link
                 href="/resume"
-                className="text-[#5e4b56] hover:text-[#c17f16] transition-colors duration-300 py-2"
+                className="text-[#5e4b56] hover:text-[#c17f16] hover:bg-[#e0d9c5] transition-all duration-300 py-3 px-4 rounded-lg transform hover:translate-x-2 hover:shadow-md"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Resume
+                <div className="flex items-center">
+                  <span className="font-medium">Resume</span>
+                  <ChevronRight className="h-4 w-4 ml-auto opacity-0 hover:opacity-100 transition-opacity duration-300" />
+                </div>
               </Link>
             </div>
           </nav>
-        )}
+        </div>
       </header>
 
       <main className="flex-1 container mx-auto px-4 md:px-6 py-12">
@@ -153,12 +178,7 @@ export default function HomePage() {
               description="Venture into the realm of code and see the applications I've built"
               href="/projects"
               color="bg-[#1a6e73]"
-            />
-            <AdventureChoice
-              title="Discover My Learning Path"
-              description="Follow the trail of my education and skill development"
-              href="/education"
-              color="bg-[#c17f16]"
+              className="md:col-span-2"
             />
             <AdventureChoice
               title="Meet the Developer"
@@ -170,7 +190,7 @@ export default function HomePage() {
               title="Join Forces"
               description="Explore opportunities for collaboration and employment"
               href="/contact"
-              color="bg-[#1a6e73]"
+              color="bg-[#c17f16]"
             />
           </div>
         </section>
@@ -242,16 +262,20 @@ function AdventureChoice({
   description,
   href,
   color,
+  className,
 }: {
   title: string
   description: string
   href: string
   color: string
+  className?: string
 }) {
   return (
     <Link
       href={href}
-      className={`${color} text-white p-6 rounded-lg hover:opacity-90 transition-all transform hover:scale-[1.02] flex flex-col`}
+      className={`${color} text-white p-6 rounded-lg hover:opacity-90 transition-all transform hover:scale-[1.02] flex flex-col ${
+        className || ""
+      }`}
     >
       <h3 className="text-xl font-bold mb-2 font-display">{title}</h3>
       <p className="mb-4 font-body">{description}</p>
