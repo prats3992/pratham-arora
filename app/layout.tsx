@@ -18,8 +18,62 @@ const urbanist = Urbanist({
 })
 
 export const metadata: Metadata = {
-  title: "Pratham Arora | Kinetic Mosaic",
-  description: "Creative Technologist & Frontend Engineer Portfolio",
+  title: {
+    default: "Pratham Arora | AI Engineer & Full Stack Developer",
+    template: "%s | Pratham Arora"
+  },
+  description: "Portfolio of Pratham Arora, a Computer Science student at Plaksha University specializing in AI, Machine Learning, and Full Stack Development. Building experiential web applications and intelligent systems.",
+  keywords: [
+    "Pratham Arora", 
+    "Portfolio", 
+    "Software Engineer", 
+    "AI Engineer", 
+    "Web Developer", 
+    "React", 
+    "Next.js", 
+    "Machine Learning", 
+    "Plaksha University",
+    "Frontend Developer",
+    "Full Stack Developer"
+  ],
+  authors: [{ name: "Pratham Arora", url: "https://pratham-arora.vercel.app" }],
+  creator: "Pratham Arora",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://pratham-arora.vercel.app/",
+    title: "Pratham Arora | AI Engineer & Full Stack Developer",
+    description: "Kinetic digital experiences at the intersection of Design and Artificial Intelligence.",
+    siteName: "Pratham Arora Portfolio",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Pratham Arora Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pratham Arora | AI Engineer & Full Stack Developer",
+    description: "Kinetic digital experiences at the intersection of Design and Artificial Intelligence.",
+    images: ["/og-image.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
 }
 
 export default function RootLayout({

@@ -26,6 +26,15 @@ export const BentoItem = ({
   
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
+  
+  const mouseXStr = useMotionTemplate`${mouseX}px`
+  const mouseYStr = useMotionTemplate`${mouseY}px`
+  
+  const background = useMotionTemplate`radial-gradient(
+    650px circle at ${mouseXStr} ${mouseYStr},
+    rgba(163, 230, 53, 0.15),
+    transparent 80%
+  )`
 
   function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
     if (isSelected) return
@@ -56,6 +65,8 @@ export const BentoItem = ({
         layout={true}
         data-expanded={isSelected}
         onClick={() => id && !isSelected && setSelectedId(id)}
+        initial="initial"
+        animate="animate"
         variants={{
             initial: { opacity: 0, y: 20 },
             animate: { opacity: 1, y: 0 },
@@ -87,13 +98,7 @@ export const BentoItem = ({
             <motion.div
             className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100"
             style={{
-                background: useMotionTemplate`
-                radial-gradient(
-                    650px circle at ${mouseX}px ${mouseY}px,
-                    rgba(163, 230, 53, 0.15),
-                    transparent 80%
-                )
-                `,
+                background
             }}
             />
         )}
