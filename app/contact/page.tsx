@@ -3,13 +3,13 @@
 import type React from "react"
 
 import Link from "next/link"
-import { ArrowLeft, Mail, Github, Linkedin, Send, CheckCircle, XCircle } from "lucide-react" // Added CheckCircle and XCircle
+import { ArrowLeft, Mail, Github, Linkedin, Send, CheckCircle, XCircle } from "lucide-react"
 import { useState } from "react"
 import {
   Alert,
   AlertDescription,
   AlertTitle,
-} from "@/components/ui/alert" // Import ShadCN Alert components
+} from "@/components/ui/alert"
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -19,12 +19,12 @@ export default function ContactPage() {
     message: "",
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(null) // Added for feedback
+  const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(null)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    setSubmitStatus(null) // Reset status
+    setSubmitStatus(null)
 
     try {
       const response = await fetch("/api/contact", {
@@ -46,233 +46,136 @@ export default function ContactPage() {
     } catch (error) {
       console.error("Error submitting form:", error)
       setSubmitStatus("error")
+    } finally {
+      setIsSubmitting(false)
     }
-
-    setIsSubmitting(false)
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }))
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
   return (
-    <div className="min-h-screen bg-[#f5f3ee] animate-in fade-in duration-700">
-      <div className="container mx-auto px-4 md:px-6 py-12">
+    <div className="min-h-screen bg-slate-950 text-slate-100 pb-32 md:pb-20 pt-10 px-4 selection:bg-lime-400 selection:text-slate-900">
+      <div className="container mx-auto px-4 md:px-6">
         <Link
-          href="/"
-          className="inline-flex items-center text-[#1a6e73] hover:text-[#c17f16] transition-colors duration-300 mb-8 group"
+            href="/"
+            className="hidden md:inline-flex items-center text-lime-400 hover:text-lime-300 transition-colors mb-12 group text-sm font-bold uppercase tracking-wider"
         >
-          <ArrowLeft className="h-4 w-4 mr-2 group-hover:-translate-x-1 transition-transform duration-300" />
-          Back to Adventure Hub
+            <ArrowLeft className="h-4 w-4 mr-2 group-hover:-translate-x-1 transition-transform" />
+            Return to Grid
         </Link>
-
-        <div className="max-w-4xl mx-auto">
-          <header className="text-center mb-16 animate-in slide-in-from-bottom duration-700 delay-200">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-[#1a6e73] font-display">Join Forces</h1>
-            <p className="text-xl text-[#5e4b56] font-body">
-              Ready to embark on a collaborative adventure? Let's connect and create something amazing together!
+        <div className="max-w-2xl mx-auto">
+          <header className="mb-12 text-center">
+            <h1 className="text-4xl md:text-5xl font-serif font-bold text-white mb-4">
+              Initialize Transmission
+            </h1>
+            <p className="text-slate-400">
+              Have a project in mind or just want to explore the cosmos of code together? End-to-end encryption enabled.
             </p>
           </header>
 
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="animate-in slide-in-from-left duration-700 delay-300">
-              <div className="bg-white rounded-xl shadow-lg p-8 border-2 border-[#e0d9c5] hover:shadow-xl transition-shadow duration-300">
-                <h2 className="text-2xl font-bold mb-6 text-[#1a6e73] font-display">Send a Message</h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label htmlFor="name" className="block text-[#5e4b56] font-semibold mb-2 font-body">
-                      Your Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border-2 border-[#e0d9c5] rounded-lg focus:border-[#1a6e73] focus:outline-none transition-colors duration-300 font-body"
-                      placeholder="Enter your name"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="email" className="block text-[#5e4b56] font-semibold mb-2 font-body">
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border-2 border-[#e0d9c5] rounded-lg focus:border-[#1a6e73] focus:outline-none transition-colors duration-300 font-body"
-                      placeholder="your.email@example.com"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="subject" className="block text-[#5e4b56] font-semibold mb-2 font-body">
-                      Subject
-                    </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border-2 border-[#e0d9c5] rounded-lg focus:border-[#1a6e73] focus:outline-none transition-colors duration-300 font-body"
-                      placeholder="What's this about?"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-[#5e4b56] font-semibold mb-2 font-body">
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      rows={5}
-                      className="w-full px-4 py-3 border-2 border-[#e0d9c5] rounded-lg focus:border-[#1a6e73] focus:outline-none transition-colors duration-300 font-body resize-none"
-                      placeholder="Tell me about your project or opportunity..."
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-[#1a6e73] text-white py-3 px-6 rounded-lg hover:bg-[#c17f16] transition-colors duration-300 flex items-center justify-center gap-2 font-body font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {isSubmitting ? (
-                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                    ) : (
-                      <>
-                        <Send className="h-5 w-5" />
-                        Send Message
-                      </>
-                    )}
-                  </button>
-                  {submitStatus === "success" && (
-                    <Alert variant="default" className="mt-4 border-green-500 text-green-700">
-                      <div className="flex items-start">
-                        <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
-                        <div className="flex-grow">
-                          <AlertTitle className="font-bold">Success!</AlertTitle>
-                          <AlertDescription>
-                            Your message has been sent. I\\'ll get back to you soon!
-                          </AlertDescription>
-                        </div>
-                      </div>
-                    </Alert>
-                  )}
-                  {submitStatus === "error" && (
-                    <Alert variant="destructive" className="mt-4">
-                      <div className="flex items-start">
-                        <XCircle className="h-5 w-5 mr-2 flex-shrink-0 mt-0.5" />
-                        <div className="flex-grow">
-                          <AlertTitle className="font-bold">Error</AlertTitle>
-                          <AlertDescription>
-                            Failed to send message. Please try again later or contact me directly.
-                          </AlertDescription>
-                        </div>
-                      </div>
-                    </Alert>
-                  )}
-                </form>
+          <form onSubmit={handleSubmit} className="space-y-6 bg-white/5 border border-white/10 p-8 rounded-3xl backdrop-blur-md">
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <label htmlFor="name" className="text-sm font-bold uppercase tracking-wider text-slate-500">
+                  Identity
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full bg-slate-900/50 border border-white/10 rounded-lg p-3 text-slate-200 outline-none focus:border-lime-400 transition-colors"
+                  placeholder="Your Name"
+                />
+              </div>
+              <div className="space-y-2">
+                <label htmlFor="email" className="text-sm font-bold uppercase tracking-wider text-slate-500">
+                  Frequency
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full bg-slate-900/50 border border-white/10 rounded-lg p-3 text-slate-200 outline-none focus:border-lime-400 transition-colors"
+                  placeholder="your@email.com"
+                />
               </div>
             </div>
-
-            <div className="animate-in slide-in-from-right duration-700 delay-400">
-              <div className="bg-white rounded-xl shadow-lg p-8 border-2 border-[#e0d9c5] hover:shadow-xl transition-shadow duration-300 mb-8">
-                <h2 className="text-2xl font-bold mb-6 text-[#1a6e73] font-display">Other Ways to Connect</h2>
-                <div className="space-y-4">
-                  <ContactMethod
-                    icon={<Mail className="h-5 w-5" />}
-                    label="Email"
-                    value="pratham.arora@plaksha.edu.in"
-                    href="mailto:pratham.arora@plaksha.edu.in"
-                  />
-                  <ContactMethod
-                    icon={<Github className="h-5 w-5" />}
-                    label="GitHub"
-                    value="@prats3992"
-                    href="https://github.com/prats3992"
-                  />
-                  <ContactMethod
-                    icon={<Linkedin className="h-5 w-5" />}
-                    label="LinkedIn"
-                    value="Pratham Arora"
-                    href="https://www.linkedin.com/in/pratham3992arora/"
-                  />
-                  {/* <ContactMethod
-                    icon={<MapPin className="h-5 w-5" />}
-                    label="Location"
-                    value="San Francisco, CA"
-                    href="#"
-                  /> */}
-                </div>
-              </div>
-
-              <div className="bg-[#1a6e73] text-white rounded-xl p-8">
-                <h3 className="text-xl font-bold mb-4 font-display">Looking For</h3>
-                <ul className="space-y-2 font-body">
-                  <li className="flex items-center">
-                    <span className="w-2 h-2 bg-[#c17f16] rounded-full mr-3"></span>
-                    Internship opportunities
-                  </li>
-                  <li className="flex items-center">
-                    <span className="w-2 h-2 bg-[#c17f16] rounded-full mr-3"></span>
-                    Freelance projects
-                  </li>
-                  <li className="flex items-center">
-                    <span className="w-2 h-2 bg-[#c17f16] rounded-full mr-3"></span>
-                    Open source collaborations
-                  </li>
-                  <li className="flex items-center">
-                    <span className="w-2 h-2 bg-[#c17f16] rounded-full mr-3"></span>
-                    Mentorship opportunities
-                  </li>
-                </ul>
-              </div>
+            
+            <div className="space-y-2">
+              <label htmlFor="subject" className="text-sm font-bold uppercase tracking-wider text-slate-500">
+                Subject
+              </label>
+              <input
+                id="subject"
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                required
+                className="w-full bg-slate-900/50 border border-white/10 rounded-lg p-3 text-slate-200 outline-none focus:border-lime-400 transition-colors"
+                placeholder="Collaboration Request / Hello World"
+              />
             </div>
-          </div>
+
+            <div className="space-y-2">
+              <label htmlFor="message" className="text-sm font-bold uppercase tracking-wider text-slate-500">
+                Transmission Data
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                rows={6}
+                className="w-full bg-slate-900/50 border border-white/10 rounded-lg p-3 text-slate-200 outline-none focus:border-lime-400 transition-colors resize-none"
+                placeholder="Type your message here..."
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full bg-lime-400 hover:bg-lime-300 text-slate-900 font-bold py-4 rounded-xl transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {isSubmitting ? (
+                "Transmitting..."
+              ) : (
+                <>
+                  Send Message <Send className="h-4 w-4" />
+                </>
+              )}
+            </button>
+
+            {submitStatus === "success" && (
+                <Alert className="bg-lime-400/10 border-lime-400/20 text-lime-400">
+                  <CheckCircle className="h-4 w-4" />
+                  <AlertTitle>Success</AlertTitle>
+                  <AlertDescription>
+                    Transmission received. I will respond to your frequency shortly.
+                  </AlertDescription>
+                </Alert>
+            )}
+
+            {submitStatus === "error" && (
+                <Alert variant="destructive" className="bg-red-500/10 border-red-500/20 text-red-500">
+                  <XCircle className="h-4 w-4" />
+                  <AlertTitle>Error</AlertTitle>
+                  <AlertDescription>
+                    Transmission failed. Please check your signal and try again.
+                  </AlertDescription>
+                </Alert>
+            )}
+          </form>
         </div>
       </div>
     </div>
-  )
-}
-
-function ContactMethod({
-  icon,
-  label,
-  value,
-  href,
-}: {
-  icon: React.ReactNode
-  label: string
-  value: string
-  href: string
-}) {
-  return (
-    <a
-      href={href}
-      className="flex items-center p-4 rounded-lg border border-[#e0d9c5] hover:border-[#1a6e73] hover:bg-[#f5f3ee] transition-all duration-300 group"
-    >
-      <div className="text-[#1a6e73] group-hover:text-[#c17f16] transition-colors duration-300 mr-4">{icon}</div>
-      <div>
-        <div className="text-sm text-[#5e4b56] font-body">{label}</div>
-        <div className="font-semibold text-[#1a6e73] group-hover:text-[#c17f16] transition-colors duration-300 font-body">
-          {value}
-        </div>
-      </div>
-    </a>
   )
 }

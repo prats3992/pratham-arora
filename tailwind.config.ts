@@ -18,6 +18,10 @@ const config: Config = {
       },
     },
     extend: {
+      fontFamily: {
+        serif: ["var(--font-calistoga)", "serif"],
+        sans: ["var(--font-urbanist)", "sans-serif"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -25,8 +29,8 @@ const config: Config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "#a3e635", // Electric Lime
+          foreground: "#0f172a",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -41,8 +45,8 @@ const config: Config = {
           foreground: "hsl(var(--muted-foreground))",
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+          DEFAULT: "#ec4899", // Hot Pink
+          foreground: "#ffffff",
         },
         popover: {
           DEFAULT: "hsl(var(--card))",

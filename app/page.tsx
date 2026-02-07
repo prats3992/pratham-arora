@@ -1,287 +1,146 @@
-"use client"
-
+import { BentoGrid } from "@/components/bento/bento-grid"
+import { BentoItem } from "@/components/bento/bento-item"
+import { RandomProjectGrid } from "@/components/bento/random-project-grid"
+import resumeData from "@/resume-data.json"
+import { Github, Linkedin, Mail, MapPin, ArrowUpRight, Code2 } from "lucide-react"
 import Link from "next/link"
-import { ChevronRight, Github, Linkedin, Mail, Menu, X } from "lucide-react"
-import { useState, useEffect } from "react"
-import { initializeApp } from "firebase/app"
-import { getDatabase, ref, onValue } from "firebase/database"
 
-// Firebase configuration
-const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-  databaseURL: process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL,
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
-}
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig)
-const database = getDatabase(app)
-
-interface Project {
-  id: string
-  title: string
-  description: string
-  tags: string[]
-  status: string
-  date: string
-  githubUrl: string
-  liveUrl?: string
-  featured?: boolean
-}
-
-export default function HomePage() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [featuredProjects, setFeaturedProjects] = useState<Project[]>([])
-
-  useEffect(() => {
-    const projectsRef = ref(database, "projects")
-    const unsubscribe = onValue(projectsRef, (snapshot) => {
-      const data = snapshot.val()
-      if (data) {
-        const projectsList = Object.keys(data).map((key) => ({
-          id: key,
-          ...data[key],
-        }))
-        // Get featured projects, limit to 2 for home page
-        const featured = projectsList
-          .filter(p => p.featured)
-          .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-          .slice(0, 2)
-        setFeaturedProjects(featured)
-      }
-    })
-
-    return () => unsubscribe()
-  }, [])
+export default function Home() {
+  const featuredProject = resumeData.projects.find((p) => p.featured) || resumeData.projects[0]
+  const otherProjects = resumeData.projects.filter((p) => p.id !== featuredProject.id)
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#f5f3ee]">
-      <header className="py-6 px-4 md:px-6 border-b border-[#e0d9c5] sticky top-0 bg-[#f5f3ee] z-50">
-        <div className="container mx-auto flex justify-between items-center">
-          <Link href="/" className="text-2xl font-bold text-[#1a6e73] transition-colors hover:text-[#c17f16]">
-            Pratham Arora
-          </Link>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-6">
-            <Link href="/about" className="text-[#5e4b56] hover:text-[#c17f16] transition-colors duration-300">
-              About
-            </Link>
-            <Link href="/projects" className="text-[#5e4b56] hover:text-[#c17f16] transition-colors duration-300">
-              Projects
-            </Link>
-            <Link href="/contact" className="text-[#5e4b56] hover:text-[#c17f16] transition-colors duration-300">
-              Contact
-            </Link>
-            <Link href="/resume" className="text-[#5e4b56] hover:text-[#c17f16] transition-colors duration-300">
-              Resume
-            </Link>
-          </nav>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-[#1a6e73] hover:text-[#c17f16] transition-colors"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
-        </div>
-
-        {/* Mobile Navigation */}
-        {mobileMenuOpen && (
-          <nav className="md:hidden mt-4 pb-4 border-t border-[#e0d9c5] pt-4 animate-in slide-in-from-top duration-300">
-            <div className="flex flex-col space-y-3">
-              <Link
-                href="/about"
-                className="text-[#5e4b56] hover:text-[#c17f16] transition-colors duration-300 py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                About
-              </Link>
-              <Link
-                href="/projects"
-                className="text-[#5e4b56] hover:text-[#c17f16] transition-colors duration-300 py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Projects
-              </Link>
-              <Link
-                href="/contact"
-                className="text-[#5e4b56] hover:text-[#c17f16] transition-colors duration-300 py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Contact
-              </Link>
-              <Link
-                href="/resume"
-                className="text-[#5e4b56] hover:text-[#c17f16] transition-colors duration-300 py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Resume
-              </Link>
+    <main className="min-h-screen bg-slate-950 text-slate-100 pb-32 md:pb-20 pt-10 px-4 selection:bg-lime-400 selection:text-slate-900">
+      <BentoGrid className="grid-flow-dense">
+        {/* Identity Tile (2x2) */}
+        <BentoItem
+          colSpan={2}
+          rowSpan={2}
+          className="relative flex flex-col justify-between p-8 bg-gradient-to-br from-indigo-900/40 to-purple-900/40 border-indigo-500/20"
+        >
+          <div className="space-y-6">
+            <div className="flex items-start justify-between">
+              <div className="h-20 w-20 overflow-hidden rounded-full border-2 border-white/20 bg-slate-800">
+                {/* Avatar Placeholder */}
+                <div className="flex h-full w-full items-center justify-center bg-indigo-500 text-2xl font-bold text-white">
+                  PA
+                </div>
+              </div>
+              <div className="rounded-full bg-lime-400/10 px-3 py-1 text-xs font-medium text-lime-400 border border-lime-400/20">
+                Open to Work
+              </div>
             </div>
-          </nav>
-        )}
-      </header>
-
-      <main className="flex-1 container mx-auto px-4 md:px-6 py-12">
-        <section className="max-w-4xl mx-auto text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-[#1a6e73] font-display">
-            Choose Your Adventure in Tech
-          </h1>
-          <p className="text-xl md:text-2xl text-[#5e4b56] mb-8 font-body">
-            Welcome to my interactive portfolio! I'm a CS student passionate about building the future through code.
-            Where would you like to begin your journey?
+            <div>
+              <h1 className="text-4xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400 mb-2">
+                {resumeData.personalInfo.name}
+              </h1>
+              <p className="text-lg text-slate-400 font-light">
+                {resumeData.personalInfo.title}
+              </p>
+            </div>
+          </div>
+          <p className="text-sm text-slate-400/80 leading-relaxed max-w-md mt-8 mb-4">
+            I craft kinetic digital experiences using modern web technologies. 
+            Currently building at the intersection of AI, Design, and Engineering.
           </p>
-        </section>
+          
+           {/* Navigation Links - Hidden on Mobile since we have the navbar */}
+           <div className="hidden md:flex gap-4 relative z-30">
+               <Link href="/about" className="text-xs font-bold uppercase tracking-wider text-lime-400 hover:text-lime-300 transition-colors flex items-center gap-1">
+                 Bio <ArrowUpRight className="w-3 h-3" />
+               </Link>
+               <Link href="/projects" className="text-xs font-bold uppercase tracking-wider text-lime-400 hover:text-lime-300 transition-colors flex items-center gap-1">
+                 Projects <ArrowUpRight className="w-3 h-3" />
+               </Link>
+               <Link href="/resume" className="text-xs font-bold uppercase tracking-wider text-lime-400 hover:text-lime-300 transition-colors flex items-center gap-1">
+                 Resume <ArrowUpRight className="w-3 h-3" />
+               </Link>
+          </div>
+        </BentoItem>
 
-        <section className="max-w-4xl mx-auto mb-20 bg-white rounded-xl shadow-lg p-8 border-2 border-[#e0d9c5]">
-          <div className="prose max-w-none mb-8 text-[#5e4b56] font-body">
-            <p className="text-lg">
-              You stand at a crossroads in the vast landscape of technology. Your choices will reveal different aspects
-              of my journey, skills, and projects.
+        {/* Featured Project (2x1) */}
+        <BentoItem
+          colSpan={2}
+          id={featuredProject.id}
+          className="group/project relative min-h-[220px] flex flex-col justify-end p-6 overflow-hidden bg-slate-900"
+        >
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/50 to-transparent z-10" />
+           {/* Abstract Background for Project */}
+          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop')] bg-cover bg-center opacity-40 group-hover/project:scale-105 transition-transform duration-700 ease-out" />
+
+          <div className="relative z-20">
+            <div className="flex justify-between items-start mb-2">
+                <span className="text-xs font-mono text-lime-400 mb-1 block">FEATURED QUEST</span>
+                <Link href={featuredProject.githubUrl} target="_blank" className="text-slate-400 hover:text-white transition-colors">
+                    <ArrowUpRight className="w-5 h-5" />
+                </Link>
+            </div>
+            <h3 className="text-2xl font-serif font-bold text-white mb-2 group-hover/project:text-lime-300 transition-colors">
+              {featuredProject.title}
+            </h3>
+            <p className="text-sm text-slate-300/80 line-clamp-2 group-data-[expanded=true]:line-clamp-none mb-4 max-w-lg">
+              {featuredProject.description}
             </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            <AdventureChoice
-              title="Explore Technical Projects"
-              description="Venture into the realm of code and see the applications I've built"
-              href="/projects"
-              color="bg-[#1a6e73]"
-              className="md:col-span-2"
-            />
-            <AdventureChoice
-              title="Meet the Developer"
-              description="Learn about the person behind the portfolio"
-              href="/about"
-              color="bg-[#5e4b56]"
-            />
-            <AdventureChoice
-              title="Join Forces"
-              description="Explore opportunities for collaboration and employment"
-              href="/contact"
-              color="bg-[#c17f16]"
-            />
-          </div>
-        </section>
-
-        <section className="max-w-4xl mx-auto text-center mb-16">
-          <h2 className="text-3xl font-bold mb-6 text-[#1a6e73] font-display">Featured Quest Completions</h2>
-          {featuredProjects.length > 0 ? (
-            <div className="grid md:grid-cols-2 gap-8">
-              {featuredProjects.map((project, index) => (
-                <FeaturedProject
-                  key={project.id}
-                  title={project.title}
-                  description={project.description}
-                  tags={project.tags.slice(0, 3)} // Show only first 3 tags
-                />
+            <div className="flex flex-wrap gap-2">
+              {featuredProject.tags.slice(0, 4).map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full bg-white/10 px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-slate-300 backdrop-blur-sm border border-white/5"
+                >
+                  {tag}
+                </span>
               ))}
             </div>
-          ) : (
-            <div className="bg-white rounded-xl shadow-lg p-8 border-2 border-[#e0d9c5]">
-              <p className="text-[#5e4b56] font-body">
-                Featured projects will appear here once you upload your project data to Firebase.
-              </p>
-              <Link 
-                href="/projects" 
-                className="inline-flex items-center mt-4 text-[#1a6e73] hover:text-[#c17f16] transition-colors duration-300"
-              >
-                View All Projects <ChevronRight className="h-4 w-4 ml-1" />
-              </Link>
-            </div>
-          )}
-        </section>
-      </main>
-
-      <footer className="bg-[#1a6e73] text-white py-12 px-4 md:px-6">
-        <div className="container mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-6 md:mb-0">
-              <h3 className="text-2xl font-bold mb-2 font-display">Pratham Arora</h3>
-              <p className="text-[#e0d9c5] font-body">Crafting digital adventures since 2020</p>
-            </div>
-            <div className="flex space-x-6">
-              <a href="https://github.com/prats3992" className="text-white hover:text-[#c17f16] transition-colors">
-                <Github className="h-6 w-6" />
-                <span className="sr-only">GitHub</span>
-              </a>
-              <a href="https://www.linkedin.com/in/pratham3992arora/" className="text-white hover:text-[#c17f16] transition-colors">
-                <Linkedin className="h-6 w-6" />
-                <span className="sr-only">LinkedIn</span>
-              </a>
-              <a href="mailto:pratham.arora@plaksha.edu.in" className="text-white hover:text-[#c17f16] transition-colors">
-                <Mail className="h-6 w-6" />
-                <span className="sr-only">Email</span>
-              </a>
-            </div>
           </div>
-          <div className="mt-8 pt-8 border-t border-[#e0d9c5] text-center text-[#e0d9c5] font-body">
-            <p>
-              Built with passion and curiosity by Pratham Arora.
-            </p>
+        </BentoItem>
+
+        {/* Map / Location (1x1) */}
+        <BentoItem className="flex flex-col items-center justify-center gap-2 bg-emerald-950/20 border-emerald-500/10 hover:border-emerald-500/30">
+          <div className="p-3 rounded-full bg-emerald-500/10 text-emerald-400">
+            <MapPin className="h-6 w-6" />
           </div>
-        </div>
-      </footer>
-    </div>
-  )
-}
+          <div className="text-center">
+            <h3 className="text-lg font-bold text-emerald-100">Punjab</h3>
+            <p className="text-xs text-emerald-500/80 uppercase tracking-widest">Plaksha Univ.</p>
+          </div>
+        </BentoItem>
 
-function AdventureChoice({
-  title,
-  description,
-  href,
-  color,
-  className,
-}: {
-  title: string
-  description: string
-  href: string
-  color: string
-  className?: string
-}) {
-  return (
-    <Link
-      href={href}
-      className={`${color} text-white p-6 rounded-lg hover:opacity-90 transition-all transform hover:scale-[1.02] flex flex-col ${
-        className || ""
-      }`}
-    >
-      <h3 className="text-xl font-bold mb-2 font-display">{title}</h3>
-      <p className="mb-4 font-body">{description}</p>
-      <div className="mt-auto flex items-center justify-end">
-        <span className="mr-2 text-sm">Begin this path</span>
-        <ChevronRight className="h-5 w-5" />
-      </div>
-    </Link>
-  )
-}
+        {/* Socials (1x1) */}
+        <BentoItem className="bg-slate-900/40 p-0 flex items-center justify-center">
+             <div className="grid grid-cols-2 grid-rows-2 w-full h-full">
+                <Link href={resumeData.personalInfo.github} target="_blank" className="flex items-center justify-center hover:bg-white/5 transition-colors group">
+                    <Github className="w-6 h-6 text-slate-400 group-hover:text-white" />
+                </Link>
+                <Link href={resumeData.personalInfo.linkedin} target="_blank" className="flex items-center justify-center hover:bg-[#0077b5]/10 transition-colors group">
+                    <Linkedin className="w-6 h-6 text-slate-400 group-hover:text-[#0077b5]" />
+                </Link>
+                <Link href={`mailto:${resumeData.personalInfo.email}`} className="flex items-center justify-center hover:bg-orange-500/10 transition-colors group">
+                    <Mail className="w-6 h-6 text-slate-400 group-hover:text-orange-400" />
+                </Link>
+                <Link href="/contact" className="flex items-center justify-center hover:bg-lime-500/10 transition-colors group">
+                    <ArrowUpRight className="w-6 h-6 text-slate-400 group-hover:text-lime-400" />
+                </Link>
+             </div>
+        </BentoItem>
 
-function FeaturedProject({
-  title,
-  description,
-  tags,
-}: {
-  title: string
-  description: string
-  tags: string[]
-}) {
-  return (
-    <div className="bg-white p-6 rounded-lg shadow-md border border-[#e0d9c5] text-left">
-      <h3 className="text-xl font-bold mb-2 text-[#1a6e73] font-display">{title}</h3>
-      <p className="text-[#5e4b56] mb-4 font-body">{description}</p>
-      <div className="flex flex-wrap gap-2">
-        {tags.map((tag, index) => (
-          <span key={index} className="bg-[#f5f3ee] text-[#5e4b56] px-3 py-1 rounded-full text-sm font-body">
-            {tag}
-          </span>
-        ))}
-      </div>
-    </div>
+         {/* Tech Stack (1x1) */}
+         <BentoItem className="flex flex-col p-5 bg-slate-900/30">
+            <div className="flex items-center gap-2 mb-4 text-slate-400">
+                <Code2 className="w-4 h-4" />
+                <span className="text-xs font-bold uppercase tracking-wider">Stack</span>
+            </div>
+            <div className="flex flex-wrap content-start gap-1.5 h-full overflow-hidden mask-linear-gradient">
+                {resumeData.skills.programmingLanguages.concat(resumeData.skills.frameworks).slice(0, 10).map((skill) => (
+                    <span key={skill} className="px-2 py-1 text-[10px] bg-white/5 border border-white/5 rounded text-slate-300">
+                        {skill}
+                    </span>
+                 ))}
+            </div>
+         </BentoItem>
+
+        {/* Other Projects - Randomized Grid */}
+        <RandomProjectGrid projects={otherProjects} />
+      </BentoGrid>
+    </main>
   )
 }

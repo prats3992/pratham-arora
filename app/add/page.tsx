@@ -1,12 +1,11 @@
 "use client"
 
 import type React from "react"
-
 import { useState, useEffect } from "react"
 import { initializeApp } from "firebase/app"
 import { getDatabase, ref, onValue, push, remove, update } from "firebase/database"
 import Link from "next/link"
-import { ArrowLeft, Plus, Edit, Trash2, Eye, Calendar } from "lucide-react"
+import { ArrowLeft, Plus, Edit, Trash2, Eye, Calendar, X, Save, Github, Globe } from "lucide-react"
 
 // Firebase configuration
 const firebaseConfig = {
@@ -49,7 +48,7 @@ export default function AddProjectPage() {
         const projectsList = Object.keys(data).map((key) => ({
           id: key,
           ...data[key],
-        }))
+        })).filter(p => !p.id.includes("resume-data")) // Basic filter if mixed
         setProjects(projectsList.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()))
       } else {
         setProjects([])
@@ -75,7 +74,7 @@ export default function AddProjectPage() {
   }
 
   const handleDeleteProject = (projectId: string) => {
-    if (confirm("Are you sure you want to delete this project?")) {
+    if (confirm("Are you sure you want to delete this project? This action cannot be undone.")) {
       const projectRef = ref(database, `projects/${projectId}`)
       remove(projectRef)
     }
@@ -83,105 +82,86 @@ export default function AddProjectPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#f5f3ee] flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#1a6e73]"></div>
+      <div className="min-h-screen bg-slate-950 flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-lime-400"></div>
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-[#f5f3ee] animate-in fade-in duration-700">
-      <div className="container mx-auto px-4 md:px-6 py-12">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
+    <div className="min-h-screen bg-slate-950 font-sans selection:bg-lime-400 selection:text-black p-4 md:p-8">
+      <div className="max-w-7xl mx-auto space-y-8">
+        
+        {/* Navigation / Header */}
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-6 border-b border-white/10">
           <Link
             href="/projects"
-            className="inline-flex items-center text-[#1a6e73] hover:text-[#c17f16] transition-colors duration-300 group"
+            className="inline-flex items-center text-slate-400 hover:text-white transition-colors group"
           >
-            <ArrowLeft className="h-4 w-4 mr-2 group-hover:-translate-x-1 transition-transform duration-300" />
-            Back to Projects
+            <ArrowLeft className="h-4 w-4 mr-2 group-hover:-translate-x-1 transition-transform" />
+            Return to Archives
           </Link>
 
           <div className="flex gap-3">
             <Link
               href="/projects"
-              className="flex items-center gap-2 bg-[#5e4b56] text-white px-4 py-2 rounded-lg hover:bg-[#1a6e73] transition-colors duration-300 font-body"
+              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 text-slate-300 hover:bg-white/10 hover:text-white transition-colors text-sm font-medium"
             >
               <Eye className="h-4 w-4" />
               View Public Page
             </Link>
             <button
               onClick={() => setShowAddForm(true)}
-              className="flex items-center gap-2 bg-[#c17f16] text-white px-4 py-2 rounded-lg hover:bg-[#1a6e73] transition-colors duration-300 font-body"
+              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-lime-400 text-slate-950 hover:bg-lime-300 transition-colors text-sm font-bold"
             >
               <Plus className="h-4 w-4" />
-              Add New Project
+              Initialize New Project
             </button>
           </div>
         </div>
 
-        <div className="max-w-6xl mx-auto">
-          <header className="text-center mb-12 animate-in slide-in-from-bottom duration-700 delay-200">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-[#1a6e73] font-display">Project Management</h1>
-            <p className="text-xl text-[#5e4b56] font-body">
-              Manage your portfolio projects - add, edit, and organize your digital adventures
+        {/* Title Section */}
+        <header className="space-y-2">
+            <h1 className="text-3xl md:text-4xl font-serif font-bold text-white">
+                Project Control Center
+            </h1>
+            <p className="text-slate-400">
+                Manage your digital portfolio entries.
             </p>
-          </header>
+        </header>
 
-          {projects.length === 0 ? (
-            <div className="text-center py-12">
-              <div className="bg-white rounded-xl shadow-lg p-8 border-2 border-[#e0d9c5] inline-block">
-                <h3 className="text-xl font-bold mb-4 text-[#1a6e73] font-display">No Projects Yet</h3>
-                <p className="text-[#5e4b56] mb-6 font-body">
-                  Start building your portfolio by adding your first project!
-                </p>
-                <button
-                  onClick={() => setShowAddForm(true)}
-                  className="bg-[#c17f16] text-white px-6 py-3 rounded-lg hover:bg-[#1a6e73] transition-colors duration-300 font-body"
-                >
-                  Add Your First Project
-                </button>
-              </div>
-            </div>
-          ) : (
-            <div className="grid gap-6 mb-12">
-              {projects.map((project, index) => (
-                <AdminProjectCard
-                  key={project.id}
-                  project={project}
-                  delay={`delay-${300 + index * 100}`}
-                  onEdit={() => setEditingProject(project)}
-                  onDelete={() => handleDeleteProject(project.id)}
-                />
-              ))}
-            </div>
-          )}
-
-          <div className="text-center animate-in slide-in-from-bottom duration-700 delay-800">
-            <div className="bg-white rounded-xl shadow-lg p-8 border-2 border-[#e0d9c5] inline-block">
-              <h2 className="text-2xl font-bold mb-4 text-[#1a6e73] font-display">Portfolio Statistics</h2>
-              <div className="grid grid-cols-3 gap-6 text-center">
-                <div className="hover:scale-105 transition-transform duration-300">
-                  <div className="text-3xl font-bold text-[#c17f16] font-display">{projects.length}</div>
-                  <div className="text-[#5e4b56] font-body">Total Projects</div>
+        {/* Project Grid */}
+        <div className="grid gap-6">
+            {projects.length === 0 ? (
+                <div className="flex flex-col items-center justify-center p-12 text-center rounded-2xl bg-white/5 border border-white/10 border-dashed">
+                    <div className="p-4 rounded-full bg-slate-900 border border-white/10 text-slate-500 mb-4">
+                        <Plus className="h-8 w-8" />
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-2">No Projects Found</h3>
+                    <p className="text-slate-400 mb-6">Your archive is currently empty.</p>
+                    <button
+                        onClick={() => setShowAddForm(true)}
+                        className="px-6 py-2 rounded-lg bg-lime-400 text-slate-950 hover:bg-lime-300 font-bold"
+                    >
+                        Create First Entry
+                    </button>
                 </div>
-                <div className="hover:scale-105 transition-transform duration-300">
-                  <div className="text-3xl font-bold text-[#c17f16] font-display">
-                    {projects.filter((p) => p.featured).length}
-                  </div>
-                  <div className="text-[#5e4b56] font-body">Featured Projects</div>
+            ) : (
+                <div className="grid grid-cols-1 gap-4">
+                    {projects.map((project) => (
+                        <AdminProjectCard
+                            key={project.id}
+                            project={project}
+                            onEdit={() => setEditingProject(project)}
+                            onDelete={() => handleDeleteProject(project.id)}
+                        />
+                    ))}
                 </div>
-                <div className="hover:scale-105 transition-transform duration-300">
-                  <div className="text-3xl font-bold text-[#c17f16] font-display">
-                    {[...new Set(projects.flatMap((p) => p.tags))].length}
-                  </div>
-                  <div className="text-[#5e4b56] font-body">Technologies Used</div>
-                </div>
-              </div>
-            </div>
-          </div>
+            )}
         </div>
       </div>
 
+      {/* Modal Overlay */}
       {(showAddForm || editingProject) && (
         <ProjectModal
           project={editingProject}
@@ -198,67 +178,63 @@ export default function AddProjectPage() {
 
 function AdminProjectCard({
   project,
-  delay,
   onEdit,
   onDelete,
 }: {
   project: Project
-  delay: string
   onEdit: () => void
   onDelete: () => void
 }) {
   return (
-    <div
-      className={`bg-white rounded-xl shadow-lg p-6 border-2 border-[#e0d9c5] hover:shadow-xl transition-all animate-in slide-in-from-bottom duration-700 ${delay}`}
-    >
-      <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between">
-        <div className="flex-1 mb-4 lg:mb-0">
-          <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-3">
-            <h3 className="text-xl font-bold text-[#1a6e73] font-display">{project.title}</h3>
-            <div className="flex gap-2">
-              <span className="bg-[#c17f16] text-white px-3 py-1 rounded-full text-sm font-body">{project.status}</span>
-              {project.featured && (
-                <span className="bg-[#1a6e73] text-white px-3 py-1 rounded-full text-sm font-body">Featured</span>
-              )}
-            </div>
-          </div>
-          <div className="flex items-center text-[#5e4b56] mb-3 font-body">
-            <Calendar className="h-4 w-4 mr-2" />
-            {new Date(project.date).toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
-          </div>
-          <p className="text-[#5e4b56] mb-4 font-body line-clamp-2">{project.description}</p>
-          <div className="flex flex-wrap gap-2">
-            {project.tags.slice(0, 4).map((tag, index) => (
-              <span key={index} className="bg-[#f5f3ee] text-[#5e4b56] px-2 py-1 rounded text-sm font-body">
-                {tag}
-              </span>
-            ))}
-            {project.tags.length > 4 && (
-              <span className="text-[#5e4b56] text-sm font-body">+{project.tags.length - 4} more</span>
+    <div className="group flex flex-col md:flex-row items-start md:items-center justify-between p-6 rounded-xl bg-slate-900 border border-white/5 hover:border-lime-500/30 transition-all">
+      <div className="flex-1 space-y-2 mb-4 md:mb-0">
+        <div className="flex items-center gap-3 flex-wrap">
+            <h3 className="text-xl font-bold text-slate-100">{project.title}</h3>
+            <span className={`px-2 py-0.5 rounded text-xs font-medium uppercase tracking-wider ${project.status === "Terminated" ? "bg-red-500/10 text-red-500" : "bg-blue-500/10 text-blue-400"}`}>
+                {project.status}
+            </span>
+            {project.featured && (
+                <span className="px-2 py-0.5 rounded text-xs font-medium uppercase tracking-wider bg-lime-500/10 text-lime-400 border border-lime-500/20">
+                    Featured
+                </span>
             )}
-          </div>
         </div>
+        <div className="flex items-center gap-4 text-sm text-slate-500">
+             <span className="flex items-center gap-1">
+                <Calendar className="h-3 w-3" />
+                {new Date(project.date).toLocaleDateString()}
+             </span>
+             {project.githubUrl && (
+                 <Link href={project.githubUrl} target="_blank" className="flex items-center gap-1 hover:text-white">
+                    <Github className="h-3 w-3" /> Repo
+                 </Link>
+             )}
+        </div>
+        <p className="text-slate-400 line-clamp-1 max-w-2xl text-sm">{project.description}</p>
+        <div className="flex gap-2 pt-1">
+            {project.tags.slice(0, 5).map((tag, i) => (
+                <span key={i} className="text-xs text-slate-600 font-mono bg-white/5 px-1.5 py-0.5 rounded">
+                    {tag}
+                </span>
+            ))}
+        </div>
+      </div>
 
-        <div className="flex gap-2">
+      <div className="flex items-center gap-2 w-full md:w-auto mt-4 md:mt-0">
           <button
             onClick={onEdit}
-            className="flex items-center gap-2 bg-[#1a6e73] text-white px-4 py-2 rounded-lg hover:bg-[#c17f16] transition-colors duration-300 font-body"
+            className="flex-1 md:flex-none flex items-center justify-center gap-2 px-3 py-2 rounded-lg bg-white/5 text-slate-300 hover:bg-indigo-500/20 hover:text-indigo-400 border border-transparent hover:border-indigo-500/30 transition-colors text-sm"
           >
             <Edit className="h-4 w-4" />
             Edit
           </button>
           <button
             onClick={onDelete}
-            className="flex items-center gap-2 bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors duration-300 font-body"
+            className="flex-1 md:flex-none flex items-center justify-center gap-2 px-3 py-2 rounded-lg bg-white/5 text-slate-300 hover:bg-red-500/20 hover:text-red-400 border border-transparent hover:border-red-500/30 transition-colors text-sm"
           >
             <Trash2 className="h-4 w-4" />
-            Delete
+            Kill
           </button>
-        </div>
       </div>
     </div>
   )
@@ -277,12 +253,21 @@ function ProjectModal({
     title: project?.title || "",
     description: project?.description || "",
     tags: project?.tags.join(", ") || "",
-    status: project?.status || "Solo Quest",
+    status: project?.status || "In Progress",
     date: project?.date || new Date().toISOString().split("T")[0],
     githubUrl: project?.githubUrl || "",
     liveUrl: project?.liveUrl || "",
     featured: project?.featured || false,
   })
+
+  // Close on Escape key
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleEsc);
+    return () => window.removeEventListener('keydown', handleEsc);
+  }, [onClose]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -295,125 +280,142 @@ function ProjectModal({
     })
   }
 
+  const inputClass = "w-full bg-slate-950 border border-white/10 rounded-lg px-4 py-2.5 text-slate-200 focus:outline-none focus:border-lime-400/50 focus:ring-1 focus:ring-lime-400/50 transition-all placeholder:text-slate-600";
+  const labelClass = "block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5";
+
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-      <div className="bg-white rounded-xl p-6 w-full max-w-2xl max-h-[90vh] overflow-y-auto">
-        <h2 className="text-2xl font-bold mb-6 text-[#1a6e73] font-display">
-          {project ? "Edit Project" : "Add New Project"}
-        </h2>
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm" onClick={onClose} />
+      <div className="relative bg-slate-900 border border-white/10 w-full max-w-2xl rounded-2xl shadow-2xl p-6 md:p-8 max-h-[90vh] overflow-y-auto">
+        
+        <div className="flex items-center justify-between mb-8">
+            <h2 className="text-2xl font-serif font-bold text-white">
+                {project ? "Edit Protocol" : "New Entry"}
+            </h2>
+            <button onClick={onClose} className="text-slate-500 hover:text-white transition-colors">
+                <X className="h-6 w-6" />
+            </button>
+        </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="block text-[#5e4b56] font-semibold mb-2 font-body">Title</label>
-            <input
-              type="text"
-              value={formData.title}
-              onChange={(e) => setFormData((prev) => ({ ...prev, title: e.target.value }))}
-              className="w-full px-4 py-2 border-2 border-[#e0d9c5] rounded-lg focus:border-[#1a6e73] focus:outline-none transition-colors duration-300 font-body"
-              required
-            />
-          </div>
-
-          <div>
-            <label className="block text-[#5e4b56] font-semibold mb-2 font-body">Description</label>
-            <textarea
-              value={formData.description}
-              onChange={(e) => setFormData((prev) => ({ ...prev, description: e.target.value }))}
-              rows={4}
-              className="w-full px-4 py-2 border-2 border-[#e0d9c5] rounded-lg focus:border-[#1a6e73] focus:outline-none transition-colors duration-300 font-body resize-none"
-              required
-            />
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-[#5e4b56] font-semibold mb-2 font-body">Status</label>
-              <select
-                value={formData.status}
-                onChange={(e) => setFormData((prev) => ({ ...prev, status: e.target.value }))}
-                className="w-full px-4 py-2 border-2 border-[#e0d9c5] rounded-lg focus:border-[#1a6e73] focus:outline-none transition-colors duration-300 font-body"
-              >
-                <option>Solo Quest</option>
-                <option>Collaborative Quest</option>
-                <option>Major Quest</option>
-                <option>Featured Quest</option>
-                <option>Utility Quest</option>
-              </select>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="space-y-4">
+                <div>
+                    <label className={labelClass}>Project Title</label>
+                    <input
+                    type="text"
+                    required
+                    value={formData.title}
+                    onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                    className={inputClass}
+                    placeholder="e.g. Aether Link"
+                    />
+                </div>
+                <div>
+                    <label className={labelClass}>Status</label>
+                    <select
+                    value={formData.status}
+                    onChange={(e) => setFormData({ ...formData, status: e.target.value })}
+                    className={inputClass}
+                    >
+                        <option value="In Progress">In Progress</option>
+                        <option value="Completed">Completed</option>
+                        <option value="Terminated">Terminated</option>
+                        <option value="On Hold">On Hold</option>
+                    </select>
+                </div>
+                <div>
+                    <label className={labelClass}>Date</label>
+                    <input
+                    type="date"
+                    required
+                    value={formData.date}
+                    onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                    className={inputClass}
+                    />
+                </div>
             </div>
 
-            <div>
-              <label className="block text-[#5e4b56] font-semibold mb-2 font-body">Date</label>
-              <input
-                type="date"
-                value={formData.date}
-                onChange={(e) => setFormData((prev) => ({ ...prev, date: e.target.value }))}
-                className="w-full px-4 py-2 border-2 border-[#e0d9c5] rounded-lg focus:border-[#1a6e73] focus:outline-none transition-colors duration-300 font-body"
-                required
-              />
+            <div className="space-y-4">
+                <div>
+                    <label className={labelClass}>GitHub URL</label>
+                    <div className="relative">
+                        <Github className="absolute left-3 top-3 h-4 w-4 text-slate-500" />
+                        <input
+                        type="url"
+                        value={formData.githubUrl}
+                        onChange={(e) => setFormData({ ...formData, githubUrl: e.target.value })}
+                        className={`${inputClass} pl-10`}
+                        placeholder="https://github.com/..."
+                        />
+                    </div>
+                </div>
+                <div>
+                    <label className={labelClass}>Live URL</label>
+                    <div className="relative">
+                        <Globe className="absolute left-3 top-3 h-4 w-4 text-slate-500" />
+                        <input
+                        type="url"
+                        value={formData.liveUrl}
+                        onChange={(e) => setFormData({ ...formData, liveUrl: e.target.value })}
+                        className={`${inputClass} pl-10`}
+                        placeholder="https://..."
+                        />
+                    </div>
+                </div>
+                <div className="flex items-center pt-8">
+                    <label className="flex items-center gap-3 cursor-pointer group">
+                        <div className={`w-5 h-5 rounded border flex items-center justify-center transition-colors ${formData.featured ? 'bg-lime-400 border-lime-400 text-black' : 'border-slate-600 bg-transparent'}`}>
+                             {formData.featured && <Plus className="h-3 w-3" />}
+                        </div>
+                        <input
+                        type="checkbox"
+                        checked={formData.featured}
+                        onChange={(e) => setFormData({ ...formData, featured: e.target.checked })}
+                        className="hidden"
+                        />
+                        <span className="text-sm font-bold text-slate-300 group-hover:text-white">Mark as Featured</span>
+                    </label>
+                </div>
             </div>
           </div>
 
           <div>
-            <label className="block text-[#5e4b56] font-semibold mb-2 font-body">Tags (comma-separated)</label>
+            <label className={labelClass}>Tech Stack (Comma Separated)</label>
             <input
               type="text"
               value={formData.tags}
-              onChange={(e) => setFormData((prev) => ({ ...prev, tags: e.target.value }))}
-              placeholder="React, TypeScript, Node.js"
-              className="w-full px-4 py-2 border-2 border-[#e0d9c5] rounded-lg focus:border-[#1a6e73] focus:outline-none transition-colors duration-300 font-body"
+              onChange={(e) => setFormData({ ...formData, tags: e.target.value })}
+              className={inputClass}
+              placeholder="Next.js, Firebase, Tailwind..."
+            />
+          </div>
+
+          <div>
+            <label className={labelClass}>Description</label>
+            <textarea
               required
+              value={formData.description}
+              onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+              className={`${inputClass} min-h-[120px] resize-none`}
+              placeholder="Brief briefing of the mission..."
             />
           </div>
 
-          <div className="grid md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-[#5e4b56] font-semibold mb-2 font-body">GitHub URL</label>
-              <input
-                type="url"
-                value={formData.githubUrl}
-                onChange={(e) => setFormData((prev) => ({ ...prev, githubUrl: e.target.value }))}
-                className="w-full px-4 py-2 border-2 border-[#e0d9c5] rounded-lg focus:border-[#1a6e73] focus:outline-none transition-colors duration-300 font-body"
-                required
-              />
-            </div>
-
-            <div>
-              <label className="block text-[#5e4b56] font-semibold mb-2 font-body">Live URL (optional)</label>
-              <input
-                type="url"
-                value={formData.liveUrl}
-                onChange={(e) => setFormData((prev) => ({ ...prev, liveUrl: e.target.value }))}
-                className="w-full px-4 py-2 border-2 border-[#e0d9c5] rounded-lg focus:border-[#1a6e73] focus:outline-none transition-colors duration-300 font-body"
-              />
-            </div>
-          </div>
-
-          <div className="flex items-center">
-            <input
-              type="checkbox"
-              id="featured"
-              checked={formData.featured}
-              onChange={(e) => setFormData((prev) => ({ ...prev, featured: e.target.checked }))}
-              className="mr-2"
-            />
-            <label htmlFor="featured" className="text-[#5e4b56] font-body">
-              Featured Project
-            </label>
-          </div>
-
-          <div className="flex gap-4 pt-4">
-            <button
-              type="submit"
-              className="flex-1 bg-[#1a6e73] text-white py-3 rounded-lg hover:bg-[#c17f16] transition-colors duration-300 font-body font-semibold"
-            >
-              {project ? "Update Project" : "Add Project"}
-            </button>
+          <div className="flex justify-end gap-4 pt-4 border-t border-white/5">
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 bg-[#5e4b56] text-white py-3 rounded-lg hover:bg-[#e0d9c5] hover:text-[#5e4b56] transition-colors duration-300 font-body font-semibold"
+              className="px-6 py-2 rounded-lg text-slate-400 hover:text-white transition-colors text-sm font-bold"
             >
               Cancel
+            </button>
+            <button
+              type="submit"
+              className="px-6 py-2 rounded-lg bg-lime-400 text-slate-950 hover:bg-lime-300 transition-colors text-sm font-bold flex items-center gap-2"
+            >
+              <Save className="h-4 w-4" />
+              Save Entries
             </button>
           </div>
         </form>

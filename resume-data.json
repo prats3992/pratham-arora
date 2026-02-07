@@ -13,7 +13,7 @@
     {
       "institution": "Plaksha University",
       "degree": "B.Tech. Computer Science & Artificial Intelligence",
-      "cgpa": "8.02",
+      "cgpa": "8.20",
       "startDate": "August 2022",
       "endDate": "August 2026",
       "relevantCoursework": [
@@ -41,77 +41,85 @@
   ],
   "experience": [
     {
-      "title": "AI Intern, LLM Pipeline Development",
+      "title": "AI Intern",
       "company": "Cotality",
-      "location": "Remote",
+      "location": "Kolkata",
       "startDate": "June 2025",
-      "endDate": "Present",
+      "endDate": "July 2025",
+      "role": ["AIML", "SDE"],
       "achievements": [
-        "Developing an LLM-based pipeline to automatically document repository codebases for internal knowledge transfer and onboarding",
-        "Building intelligent documentation system that helps internal users understand repository structure, functionality, and component locations",
-        "Creating automated API documentation generation that updates dynamically with code modifications and additions",
-        "Implementing comprehensive documentation pipeline to streamline developer onboarding and improve codebase accessibility"
+        "Architected a scalable FastAPI backend to automate code documentation, handling Abstract Syntax Tree (AST) analysis across 15+ languages.",
+        "Designed optimized NoSQL document schemas in Azure Cosmos DB, selecting appropriate partition keys to balance read/write throughput and reduce Request Unit (RU) consumption.",
+        "Designed RESTful API endpoints for the generative AI system, ensuring low-latency data retrieval for the frontend."
+      ]
+    },
+    {
+      "title": "Software Development Engineer Intern",
+      "company": "Orangewood Labs",
+      "location": "Noida",
+      "startDate": "June 2024",
+      "endDate": "July 2024",
+      "role": ["SDE", "AIML"],
+      "achievements": [
+        "Refactored the monolithic RoboGPT codebase into a modular architecture, reducing code dependency by 40% and improving maintainability for complex food preparation tasks.",
+        "Integrated a Computer Vision stack with the control loop, optimizing calibration routines to significantly reduce robotic arm pose detection errors."
       ]
     },
     {
       "title": "Freelance Web Developer",
-      "company": "Freelance",
+      "company": "Client Project",
       "location": "Remote",
       "startDate": "May 2025",
       "endDate": "June 2025",
+      "role": ["SDE"],
       "achievements": [
-        "Developed a professional website for a CA firm using Next.js, Tailwind CSS, and Firebase for backend services",
-        "Implemented a user-friendly content management system enabling the client to easily update website content independently",
-        "Designed responsive layouts optimized for professional service presentation and client accessibility"
-      ]
-    },
-    {
-      "title": "SDE Intern, Robotics, Computer Vision",
-      "company": "Orangewood Labs",
-      "location": "Bangalore, India",
-      "startDate": "June 2024",
-      "endDate": "July 2024",
-      "achievements": [
-        "Enhanced RoboGPT by developing new functionalities for food preparation tasks, contributing to the modular design of the system",
-        "Integrated a vision stack to improve the accuracy of object pose detection, reducing error margins in robotic movements",
-        "Collaborated with the Food Robotics team to refine and implement key processes, such as coffee preparation, within the robotic workflow"
+        "Engineered a digital footprint on the Vercel free tier, implementing SEO best practices and reducing hosting costs to zero.",
+        "Architected a modular Firebase CMS, empowering non-technical stakeholders to manage dynamic content without code intervention."
       ]
     },
     {
       "title": "Freelance Tutor",
-      "company": "Self-Employed", 
+      "company": "Python Programming", 
       "location": "Remote",
       "startDate": "June 2023",
       "endDate": "May 2024",
+      "role": ["SDE", "AIML"],
       "achievements": [
-        "Specialized in teaching Python fundamentals, helping students build a strong foundation in coding",
-        "Designed and implemented interactive lesson plans tailored to individual learning styles, enhancing student engagement",
-        "Provided personalized coaching that boosted students' confidence and proficiency in Python programming"
+        "Delivered personalized Python instruction to students, designing interactive lesson plans that enhanced engagement and comprehension of fundamental concepts."
       ]
     },
     {
-      "title": "Summer Internship - Computer Vision",
+      "title": "Undergraduate Researcher",
       "company": "Plaksha University",
       "location": "Punjab, India",
       "startDate": "June 2023",
-      "endDate": "August 2023",
+      "endDate": "Aug. 2023",
+      "role": ["AIML"],
       "achievements": [
-        "Developed computer vision algorithms to accurately identify crops and segment weeds under the guidance of Prof. Sandeep Manjanna",
-        "Focused on optimizing computer vision and image processing techniques, incorporating the Segment Anything Model for enhanced results",
-        "Improved the efficiency of programs by refining algorithms and optimizing code performance"
+        "Developed computer vision pipelines for semantic segmentation of agricultural imagery to differentiate crops from weeds.",
+        "Fine-tuned the Segment Anything Model (SAM) for the novel domain of crop imaging, improving segmentation Mean IoU (mIoU) by ~12% on sparse datasets.",
+        "Optimized image processing algorithms in Python, reducing data pipeline runtime by 40% for large-scale datasets."
       ]
     }
   ],
   "leadership": [
+    {
+      "title": "Head of Tech",
+      "organization": "Athleda (Plaksha Sports Society)",
+      "startDate": "April 2025",
+      "endDate": "Present",
+      "achievements": [
+        "Overseeing the end-to-end development lifecycle of the main society website, managing project architecture and team workflow."
+      ]
+    },
     {
       "title": "Head of Web Development",
       "organization": "LEAP.AI@Plaksha",
       "startDate": "Feb. 2024",
       "endDate": "Feb. 2025",
       "achievements": [
-        "Currently serving as Head of Web Development for the Club Website, in addition to creating engaging content for Socials",
-        "Contributed to the design and development of the LEAP.AI@Plaksha Club website, enhancing its functionality and user interface",
-        "Worked closely with the team to ensure seamless integration of content and design elements across digital platforms"
+        "Led the web development team, spearheading the design and maintenance of the AI club's official website.",
+        "Mentored junior developers in web development best practices using Next.js and Vercel, fostering team growth."
       ]
     },
     {
@@ -120,9 +128,7 @@
       "startDate": "April 2024",
       "endDate": "Sept. 2024",
       "achievements": [
-        "Developed and maintained the club's website and event-specific pages, ensuring a seamless user experience",
-        "Spearheaded the creation of the Club Merchandise Store, integrating it with the existing digital infrastructure",
-        "Collaborated with team members to implement innovative tech solutions for club operations and outreach"
+        "Developed and maintained the entrepreneurship cell's website and multiple event-specific pages, including a club merchandise store."
       ]
     },
     {
@@ -131,178 +137,186 @@
       "startDate": "Jan. 2024",
       "endDate": "Dec. 2024",
       "achievements": [
-        "Led the procurement process, sourcing high-quality baking ingredients and equipment within budget constraints",
-        "Conducted market research to find the best vendors and compare pricing for budget efficiency"
+        "Managed the end-to-end procurement process, executing market research and vendor negotiations to optimize the budget."
       ]
     }
   ],
   "skills": {
     "programmingLanguages": [
       "Python",
-      "C/C++", 
-      "JavaScript/TypeScript",
+      "C++", 
+      "SQL",
+      "JavaScript",
+      "TypeScript",
+      "C#",
       "HTML/CSS",
       "MATLAB",
-      "Bash",
-      "SQL"
+      "Bash"
     ],
     "tools": [
-      "GitHub",
-      "Linux", 
-      "VS Code",
-      "GitHub Pages",
-      "Google Maps API",
-      "Google Sheets API", 
-      "Gemini API",
-      "OpenAI API"
+      "Docker",
+      "Git",
+      "Linux",
+      "Azure (Cosmos DB, OpenAI)",
+      "Firebase",
+      "RAG Pipelines"
     ],
     "frameworks": [
-      "Next.js",
-      "FastAPI"
+      "FastAPI",
+      "Node.js",
+      "Next.js (SSR/CSR)",
+      "REST",
+      "GraphQL",
+      "Tailwind CSS"
     ],
-    "databases": [
-      "Firebase"
+    "ai_ml": [
+      "PyTorch",
+      "TensorFlow",
+      "Scikit-learn",
+      "LangChain",
+      "OpenCV",
+      "SAM",
+      "GANs"
     ],
     "hardware": [
       "Arduino",
       "Raspberry Pi",
-      "ESP 32"
+      "ESP32",
+      "Embedded Systems Integration"
     ]
   },
   "projects": [
     {
+      "id": "reddit-data-pipeline",
+      "title": "Reddit Data Ingestion Pipeline",
+      "description": "Engineered a robust data ingestion pipeline using PRAW to scrape 22,000+ interactions from 19 Reddit communities. Designed a NoSQL schema in Firebase with real-time deduplication logic to maintain dataset integrity across concurrent scrapes. Identified a 'Buffer Effect' (19.4% sentiment shift) and quantified a 35.8x post-pandemic volume increase in health communities.",
+      "tags": ["Python", "PRAW", "VADER", "LDA", "Firebase"],
+      "status": "Featured Quest",
+      "date": "2025-08-01",
+      "githubUrl": "https://github.com/prats3992",
+      "liveUrl": "",
+      "featured": true,
+      "role": ["AIML", "SDE"]
+    },
+    {
+      "id": "vr-llm-agent",
+      "title": "VR LLM Conversational Agent",
+      "description": "Integrated Gemini 2.5 Flash with Unity for a VR agent, implementing latency masking via procedural gesture generation. Developed a non-blocking asynchronous architecture in Unity (C#) to handle Gemini API calls without freezing the rendering thread, ensuring a smooth 90 FPS experience on the Quest 2. Conducted A/B testing (n=8) showing statistically significant improvements in agent animacy (p=0.021) using multimodal feedback.",
+      "tags": ["Unity", "C#", "Gemini 2.5 Flash", "Google Cloud STT/TTS"],
+      "status": "Featured Quest",
+      "date": "2025-08-01",
+      "githubUrl": "https://github.com/prats3992",
+      "liveUrl": "",
+      "featured": true,
+      "role": ["AIML", "SDE"]
+    },
+    {
       "id": "resume-builder",
       "title": "Resume Builder & Interview GPT",
-      "description": "Developed a comprehensive resume builder application with AI-powered resume generation using Gemini API. Created well-designed, professional resume templates with user-friendly data input and real-time preview functionality. Built a sister project - Interview GPT - to help users improve interview skills, get DSA preparation guidance, and analyze skill gaps against job requirements.",
+      "description": "Developed a production-ready full-stack application featuring an AI-powered resume generator with real-time PDF preview. Implemented persistent user sessions using Client-Side Storage (LocalStorage) and secured authentication flows to maintain state across browser reloads. Engineered an 'Interview GPT' module to provide users with DSA guidance and personalized interview skill coaching.",
       "tags": ["Next.js", "Tailwind", "Firebase", "Gemini API"],
       "status": "Featured Quest",
       "date": "2025-01-01",
       "githubUrl": "https://github.com/prats3992",
       "liveUrl": "",
-      "featured": true
-    },
-    {
-      "id": "c-compiler",
-      "title": "C Compiler & Coding Teaching Platform", 
-      "description": "Designed an interactive coding platform, inspired by Scratch, to teach programming visually. Implemented AST visualization to help users understand how their code is processed. Provided live feedback on user code, helping learners understand syntax, structure, and execution.",
-      "tags": ["Next.js", "TypeScript", "AST Visualization"],
-      "status": "Featured Quest",
-      "date": "2025-01-01",
-      "githubUrl": "https://github.com/prats3992",
-      "liveUrl": "",
-      "featured": true
-    },
-    {
-      "id": "sports-fest-site",
-      "title": "Sports Fest Site",
-      "description": "Designed and developed a fully responsive website for Eklavya '25, the university's annual sports fest. Ensured responsiveness across all screen sizes, optimizing accessibility for participants and viewers. Leveraged Next.js and framer-motion for buttery smooth animations and sleek page transitions.",
-      "tags": ["Next.js", "TypeScript", "Framer Motion"],
-      "status": "Major Quest", 
-      "date": "2025-01-01",
-      "githubUrl": "https://github.com/prats3992",
-      "liveUrl": "",
-      "featured": true
-    },
-    {
-      "id": "basketball-scoreboard",
-      "title": "Basketball Scoreboard & Individual Data Tracker",
-      "description": "Built a real-time basketball scoreboard with a focus on speed and ease of use for scorekeepers. Improved UI after 6 months of stress testing, adding undo buttons and repositioning controls for optimal usability. Implemented real-time stats tracking for rebounds and shot accuracy, instantly displaying player performance.",
-      "tags": ["Next.js", "TypeScript", "Firebase", "Real-time Systems"],
-      "status": "Major Quest",
-      "date": "2023-12-01",
-      "githubUrl": "https://github.com/prats3992",
-      "liveUrl": "",
-      "featured": true
+      "featured": true,
+      "role": ["SDE", "AIML"]
     },
     {
       "id": "ui-wireframe-generator",
       "title": "UI Wireframe Generator",
-      "description": "Explored an existing Self-Attention GAN (SAGAN) model as the baseline for UI wireframe generation. Investigated various attention modules and adopted Cross-Attention, modifying SAGAN to a Cross-Attention GAN (CAGAN) model. Fine-tuned a LLaMA model with segmented images and labeled JSON data to generate JSON outputs from user prompts.",
+      "description": "Pioneered a novel approach by modifying a Self-Attention GAN (SAGAN) into a Cross-Attention GAN (CAGAN) to generate UI wireframes conditioned on textual prompts. Fine-tuned a LLaMA model on a custom dataset of segmented images and labeled JSON to translate natural language into structured UI data. Conducted a comparative analysis of generative models (DDPM, Stable Diffusion), evaluating their suitability for this specialized task.",
       "tags": ["Python", "PyTorch", "Meta LLaMA", "Computer Vision"],
       "status": "Major Quest",
       "date": "2024-08-01",
       "githubUrl": "https://github.com/prats3992",
       "liveUrl": "",
-      "featured": false
+      "featured": true,
+      "role": ["AIML"]
     },
     {
       "id": "kelp-segmentation",
       "title": "Kelp Segmentation",
-      "description": "Researched current segmentation techniques for satellite images of trees, particularly focusing on Kelp. Built a custom Convolutional Neural Network (CNN) model to filter out noisy images and enhance data quality. Developed a U-Net architecture for image segmentation, achieving a Dice score of 0.55, with the highest score in the competition being 0.73.",
-      "tags": ["Python", "PyTorch", "U-Net", "Image Segmentation"],
+      "description": "Designed a U-Net architecture for semantic segmentation of kelp forests in noisy satellite imagery, achieving a performance rank in the Top 100 out of 600+ competitors. Engineered a pre-processing pipeline using custom CNN filters to remove atmospheric noise and improve label quality.",
+      "tags": ["Python", "PyTorch", "U-Net", "Satellite Imagery"],
       "status": "Major Quest",
       "date": "2024-01-01",
       "githubUrl": "https://github.com/prats3992",
       "liveUrl": "",
-      "featured": false
-    },
-    {
-      "id": "dating-parody-app",
-      "title": "Dating Parody App",
-      "description": "Developed a semi-functional dating app UI in Flutter, matching users based on humorous 'red flags.' Developed the matching algorithm using Python and Firebase, though it remained separate from the UI. Gained hands-on experience with Firebase real-time database operations.",
-      "tags": ["Flutter", "Firebase", "Python", "Mobile Development"],
-      "status": "Solo Quest",
-      "date": "2024-01-01",
-      "githubUrl": "https://github.com/prats3992",
-      "liveUrl": "",
-      "featured": false
-    },
-    {
-      "id": "linux-how-to",
-      "title": "Linux How-To",
-      "description": "Compiled comprehensive documentation of essential Linux commands, providing users with a valuable reference. Designed a user-friendly interface that includes tables and Mermaid graphs to visually represent information. Implemented a dynamic workflow that stores information in Markdown files and renders it on the website in real time.",
-      "tags": ["HTML/CSS", "JavaScript", "GitHub Pages", "Documentation"],
-      "status": "Solo Quest",
-      "date": "2023-12-01",
-      "githubUrl": "https://github.com/prats3992",
-      "liveUrl": "",
-      "featured": false
-    },
-    {
-      "id": "bash-cheatsheet",
-      "title": "Bash CheatSheet",
-      "description": "Compiled comprehensive documentation of essential Bash commands, providing users with a valuable reference. Designed a user-friendly interface that includes tables and Mermaid graphs to visually represent information. Implemented a dynamic workflow that stores information in Markdown files and renders it on the website in real time.",
-      "tags": ["HTML/CSS", "JavaScript", "GitHub Pages", "Documentation"],
-      "status": "Solo Quest",
-      "date": "2023-12-01",
-      "githubUrl": "https://github.com/prats3992",
-      "liveUrl": "",
-      "featured": false
+      "featured": false,
+      "role": ["AIML"]
     },
     {
       "id": "c-vrp-time-window",
       "title": "C-VRP with Time Window Constraints",
-      "description": "Explored mathematical methods for solving the Vehicle Routing Problem (VRP) with capacity and time window constraints. Utilized the Google Direction Matrix API to incorporate real-world location data into the VRP solution. Employed Google OR Tools and Google Maps API to generate and visualize efficient routes for the given constraints.",
-      "tags": ["Python", "Google OR Tools", "Google Maps API", "Optimization"],
+      "description": "Implemented an optimization solution for the Capacitated Vehicle Routing Problem (VRP) with time window constraints using Google OR-Tools. Integrated real-world transit data via the Google Direction Matrix API to generate practical, efficient, and accurate routing solutions. Developed route visualizations using the Google Maps API for intuitive interpretation of results.",
+      "tags": ["Python", "Google OR Tools", "Google Maps API"],
       "status": "Solo Quest",
       "date": "2023-09-01",
       "githubUrl": "https://github.com/prats3992",
       "liveUrl": "",
-      "featured": false
+      "featured": false,
+      "role": ["AIML"]
+    },
+    {
+      "id": "c-compiler-platform",
+      "title": "C Compiler & Coding Teaching Platform",
+      "description": "Designed an interactive, Scratch-inspired platform to teach C programming concepts visually. Implemented real-time Abstract Syntax Tree (AST) visualization to help students understand code execution flow. Built a custom C compiler backend to execute user code securely in a sandboxed environment.",
+      "tags": ["Next.js", "TypeScript", "AST Visualization"],
+      "status": "Solo Quest",
+      "date": "2023-05-01",
+      "githubUrl": "https://github.com/prats3992",
+      "liveUrl": "",
+      "featured": false,
+      "role": ["SDE"]
+    },
+    {
+      "id": "basketball-scoreboard",
+      "title": "Basketball Scoreboard & Data Tracker",
+      "description": "Architected a real-time basketball scoreboard with a focus on sub-100ms latency for live-game scorekeeping. Iteratively refined the UI based on 6 months of stress testing during university tournaments. Implemented a robust data tracking system to record player statistics and generate post-game reports.",
+      "tags": ["Next.js", "TypeScript", "Firebase"],
+      "status": "Solo Quest",
+      "date": "2023-02-01",
+      "githubUrl": "https://github.com/prats3992",
+      "liveUrl": "",
+      "featured": false,
+      "role": ["SDE"]
+    },
+    {
+      "id": "sports-fest-site",
+      "title": "Sports Fest Site",
+      "description": "Engineered a fully responsive and performant website for Eklavya '25, the university's annual sports fest, utilizing Framer Motion for fluid animations. Integrated a registration system handling 500+ participants and a real-time schedule display.",
+      "tags": ["Next.js", "TypeScript", "Framer Motion"],
+      "status": "Solo Quest",
+      "date": "2025-02-01",
+      "githubUrl": "https://github.com/prats3992",
+      "liveUrl": "",
+      "featured": false,
+      "role": ["SDE"]
+    },
+    {
+      "id": "linux-how-to",
+      "title": "Linux How-To & Bash CheatSheet",
+      "description": "Authored comprehensive technical documentation for essential Linux and Bash commands, designing a user-friendly interface with search and visualizations. Created interactive examples to demonstrate command usage and output.",
+      "tags": ["HTML/CSS", "JavaScript", "GitHub Pages"],
+      "status": "Solo Quest",
+      "date": "2022-12-01",
+      "githubUrl": "https://github.com/prats3992",
+      "liveUrl": "",
+      "featured": false,
+      "role": ["SDE"]
     },
     {
       "id": "weighbridge",
       "title": "Weighbridge",
-      "description": "Collaborated on a project involving the use of Arduino, load cells, and a 16-bit LCD display to measure vehicle weight. Engineered separate platforms for each wheel to enhance precision and accuracy in weight calculations. Demonstrated proficiency in integrating hardware components and applying engineering principles to solve practical problems.",
+      "description": "Co-engineered an Arduino-based weighbridge system, integrating load cells and an LCD display to accurately measure vehicle weight. Developed the embedded C code to process sensor data and calibrate readings.",
       "tags": ["Arduino Uno", "Hardware Integration", "Embedded Systems"],
-      "status": "Collaborative Quest",
-      "date": "2023-08-01",
+      "status": "Solo Quest",
+      "date": "2022-10-01",
       "githubUrl": "https://github.com/prats3992",
       "liveUrl": "",
-      "featured": false
-    }
-  ],
-  "hobbies": [
-    {
-      "title": "Member of the Basketball Team",
-      "startDate": "Dec. 2022",
-      "endDate": "April 2025"
-    },
-    {
-      "title": "Blogger",
-      "description": "Wrote personal and technical blogs.",
-      "startDate": "Sept. 2021",
-      "endDate": "Oct. 2023"
+      "featured": false,
+      "role": ["SDE"]
     }
   ]
 }

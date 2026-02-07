@@ -3,104 +3,115 @@
 import type React from "react"
 
 import Link from "next/link"
-import { ArrowLeft, Code, Coffee, Gamepad2, BookHeart, Cake } from "lucide-react"
+import { ArrowLeft, Code, Coffee, Gamepad2, Heart, Zap } from "lucide-react"
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-[#f5f3ee] animate-in fade-in duration-700">
-      <div className="container mx-auto px-4 md:px-6 py-12">
+    <div className="min-h-screen bg-slate-950 text-slate-100 pb-32 md:pb-20 pt-10 px-4 selection:bg-lime-400 selection:text-slate-900">
+      <div className="max-w-4xl mx-auto">
         <Link
           href="/"
-          className="inline-flex items-center text-[#1a6e73] hover:text-[#c17f16] transition-colors duration-300 mb-8 group"
+          className="hidden md:inline-flex items-center text-lime-400 hover:text-lime-300 transition-colors mb-12 group text-sm font-bold uppercase tracking-wider"
         >
-          <ArrowLeft className="h-4 w-4 mr-2 group-hover:-translate-x-1 transition-transform duration-300" />
-          Back to Adventure Hub
+          <ArrowLeft className="h-4 w-4 mr-2 group-hover:-translate-x-1 transition-transform" />
+          Return to Grid
         </Link>
 
-        <div className="max-w-4xl mx-auto">
-          <header className="text-center mb-16 animate-in slide-in-from-bottom duration-700 delay-200">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-[#1a6e73] font-display">Meet the Adventurer</h1>
-            <p className="text-xl text-[#5e4b56] font-body">
-              The story behind the code and the person crafting digital experiences
-            </p>
-          </header>
+        {/* Header Section */}
+        <header className="mb-20">
+          <h1 className="text-5xl md:text-7xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400 mb-6">
+            Meet the Maker
+          </h1>
+          <p className="text-xl text-slate-400 font-light max-w-2xl leading-relaxed">
+            The story behind the code. A journey through logic, creativity, and the relentless pursuit of building something that matters.
+          </p>
+        </header>
 
-          <div className="grid md:grid-cols-2 gap-12 mb-16">
-            <div className="animate-in slide-in-from-left duration-700 delay-300">
-              <div className="bg-white rounded-xl shadow-lg p-8 border-2 border-[#e0d9c5] hover:shadow-xl transition-shadow duration-300">
-                <h2 className="text-2xl font-bold mb-4 text-[#1a6e73] font-display">My Journey</h2>
-                <div className="prose text-[#5e4b56] font-body">
-                  <p className="mb-4">
-                    Hi there! I am Pratham, a passionate software engineer with a wide range of interests and hobbies. In my free time, you can find me reading a good book, playing basketball, or working on a new coding project. I am always looking for new challenges and opportunities to learn and grow. I also love teaching coding to beginners and helping them discover the joys of programming.
-                  </p>
-                  {/* <p className="mb-4">
-                  
-                  </p> */}
-                </div>
+        {/* Main Content Grid */}
+        <div className="grid gap-8">
+          
+          {/* Journey Section */}
+          <div className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-md">
+            <h2 className="text-2xl font-serif font-bold text-slate-100 mb-6 flex items-center gap-3">
+                <Zap className="text-lime-400" />
+                The Journey
+            </h2>
+            <div className="prose prose-invert prose-lg text-slate-400 leading-relaxed max-w-none">
+              <p className="mb-4">
+                Hi there! I am Pratham, a passionate software engineer with a wide range of interests and hobbies. In my free time, you can find me reading a good book, playing basketball, or working on a new coding project. 
+              </p>
+              <p>
+                 I am always looking for new challenges and opportunities to learn and grow. I also love teaching coding to beginners and helping them discover the joys of programming. My mission is to bridge the gap between complex AI systems and intuitive human experiences.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Skills Section */}
+            <div className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-md">
+              <h2 className="text-xl font-serif font-bold text-slate-100 mb-6 flex items-center gap-3">
+                  <Code className="text-pink-500" />
+                  Technical Arsena
+              </h2>
+              <div className="space-y-6">
+                <SkillCategory
+                  title="Languages"
+                  skills={["JavaScript", "TypeScript", "Python", "C++", "C#", "SQL"]}
+                />
+                <SkillCategory
+                  title="Frameworks"
+                  skills={["Next.js", "React", "Tailwind", "Node.js", "FastAPI"]}
+                />
+                 <SkillCategory
+                  title="Tools"
+                  skills={["Git", "Docker", "Firebase", "Linux", "Figma"]}
+                />
               </div>
             </div>
 
-            <div className="animate-in slide-in-from-right duration-700 delay-400">
-              <div className="bg-white rounded-xl shadow-lg p-8 border-2 border-[#e0d9c5] hover:shadow-xl transition-shadow duration-300">
-                <h2 className="text-2xl font-bold mb-4 text-[#1a6e73] font-display">Skills & Interests</h2>
+            {/* Interest Section */}
+            <div className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-md flex flex-col justify-between">
+              <div>
+                <h2 className="text-xl font-serif font-bold text-slate-100 mb-6 flex items-center gap-3">
+                    <Heart className="text-red-500" />
+                    Passions
+                </h2>
                 <div className="space-y-4">
-                  <SkillCategory
-                    icon={<Code className="h-5 w-5" />}
-                    title="Programming Languages"
-                    skills={["JavaScript/TypeScript", "Python", "C", "C++", "Bash"]}
-                  />
-                  <SkillCategory
-                    icon={<Coffee className="h-5 w-5" />}
-                    title="Technologies & Frameworks"
-                    skills={["React/Next.js", "Tailwind CSS", "Firebase", ]}
-                  />
-                  <SkillCategory
-                    icon={<Gamepad2 className="h-5 w-5" />}
-                    title="Interests"
-                    skills={["AI/Machine Learning", "Web Development", "UI/UX Design"]}
-                  />
+                    <div className="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/5">
+                        <Coffee className="w-6 h-6 text-amber-500 mt-1" />
+                        <div>
+                            <h3 className="font-bold text-slate-200">Mentorship</h3>
+                            <p className="text-sm text-slate-500">Helping others debug their code & careers.</p>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              
+              <div className="mt-8 pt-8 border-t border-white/10">
+                <p className="text-xs text-slate-500 uppercase tracking-widest mb-2">Current Status</p>
+                <div className="flex items-center gap-2 text-lime-400 font-bold">
+                    <div className="w-2 h-2 rounded-full bg-lime-400 animate-pulse" />
+                    Open to Opportunities
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="animate-in slide-in-from-bottom duration-700 delay-500">
-            <div className="bg-[#1a6e73] text-white rounded-xl p-8 text-center">
-              <h2 className="text-2xl font-bold mb-4 font-display">Fun Facts About Me</h2>
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="hover:scale-105 transition-transform duration-300">
-                  <BookHeart className="h-8 w-8 mx-auto mb-2" />
-                  <p className="font-body">I love teaching coding to beginners</p>
-                </div>
-                <div className="hover:scale-105 transition-transform duration-300">
-                  <Cake className="h-8 w-8 mx-auto mb-2" />
-                    <p className="font-body">Big foodie—dessert before the meal is my style!</p>
-                </div>
-                <div className="hover:scale-105 transition-transform duration-300">
-                  <Gamepad2 className="h-8 w-8 mx-auto mb-2" />
-                    <p className="font-body">I'm best at RPGs—other genres, not so much!</p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
   )
 }
 
-function SkillCategory({ icon, title, skills }: { icon: React.ReactNode; title: string; skills: string[] }) {
+function SkillCategory({ title, skills }: { title: string; skills: string[] }) {
   return (
-    <div className="group">
-      <div className="flex items-center mb-2 text-[#1a6e73] group-hover:text-[#c17f16] transition-colors duration-300">
-        {icon}
-        <h3 className="font-semibold ml-2 font-body">{title}</h3>
-      </div>
+    <div>
+      <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">{title}</h3>
       <div className="flex flex-wrap gap-2">
         {skills.map((skill, index) => (
           <span
             key={index}
-            className="bg-[#f5f3ee] text-[#5e4b56] px-3 py-1 rounded-full text-sm font-body hover:bg-[#e0d9c5] transition-colors duration-300"
+            className="px-2.5 py-1 text-[11px] rounded bg-white/5 text-slate-300 border border-white/5 hover:bg-white/10 hover:border-white/20 transition-colors cursor-default"
           >
             {skill}
           </span>
