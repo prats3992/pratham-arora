@@ -1,143 +1,257 @@
-"use client"
+import resumeData from "@/resume-data.json"
+import type { Metadata } from "next"
 
-import type React from "react"
-
-import Link from "next/link"
-import { ArrowLeft, Download, Mail, Github, Linkedin, Briefcase, GraduationCap } from "lucide-react"
+export const metadata: Metadata = {
+  title: "Resume",
+}
 
 export default function ResumePage() {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 pb-32 md:pb-20 pt-10 px-4 selection:bg-lime-400 selection:text-slate-900">
-      <div className="container mx-auto max-w-5xl">
-         {/* Navigation & Header */}
-        <div className="flex flex-col md:flex-row justify-between items-center mb-12">
-            <Link
-                href="/"
-                className="hidden md:inline-flex items-center text-lime-400 hover:text-lime-300 transition-colors mb-4 md:mb-0 group text-sm font-bold uppercase tracking-wider"
-            >
-                <ArrowLeft className="h-4 w-4 mr-2 group-hover:-translate-x-1 transition-transform" />
-                Return to Grid
-            </Link>
-          <div className="flex flex-col gap-4 w-full md:w-auto">
-              <a
-                href="/temp_CV.pdf"
-                download="Pratham_Arora_CV.pdf"
-                className="flex items-center justify-center gap-2 bg-lime-400 text-slate-900 px-6 py-2.5 rounded-lg hover:bg-lime-300 transition-colors font-bold text-sm shadow-[0_0_20px_rgba(163,230,53,0.3)] hover:shadow-[0_0_30px_rgba(163,230,53,0.5)] w-full md:w-auto"
-              >
-                <Download className="h-4 w-4" />
-                Generic CV
-              </a>
-              <div className="flex gap-4 w-full md:w-auto">
-                 <a
-                    href="/sde.pdf"
-                    download="Pratham_Arora_SDE_Resume.pdf"
-                    className="flex-1 flex items-center justify-center gap-2 bg-slate-800 text-slate-200 border border-slate-700 px-4 py-2.5 rounded-lg hover:bg-slate-700 transition-colors font-bold text-sm hover:text-white"
-                  >
-                    <Download className="h-4 w-4" />
-                    SDE 
-                  </a>
-                  <a
-                    href="/aiml.pdf"
-                    download="Pratham_Arora_AIML_Resume.pdf"
-                    className="flex-1 flex items-center justify-center gap-2 bg-slate-800 text-slate-200 border border-slate-700 px-4 py-2.5 rounded-lg hover:bg-slate-700 transition-colors font-bold text-sm hover:text-white"
-                  >
-                    <Download className="h-4 w-4" />
-                    AI/ML
-                  </a>
-              </div>
+    <div className="max-w-3xl mx-auto space-y-16">
+      {/* Header */}
+      <section className="pt-8 md:pt-16">
+        <h1 className="font-heading font-bold text-[2rem] md:text-[2.5rem] tracking-tight text-[var(--text-primary)] mb-2">
+          Resume
+        </h1>
+        <p className="text-[var(--text-secondary)] mb-6">
+          {resumeData.education[0].degree} · {resumeData.education[0].institution}
+        </p>
+        <div className="flex flex-wrap gap-3">
+          <DownloadLink href="/temp_CV.pdf" label="Download CV" primary />
+          <DownloadLink href="/sde.pdf" label="SDE Resume" />
+          <DownloadLink href="/aiml.pdf" label="AI/ML Resume" />
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section>
+        <SectionHead>Contact</SectionHead>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
+          <ContactItem
+            label="Email"
+            value={resumeData.personalInfo.email}
+            href={`mailto:${resumeData.personalInfo.email}`}
+          />
+          <ContactItem
+            label="GitHub"
+            value="prats3992"
+            href={resumeData.personalInfo.github}
+            external
+          />
+          <ContactItem
+            label="LinkedIn"
+            value="pratham3992arora"
+            href={resumeData.personalInfo.linkedin}
+            external
+          />
+        </div>
+      </section>
+
+      {/* Education */}
+      <section>
+        <SectionHead>Education</SectionHead>
+        {resumeData.education.map((edu, i) => (
+          <div key={i} className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+            <div>
+              <h3 className="font-heading font-bold text-[var(--text-primary)]">
+                {edu.institution}
+              </h3>
+              <p className="text-sm text-[var(--text-secondary)]">{edu.degree}</p>
+            </div>
+            <div className="text-right">
+              <span className="font-mono text-sm font-medium text-[var(--accent)]">
+                CGPA: {edu.cgpa}
+              </span>
+              <p className="font-mono text-2xs text-[var(--text-tertiary)]">
+                {edu.startDate} – {edu.endDate}
+              </p>
+            </div>
           </div>
+        ))}
+      </section>
+
+      {/* Skills */}
+      <section>
+        <SectionHead>Skills</SectionHead>
+        <div className="space-y-4">
+          <SkillRow label="Languages" items={resumeData.skills.languages} />
+          <SkillRow label="AI / ML" items={resumeData.skills.aiMl} />
+          <SkillRow label="Web & Backend" items={resumeData.skills.webBackend} />
+          <SkillRow label="Cloud & Tools" items={resumeData.skills.cloudTools} />
         </div>
+      </section>
 
-        <div className="space-y-12">
-           {/* Header Info */}
-          <header className="text-center md:text-left border-b border-white/10 pb-12">
-            <h1 className="text-5xl md:text-7xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400 mb-4">
-                Pratham Arora
-            </h1>
-            <p className="text-xl text-slate-400 font-light mb-8">Computer Science & AI Student • Creative Technologist</p>
-            
-            <div className="flex flex-wrap justify-center md:justify-start gap-6 text-sm text-slate-400">
-              <a href="mailto:pratham3992@gmail.com" className="flex items-center gap-2 hover:text-white transition-colors">
-                <Mail className="h-4 w-4 text-lime-400" />
-                pratham3992@gmail.com
-              </a>
-              <a href="https://github.com/prats3992" target="_blank" className="flex items-center gap-2 hover:text-white transition-colors">
-                <Github className="h-4 w-4 text-lime-400" />
-                github.com/prats3992
-              </a>
-              <a href="https://linkedin.com/in/pratham3992arora" target="_blank" className="flex items-center gap-2 hover:text-white transition-colors">
-                <Linkedin className="h-4 w-4 text-lime-400" />
-                linkedin.com/in/pratham3992arora
-              </a>
-            </div>
-          </header>
+      {/* Research Experience */}
+      <section>
+        <SectionHead>Research Experience</SectionHead>
+        {resumeData.researchExperience.map((exp, i) => (
+          <ExperienceBlock
+            key={i}
+            title={exp.title}
+            subtitle={`${exp.supervisor} · ${exp.organization}`}
+            date={`${exp.startDate} – ${exp.endDate}`}
+            achievements={exp.achievements}
+          />
+        ))}
+      </section>
 
-           {/* Experience Section */}
-           <section>
-            <h2 className="text-2xl font-serif font-bold text-white mb-8 flex items-center gap-3">
-                <Briefcase className="text-pink-500" />
-                Experience
-            </h2>
-            <div className="space-y-8">
-                {/* Experience Item 1 */}
-                <div className="group relative pl-8 border-l border-white/10 ml-3">
-                    <div className="absolute -left-[5px] top-0 w-2.5 h-2.5 rounded-full bg-slate-800 border border-slate-600 group-hover:bg-lime-400 group-hover:border-lime-400 transition-colors" />
-                    <div className="flex flex-col md:flex-row md:items-center justify-between mb-2">
-                        <h3 className="text-xl font-bold text-slate-200">AI Intern</h3>
-                        <span className="text-xs font-mono text-slate-500 bg-white/5 px-2 py-1 rounded">June 2025 - July 2025</span>
-                    </div>
-                    <div className="text-lime-400 font-medium mb-2">Cotality • Kolkata</div>
-                    <ul className="list-disc list-inside text-slate-400 space-y-2 text-sm leading-relaxed marker:text-slate-600">
-                        <li>Architected a scalable FastAPI backend to automate code documentation.</li>
-                        <li>Designed optimized NoSQL document schemas in Azure Cosmos DB.</li>
-                        <li>Designed RESTful API endpoints for generative AI systems.</li>
-                    </ul>
-                </div>
-
-                {/* Experience Item 2 */}
-                <div className="group relative pl-8 border-l border-white/10 ml-3">
-                    <div className="absolute -left-[5px] top-0 w-2.5 h-2.5 rounded-full bg-slate-800 border border-slate-600 group-hover:bg-lime-400 group-hover:border-lime-400 transition-colors" />
-                     <div className="flex flex-col md:flex-row md:items-center justify-between mb-2">
-                        <h3 className="text-xl font-bold text-slate-200">SDE Intern</h3>
-                        <span className="text-xs font-mono text-slate-500 bg-white/5 px-2 py-1 rounded">June 2024 - July 2024</span>
-                    </div>
-                    <div className="text-lime-400 font-medium mb-2">Orangewood Labs • Noida</div>
-                    <ul className="list-disc list-inside text-slate-400 space-y-2 text-sm leading-relaxed marker:text-slate-600">
-                        <li>Refactored monolithic RoboGPT codebase into modular architecture.</li>
-                        <li>Integrated Computer Vision stack with control loops for robotic arms.</li>
-                    </ul>
-                </div>
-            </div>
-           </section>
-
-           {/* Education Section */}
-           <section>
-            <h2 className="text-2xl font-serif font-bold text-white mb-8 flex items-center gap-3">
-                <GraduationCap className="text-cyan-400" />
-                Education
-            </h2>
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
-                    <div>
-                        <h3 className="text-lg font-bold text-slate-200">Plaksha University</h3>
-                        <p className="text-slate-400 text-sm">B.Tech in Computer Science & Artificial Intelligence</p>
-                    </div>
-                    <div className="text-right mt-2 md:mt-0">
-                        <span className="text-lime-400 font-bold block">CGPA: 8.20</span>
-                        <span className="text-xs text-slate-500 font-mono">2022 - 2026</span>
-                    </div>
-                </div>
-                <div className="flex flex-wrap gap-2 mt-4">
-                    {["Data Structures", "Machine Learning", "Database Systems", "Web Dev"].map((course) => (
-                        <span key={course} className="px-2 py-1 text-[10px] rounded bg-white/5 text-slate-400 border border-white/5">
-                            {course}
-                        </span>
-                    ))}
-                </div>
-            </div>
-           </section>
+      {/* Industry Experience */}
+      <section>
+        <SectionHead>Industry Experience</SectionHead>
+        <div className="space-y-8">
+          {resumeData.industryExperience.map((exp, i) => (
+            <ExperienceBlock
+              key={i}
+              title={exp.title}
+              subtitle={`${exp.company} · ${exp.location}`}
+              date={`${exp.startDate} – ${exp.endDate}`}
+              achievements={exp.achievements}
+            />
+          ))}
         </div>
+      </section>
+
+      {/* Leadership */}
+      <section>
+        <SectionHead>Leadership</SectionHead>
+        <div className="space-y-8">
+          {resumeData.leadership.map((item, i) => (
+            <ExperienceBlock
+              key={i}
+              title={item.title}
+              subtitle={item.organization}
+              date={`${item.startDate} – ${item.endDate}`}
+              achievements={item.achievements}
+            />
+          ))}
+        </div>
+      </section>
+    </div>
+  )
+}
+
+/* ─── Sub-components ─── */
+
+function SectionHead({ children }: { children: React.ReactNode }) {
+  return (
+    <h2 className="font-mono text-xs font-medium tracking-[0.08em] uppercase text-[var(--text-tertiary)] mb-6 pb-2 border-b border-[var(--border)]">
+      {children}
+    </h2>
+  )
+}
+
+function DownloadLink({
+  href,
+  label,
+  primary,
+}: {
+  href: string
+  label: string
+  primary?: boolean
+}) {
+  return (
+    <a
+      href={href}
+      download
+      className={`inline-flex items-center gap-2 px-4 py-2 rounded text-sm font-medium transition-colors duration-150 ${
+        primary
+          ? "bg-[var(--accent)] text-[var(--bg-primary)] hover:opacity-90"
+          : "border border-[var(--border)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-tertiary)]"
+      }`}
+    >
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+        <polyline points="7 10 12 15 17 10" />
+        <line x1="12" y1="15" x2="12" y2="3" />
+      </svg>
+      {label}
+    </a>
+  )
+}
+
+function ContactItem({
+  label,
+  value,
+  href,
+  external,
+}: {
+  label: string
+  value: string
+  href: string
+  external?: boolean
+}) {
+  return (
+    <div>
+      <p className="text-2xs text-[var(--text-tertiary)] uppercase tracking-wider mb-1">
+        {label}
+      </p>
+      <a
+        href={href}
+        target={external ? "_blank" : undefined}
+        rel={external ? "noopener noreferrer" : undefined}
+        className="text-sm text-[var(--text-primary)] hover:text-[var(--accent)] transition-colors duration-150"
+      >
+        {value}
+        {external && <span className="ml-0.5 text-2xs">&#8599;</span>}
+      </a>
+    </div>
+  )
+}
+
+function SkillRow({ label, items }: { label: string; items: string[] }) {
+  return (
+    <div className="flex flex-col sm:flex-row sm:items-start gap-2">
+      <span className="text-2xs font-medium text-[var(--text-tertiary)] uppercase tracking-wider w-28 shrink-0 pt-1">
+        {label}
+      </span>
+      <div className="flex flex-wrap gap-1.5">
+        {items.map((skill) => (
+          <span
+            key={skill}
+            className="px-2 py-0.5 text-2xs font-mono text-[var(--text-secondary)] bg-[var(--bg-elevated)] border border-[var(--border)] rounded"
+          >
+            {skill}
+          </span>
+        ))}
       </div>
+    </div>
+  )
+}
+
+function ExperienceBlock({
+  title,
+  subtitle,
+  date,
+  achievements,
+}: {
+  title: string
+  subtitle: string
+  date: string
+  achievements: string[]
+}) {
+  return (
+    <div>
+      <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
+        <div>
+          <h3 className="font-heading font-bold text-[var(--text-primary)]">
+            {title}
+          </h3>
+          <p className="text-sm text-[var(--text-secondary)]">{subtitle}</p>
+        </div>
+        <span className="font-mono text-2xs text-[var(--text-tertiary)] shrink-0">
+          {date}
+        </span>
+      </div>
+      <ul className="space-y-1.5">
+        {achievements.map((a, j) => (
+          <li
+            key={j}
+            className="text-sm text-[var(--text-secondary)] leading-relaxed pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[0.55em] before:w-1.5 before:h-px before:bg-[var(--text-tertiary)]"
+          >
+            {a}
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }

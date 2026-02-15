@@ -1,74 +1,43 @@
 import type { Config } from "tailwindcss"
 
 const config: Config = {
-  darkMode: ["class"],
   content: [
-    "./pages/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
-    "*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{ts,tsx}",
   ],
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
     extend: {
       fontFamily: {
-        serif: ["var(--font-calistoga)", "serif"],
-        sans: ["var(--font-urbanist)", "sans-serif"],
+        sans: ["var(--font-ibm-plex-sans)", "system-ui", "sans-serif"],
+        heading: ["var(--font-space-grotesk)", "system-ui", "sans-serif"],
+        mono: ["var(--font-ibm-plex-mono)", "ui-monospace", "monospace"],
       },
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "#a3e635", // Electric Lime
-          foreground: "#0f172a",
+        surface: {
+          primary: "var(--bg-primary)",
+          elevated: "var(--bg-elevated)",
+          hover: "var(--bg-hover)",
         },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(0 100% 50%)",
-          foreground: "hsl(210 40% 98%)",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+        border: "var(--border)",
+        content: {
+          primary: "var(--text-primary)",
+          secondary: "var(--text-secondary)",
+          tertiary: "var(--text-tertiary)",
         },
         accent: {
-          DEFAULT: "#ec4899", // Hot Pink
-          foreground: "#ffffff",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+          DEFAULT: "var(--accent)",
+          muted: "var(--accent-muted)",
         },
       },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+      maxWidth: {
+        content: "70rem",
       },
-      fontFamily: {
-        body: ["var(--font-nunito)", "sans-serif"],
-        display: ["var(--font-playfair)", "serif"],
+      fontSize: {
+        "2xs": ["0.6875rem", { lineHeight: "1rem" }],
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
+  plugins: [],
 }
 
 export default config

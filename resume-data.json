@@ -1,10 +1,9 @@
 {
   "personalInfo": {
     "name": "Pratham Arora",
-    "title": "Computer Science Student",
+    "title": "Computer Science & AI",
     "email": "pratham3992@gmail.com",
-    "phone": "+91 98108 55594",
-    "location": "Plaksha University, Punjab",
+    "location": "Plaksha University, Mohali",
     "github": "https://github.com/prats3992",
     "linkedin": "https://www.linkedin.com/in/pratham3992arora",
     "website": "https://pratham-arora.vercel.app/"
@@ -12,46 +11,55 @@
   "education": [
     {
       "institution": "Plaksha University",
-      "degree": "B.Tech. Computer Science & Artificial Intelligence",
-      "cgpa": "8.20",
-      "startDate": "August 2022",
-      "endDate": "August 2026",
-      "relevantCoursework": [
-        "Data Structures & Algorithms",
-        "Database Systems", 
-        "Software Engineering",
-        "Machine Learning",
-        "Web Development"
-      ]
-    },
-    {
-      "institution": "Delhi Public School Ghaziabad Vasundhara",
-      "degree": "PCM with CS | CBSE",
-      "percentage": "89.2",
-      "startDate": "July 2020",
-      "endDate": "July 2022"
-    },
-    {
-      "institution": "Delhi Public School Ghaziabad Vasundhara", 
-      "degree": "Class 10 | CBSE",
-      "percentage": "98.0",
-      "startDate": "July 2018",
-      "endDate": "July 2020"
+      "location": "Mohali, India",
+      "degree": "B.Tech. in Computer Science & AI",
+      "cgpa": "8.19",
+      "startDate": "Aug. 2022",
+      "endDate": "Expected Aug. 2026"
     }
   ],
-  "experience": [
+  "skills": {
+    "languages": ["Python", "C++", "SQL", "JavaScript", "TypeScript", "C#", "HTML/CSS", "MATLAB", "Bash"],
+    "aiMl": ["PyTorch", "TensorFlow", "Scikit-learn", "LangChain", "OpenCV", "Segment Anything (SAM)", "GANs"],
+    "webBackend": ["FastAPI", "Node.js", "Next.js (SSR/CSR)", "REST APIs", "GraphQL", "Tailwind CSS"],
+    "cloudTools": ["Azure (Cosmos DB, OpenAI)", "Git/GitHub", "Linux", "Firebase", "RAG Pipelines", "Vercel"]
+  },
+  "researchExperience": [
+    {
+      "title": "Undergraduate Researcher",
+      "supervisor": "Supervised by Prof. Sandeep Manjanna",
+      "organization": "Plaksha University",
+      "startDate": "June 2023",
+      "endDate": "Aug. 2023",
+      "achievements": [
+        "Developed preprocessing pipeline to optimize Segment Anything Model (SAM) for agricultural crop-weed segmentation, improving mean IoU from 0.67 to 0.75 (12% improvement) on sparse datasets (N=500 images).",
+        "Engineered custom image enhancement techniques including contrast adjustment, noise reduction, and edge detection to maximize SAM's zero-shot segmentation performance on novel agricultural imagery.",
+        "Reduced computer vision pipeline runtime from 8.5 hours to 5.1 hours (40% speedup) by implementing vectorized NumPy operations and multiprocessing for batch processing 10,000+ image datasets."
+      ],
+      "metrics": {
+        "iouImprovement": "+12%",
+        "pipelineSpeedup": "40%",
+        "datasetSize": "10,000+ images"
+      }
+    }
+  ],
+  "industryExperience": [
     {
       "title": "AI Intern",
       "company": "Cotality",
       "location": "Kolkata",
       "startDate": "June 2025",
       "endDate": "July 2025",
-      "role": ["AIML", "SDE"],
       "achievements": [
-        "Architected a scalable FastAPI backend to automate code documentation, handling Abstract Syntax Tree (AST) analysis across 15+ languages.",
-        "Designed optimized NoSQL document schemas in Azure Cosmos DB, selecting appropriate partition keys to balance read/write throughput and reduce Request Unit (RU) consumption.",
-        "Designed RESTful API endpoints for the generative AI system, ensuring low-latency data retrieval for the frontend."
-      ]
+        "Collaborated with one other intern to build FastAPI backend processing 50,000+ lines of code daily across 15+ programming languages using Abstract Syntax Tree (AST) analysis, reducing engineering team's documentation time by an estimated 60%.",
+        "Implemented hash-based change detection system for vector database updates, chunking codebases function-by-function and tracking content hashes to skip unchanged functions -- reducing embedding generation costs by 85% by avoiding redundant processing.",
+        "Developed 12 RESTful API endpoints with p95 latency under 200ms, designing response schemas to enable real-time code documentation preview in web interface."
+      ],
+      "metrics": {
+        "codeProcessed": "50,000+ LOC/day",
+        "costReduction": "85%",
+        "p95Latency": "<200ms"
+      }
     },
     {
       "title": "Software Development Engineer Intern",
@@ -59,264 +67,171 @@
       "location": "Noida",
       "startDate": "June 2024",
       "endDate": "July 2024",
-      "role": ["SDE", "AIML"],
       "achievements": [
-        "Refactored the monolithic RoboGPT codebase into a modular architecture, reducing code dependency by 40% and improving maintainability for complex food preparation tasks.",
-        "Integrated a Computer Vision stack with the control loop, optimizing calibration routines to significantly reduce robotic arm pose detection errors."
-      ]
+        "Refactored 15,000-line monolithic RoboGPT codebase into modular architecture with 40% fewer inter-module dependencies, enabling parallel development across 3 teams and reducing average bug fix time from 2 days to 6 hours.",
+        "Integrated Computer Vision capabilities into robotic control loop, optimizing calibration routines and improving robotic arm positioning accuracy for complex food preparation tasks."
+      ],
+      "metrics": {
+        "codebaseSize": "15,000 LOC",
+        "dependencyReduction": "40%",
+        "bugFixTime": "2d to 6h"
+      }
+    }
+  ],
+  "projects": [
+    {
+      "id": "vr-llm-agent",
+      "title": "VR LLM Conversational Agent",
+      "description": "Engineered real-time VR conversational agent integrating Gemini 2.5 Flash with Google Cloud Speech-to-Text and Text-to-Speech, achieving average response latency of 1.8s through parallel API calls, caching, and audio preprocessing.",
+      "longDescription": [
+        "Engineered real-time VR conversational agent integrating Gemini 2.5 Flash with Google Cloud Speech-to-Text and Text-to-Speech, achieving average response latency of 1.8s through parallel API calls, caching, and audio preprocessing.",
+        "Designed within-subjects experimental study (N=18) to evaluate three latency feedback mechanisms (embodied gestures, visual indicators, verbal fillers) on user perception using Godspeed questionnaire and custom metrics.",
+        "Demonstrated through statistical analysis (Wilcoxon signed-rank test, p<0.05) that embodied gestures significantly improved perceived animacy and immersion compared to explicit loading indicators.",
+        "Co-authored research paper (in preparation for submission to Presence/India HCI/TOCHI) analyzing component-level latency feedback mechanisms in embodied AI agents, presented findings at university research symposium to 50+ attendees."
+      ],
+      "tags": ["Unity", "C#", "Gemini 2.5 Flash", "Google Cloud STT/TTS"],
+      "status": "Completed",
+      "date": "2025-08-01",
+      "githubUrl": "https://github.com/prats3992",
+      "liveUrl": "",
+      "featured": true,
+      "category": "AI/ML",
+      "metrics": {
+        "responseLatency": "1.8s avg",
+        "sampleSize": "N=18",
+        "significance": "p<0.05"
+      }
     },
     {
-      "title": "Freelance Web Developer",
-      "company": "Client Project",
-      "location": "Remote",
-      "startDate": "May 2025",
-      "endDate": "June 2025",
-      "role": ["SDE"],
-      "achievements": [
-        "Engineered a digital footprint on the Vercel free tier, implementing SEO best practices and reducing hosting costs to zero.",
-        "Architected a modular Firebase CMS, empowering non-technical stakeholders to manage dynamic content without code intervention."
-      ]
+      "id": "reddit-data-pipeline",
+      "title": "Reddit Data Ingestion Pipeline",
+      "description": "Built automated data pipeline using PRAW to scrape 22,000+ interactions from 19 pregnancy-related subreddits, implementing concurrent scraping with rate limiting and error recovery for 99.5% data completeness.",
+      "longDescription": [
+        "Built automated data pipeline using PRAW to scrape 22,000+ interactions from 19 pregnancy-related subreddits, implementing concurrent scraping with rate limiting and error recovery for 99.5% data completeness.",
+        "Designed Firebase NoSQL schema with real-time deduplication logic using comment IDs and timestamps as composite keys, preventing duplicates across 5 parallel scraper instances.",
+        "Discovered 19.4% sentiment shift ('Buffer Effect') in pre-eclampsia discussions using VADER sentiment analysis and LDA topic modeling, identified 35.8x volume increase post-pandemic indicating growing health anxiety in online communities."
+      ],
+      "tags": ["Python", "PRAW", "VADER", "LDA", "Firebase"],
+      "status": "Completed",
+      "date": "2025-08-01",
+      "githubUrl": "https://github.com/prats3992",
+      "liveUrl": "",
+      "featured": true,
+      "category": "AI/ML",
+      "metrics": {
+        "dataPoints": "22,000+",
+        "completeness": "99.5%",
+        "sentimentShift": "19.4%"
+      }
     },
     {
-      "title": "Freelance Tutor",
-      "company": "Python Programming", 
-      "location": "Remote",
-      "startDate": "June 2023",
-      "endDate": "May 2024",
-      "role": ["SDE", "AIML"],
-      "achievements": [
-        "Delivered personalized Python instruction to students, designing interactive lesson plans that enhanced engagement and comprehension of fundamental concepts."
-      ]
+      "id": "resume-builder",
+      "title": "Resume Builder & Interview GPT",
+      "description": "Built full-stack AI resume builder serving 500+ users with real-time PDF preview, generating ATS-optimized resumes and achieving 4.2/5 average rating from 80+ user submissions.",
+      "longDescription": [
+        "Built full-stack AI resume builder serving 500+ users with real-time PDF preview, generating ATS-optimized resumes and achieving 4.2/5 average rating from 80+ user submissions.",
+        "Integrated Gemini 2.5 Flash API to power 'Interview GPT' feature generating 1,000+ personalized DSA questions with detailed solutions, reducing average user preparation time by 40% based on feedback surveys.",
+        "Implemented Firebase Authentication with Google OAuth supporting 200+ active users, designed responsive UI with Tailwind CSS for mobile and desktop experiences."
+      ],
+      "tags": ["Next.js", "Tailwind", "Firebase", "Gemini API"],
+      "status": "Completed",
+      "date": "2025-01-01",
+      "githubUrl": "https://github.com/prats3992",
+      "liveUrl": "",
+      "featured": true,
+      "category": "Full Stack",
+      "metrics": {
+        "users": "500+",
+        "rating": "4.2/5",
+        "questionsGenerated": "1,000+"
+      }
     },
     {
-      "title": "Undergraduate Researcher",
-      "company": "Plaksha University",
-      "location": "Punjab, India",
-      "startDate": "June 2023",
-      "endDate": "Aug. 2023",
-      "role": ["AIML"],
-      "achievements": [
-        "Developed computer vision pipelines for semantic segmentation of agricultural imagery to differentiate crops from weeds.",
-        "Fine-tuned the Segment Anything Model (SAM) for the novel domain of crop imaging, improving segmentation Mean IoU (mIoU) by ~12% on sparse datasets.",
-        "Optimized image processing algorithms in Python, reducing data pipeline runtime by 40% for large-scale datasets."
-      ]
+      "id": "ui-wireframe-generator",
+      "title": "UI Wireframe Generator",
+      "description": "Explored generative approaches for UI wireframe synthesis from text prompts using RICO dataset (72,000+ UI screens), experimenting with Cross-Attention GAN (CAGAN) modified from SAGAN architecture.",
+      "longDescription": [
+        "Explored generative approaches for UI wireframe synthesis from text prompts using RICO dataset (72,000+ UI screens), experimenting with Cross-Attention GAN (CAGAN) modified from SAGAN architecture.",
+        "Fine-tuned LLaMA-7B model on custom text-UI pairs to translate natural language requirements into structured JSON layouts, ultimately achieving best results with LLM-based approach over diffusion models due to GPU constraints.",
+        "Benchmarked multiple generative architectures (DDPM, Stable Diffusion, StyleGAN, SAGAN, CAGAN, LLaMA) documenting tradeoffs in quality, training stability, and compute requirements for UI generation tasks."
+      ],
+      "tags": ["Python", "PyTorch", "Meta LLaMA", "Computer Vision"],
+      "status": "Completed",
+      "date": "2024-08-01",
+      "githubUrl": "https://github.com/prats3992",
+      "liveUrl": "",
+      "featured": true,
+      "category": "AI/ML",
+      "metrics": {
+        "datasetSize": "72,000+ screens",
+        "modelsCompared": "6",
+        "approach": "CAGAN to LLaMA"
+      }
+    },
+    {
+      "id": "kelp-segmentation",
+      "title": "Kelp Forest Segmentation",
+      "description": "Achieved Top 100 ranking (83rd percentile) in Kaggle satellite imagery competition using U-Net with EfficientNet-B3 backbone for semantic segmentation of kelp forests in noisy satellite imagery.",
+      "longDescription": [
+        "Achieved Top 100 ranking (83rd percentile) in Kaggle satellite imagery competition using U-Net with EfficientNet-B3 backbone for semantic segmentation of kelp forests in noisy satellite imagery.",
+        "Engineered preprocessing pipeline using custom CNN filters to detect and remove streaky atmospheric artifacts from satellite images, improving model training stability and final segmentation quality."
+      ],
+      "tags": ["Python", "PyTorch", "U-Net", "Satellite Imagery"],
+      "status": "Completed",
+      "date": "2024-01-01",
+      "githubUrl": "https://github.com/prats3992",
+      "liveUrl": "",
+      "featured": false,
+      "category": "AI/ML",
+      "metrics": {
+        "ranking": "Top 100 / 600+",
+        "percentile": "83rd",
+        "backbone": "EfficientNet-B3"
+      }
+    },
+    {
+      "id": "c-vrp-time-window",
+      "title": "C-VRP with Time Window Constraints",
+      "description": "Implemented optimization solution for Capacitated Vehicle Routing Problem (VRP) with time window constraints using Google OR-Tools, generating efficient routing solutions for multi-stop delivery scenarios.",
+      "longDescription": [
+        "Implemented optimization solution for Capacitated Vehicle Routing Problem (VRP) with time window constraints using Google OR-Tools, generating efficient routing solutions for multi-stop delivery scenarios.",
+        "Integrated real-world transit data via Google Distance Matrix API to generate practical routing solutions, developed interactive visualizations using Google Maps API for route analysis and planning."
+      ],
+      "tags": ["Python", "Google OR-Tools", "Google Maps API"],
+      "status": "Completed",
+      "date": "2023-09-01",
+      "githubUrl": "https://github.com/prats3992",
+      "liveUrl": "",
+      "featured": false,
+      "category": "Systems",
+      "metrics": {
+        "tool": "Google OR-Tools",
+        "dataSource": "Distance Matrix API"
+      }
     }
   ],
   "leadership": [
     {
       "title": "Head of Tech",
       "organization": "Athleda (Plaksha Sports Society)",
+      "location": "Plaksha University",
       "startDate": "April 2025",
       "endDate": "Present",
       "achievements": [
-        "Overseeing the end-to-end development lifecycle of the main society website, managing project architecture and team workflow."
+        "Lead 4-person dev team building sports platform serving 500+ students with event registration, live scoring, and photo galleries -- established CI/CD pipeline reducing deployment time from 45 minutes to 8 minutes.",
+        "Conduct weekly code reviews and architectural planning sessions, mentored 2 junior developers in React best practices and Git workflows resulting in 60% reduction in production bugs."
       ]
     },
     {
       "title": "Head of Web Development",
       "organization": "LEAP.AI@Plaksha",
+      "location": "Plaksha University",
       "startDate": "Feb. 2024",
       "endDate": "Feb. 2025",
       "achievements": [
-        "Led the web development team, spearheading the design and maintenance of the AI club's official website.",
-        "Mentored junior developers in web development best practices using Next.js and Vercel, fostering team growth."
+        "Managed 6-person web team building AI club website attracting 800+ monthly users for events, workshops, and project showcases -- coordinated 3 major redesigns based on user feedback.",
+        "Mentored 6 junior developers in modern web stack (Next.js, TypeScript, Vercel), established team Git workflow reducing merge conflicts by 70% and onboarded new members with custom training curriculum."
       ]
-    },
-    {
-      "title": "Tech Team Member",
-      "organization": "E-Cell@Plaksha",
-      "startDate": "April 2024",
-      "endDate": "Sept. 2024",
-      "achievements": [
-        "Developed and maintained the entrepreneurship cell's website and multiple event-specific pages, including a club merchandise store."
-      ]
-    },
-    {
-      "title": "Head of Procurement",
-      "organization": "Plaksha Baking Club",
-      "startDate": "Jan. 2024",
-      "endDate": "Dec. 2024",
-      "achievements": [
-        "Managed the end-to-end procurement process, executing market research and vendor negotiations to optimize the budget."
-      ]
-    }
-  ],
-  "skills": {
-    "programmingLanguages": [
-      "Python",
-      "C++", 
-      "SQL",
-      "JavaScript",
-      "TypeScript",
-      "C#",
-      "HTML/CSS",
-      "MATLAB",
-      "Bash"
-    ],
-    "tools": [
-      "Docker",
-      "Git",
-      "Linux",
-      "Azure (Cosmos DB, OpenAI)",
-      "Firebase",
-      "RAG Pipelines"
-    ],
-    "frameworks": [
-      "FastAPI",
-      "Node.js",
-      "Next.js (SSR/CSR)",
-      "REST",
-      "GraphQL",
-      "Tailwind CSS"
-    ],
-    "ai_ml": [
-      "PyTorch",
-      "TensorFlow",
-      "Scikit-learn",
-      "LangChain",
-      "OpenCV",
-      "SAM",
-      "GANs"
-    ],
-    "hardware": [
-      "Arduino",
-      "Raspberry Pi",
-      "ESP32",
-      "Embedded Systems Integration"
-    ]
-  },
-  "projects": [
-    {
-      "id": "reddit-data-pipeline",
-      "title": "Reddit Data Ingestion Pipeline",
-      "description": "Engineered a robust data ingestion pipeline using PRAW to scrape 22,000+ interactions from 19 Reddit communities. Designed a NoSQL schema in Firebase with real-time deduplication logic to maintain dataset integrity across concurrent scrapes. Identified a 'Buffer Effect' (19.4% sentiment shift) and quantified a 35.8x post-pandemic volume increase in health communities.",
-      "tags": ["Python", "PRAW", "VADER", "LDA", "Firebase"],
-      "status": "Featured Quest",
-      "date": "2025-08-01",
-      "githubUrl": "https://github.com/prats3992",
-      "liveUrl": "",
-      "featured": true,
-      "role": ["AIML", "SDE"]
-    },
-    {
-      "id": "vr-llm-agent",
-      "title": "VR LLM Conversational Agent",
-      "description": "Integrated Gemini 2.5 Flash with Unity for a VR agent, implementing latency masking via procedural gesture generation. Developed a non-blocking asynchronous architecture in Unity (C#) to handle Gemini API calls without freezing the rendering thread, ensuring a smooth 90 FPS experience on the Quest 2. Conducted A/B testing (n=8) showing statistically significant improvements in agent animacy (p=0.021) using multimodal feedback.",
-      "tags": ["Unity", "C#", "Gemini 2.5 Flash", "Google Cloud STT/TTS"],
-      "status": "Featured Quest",
-      "date": "2025-08-01",
-      "githubUrl": "https://github.com/prats3992",
-      "liveUrl": "",
-      "featured": true,
-      "role": ["AIML", "SDE"]
-    },
-    {
-      "id": "resume-builder",
-      "title": "Resume Builder & Interview GPT",
-      "description": "Developed a production-ready full-stack application featuring an AI-powered resume generator with real-time PDF preview. Implemented persistent user sessions using Client-Side Storage (LocalStorage) and secured authentication flows to maintain state across browser reloads. Engineered an 'Interview GPT' module to provide users with DSA guidance and personalized interview skill coaching.",
-      "tags": ["Next.js", "Tailwind", "Firebase", "Gemini API"],
-      "status": "Featured Quest",
-      "date": "2025-01-01",
-      "githubUrl": "https://github.com/prats3992",
-      "liveUrl": "",
-      "featured": true,
-      "role": ["SDE", "AIML"]
-    },
-    {
-      "id": "ui-wireframe-generator",
-      "title": "UI Wireframe Generator",
-      "description": "Pioneered a novel approach by modifying a Self-Attention GAN (SAGAN) into a Cross-Attention GAN (CAGAN) to generate UI wireframes conditioned on textual prompts. Fine-tuned a LLaMA model on a custom dataset of segmented images and labeled JSON to translate natural language into structured UI data. Conducted a comparative analysis of generative models (DDPM, Stable Diffusion), evaluating their suitability for this specialized task.",
-      "tags": ["Python", "PyTorch", "Meta LLaMA", "Computer Vision"],
-      "status": "Major Quest",
-      "date": "2024-08-01",
-      "githubUrl": "https://github.com/prats3992",
-      "liveUrl": "",
-      "featured": true,
-      "role": ["AIML"]
-    },
-    {
-      "id": "kelp-segmentation",
-      "title": "Kelp Segmentation",
-      "description": "Designed a U-Net architecture for semantic segmentation of kelp forests in noisy satellite imagery, achieving a performance rank in the Top 100 out of 600+ competitors. Engineered a pre-processing pipeline using custom CNN filters to remove atmospheric noise and improve label quality.",
-      "tags": ["Python", "PyTorch", "U-Net", "Satellite Imagery"],
-      "status": "Major Quest",
-      "date": "2024-01-01",
-      "githubUrl": "https://github.com/prats3992",
-      "liveUrl": "",
-      "featured": false,
-      "role": ["AIML"]
-    },
-    {
-      "id": "c-vrp-time-window",
-      "title": "C-VRP with Time Window Constraints",
-      "description": "Implemented an optimization solution for the Capacitated Vehicle Routing Problem (VRP) with time window constraints using Google OR-Tools. Integrated real-world transit data via the Google Direction Matrix API to generate practical, efficient, and accurate routing solutions. Developed route visualizations using the Google Maps API for intuitive interpretation of results.",
-      "tags": ["Python", "Google OR Tools", "Google Maps API"],
-      "status": "Solo Quest",
-      "date": "2023-09-01",
-      "githubUrl": "https://github.com/prats3992",
-      "liveUrl": "",
-      "featured": false,
-      "role": ["AIML"]
-    },
-    {
-      "id": "c-compiler-platform",
-      "title": "C Compiler & Coding Teaching Platform",
-      "description": "Designed an interactive, Scratch-inspired platform to teach C programming concepts visually. Implemented real-time Abstract Syntax Tree (AST) visualization to help students understand code execution flow. Built a custom C compiler backend to execute user code securely in a sandboxed environment.",
-      "tags": ["Next.js", "TypeScript", "AST Visualization"],
-      "status": "Solo Quest",
-      "date": "2023-05-01",
-      "githubUrl": "https://github.com/prats3992",
-      "liveUrl": "",
-      "featured": false,
-      "role": ["SDE"]
-    },
-    {
-      "id": "basketball-scoreboard",
-      "title": "Basketball Scoreboard & Data Tracker",
-      "description": "Architected a real-time basketball scoreboard with a focus on sub-100ms latency for live-game scorekeeping. Iteratively refined the UI based on 6 months of stress testing during university tournaments. Implemented a robust data tracking system to record player statistics and generate post-game reports.",
-      "tags": ["Next.js", "TypeScript", "Firebase"],
-      "status": "Solo Quest",
-      "date": "2023-02-01",
-      "githubUrl": "https://github.com/prats3992",
-      "liveUrl": "",
-      "featured": false,
-      "role": ["SDE"]
-    },
-    {
-      "id": "sports-fest-site",
-      "title": "Sports Fest Site",
-      "description": "Engineered a fully responsive and performant website for Eklavya '25, the university's annual sports fest, utilizing Framer Motion for fluid animations. Integrated a registration system handling 500+ participants and a real-time schedule display.",
-      "tags": ["Next.js", "TypeScript", "Framer Motion"],
-      "status": "Solo Quest",
-      "date": "2025-02-01",
-      "githubUrl": "https://github.com/prats3992",
-      "liveUrl": "",
-      "featured": false,
-      "role": ["SDE"]
-    },
-    {
-      "id": "linux-how-to",
-      "title": "Linux How-To & Bash CheatSheet",
-      "description": "Authored comprehensive technical documentation for essential Linux and Bash commands, designing a user-friendly interface with search and visualizations. Created interactive examples to demonstrate command usage and output.",
-      "tags": ["HTML/CSS", "JavaScript", "GitHub Pages"],
-      "status": "Solo Quest",
-      "date": "2022-12-01",
-      "githubUrl": "https://github.com/prats3992",
-      "liveUrl": "",
-      "featured": false,
-      "role": ["SDE"]
-    },
-    {
-      "id": "weighbridge",
-      "title": "Weighbridge",
-      "description": "Co-engineered an Arduino-based weighbridge system, integrating load cells and an LCD display to accurately measure vehicle weight. Developed the embedded C code to process sensor data and calibrate readings.",
-      "tags": ["Arduino Uno", "Hardware Integration", "Embedded Systems"],
-      "status": "Solo Quest",
-      "date": "2022-10-01",
-      "githubUrl": "https://github.com/prats3992",
-      "liveUrl": "",
-      "featured": false,
-      "role": ["SDE"]
     }
   ]
 }

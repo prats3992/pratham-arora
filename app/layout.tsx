@@ -1,40 +1,46 @@
 import type React from "react"
 import "./globals.css"
 import type { Metadata } from "next"
-import { ThemeProvider } from "@/components/theme-provider"
-import { Calistoga, Urbanist } from "next/font/google"
-import { MobileNav } from "@/components/mobile-nav"
+import { Space_Grotesk, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google"
+import { SiteNav } from "@/components/site-nav"
+import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
-const calistoga = Calistoga({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-calistoga",
+  weight: ["500", "700"],
+  variable: "--font-space-grotesk",
+  display: "swap",
 })
 
-const urbanist = Urbanist({
+const ibmPlexSans = IBM_Plex_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-urbanist",
+  weight: ["400", "500"],
+  variable: "--font-ibm-plex-sans",
+  display: "swap",
+})
+
+const ibmPlexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-ibm-plex-mono",
+  display: "swap",
 })
 
 export const metadata: Metadata = {
   title: {
-    default: "Pratham Arora | AI Engineer & Full Stack Developer",
-    template: "%s | Pratham Arora"
+    default: "Pratham Arora",
+    template: "%s — Pratham Arora",
   },
-  description: "Portfolio of Pratham Arora, a Computer Science student at Plaksha University specializing in AI, Machine Learning, and Full Stack Development. Building experiential web applications and intelligent systems.",
+  description:
+    "Computer Science & AI undergraduate at Plaksha University. Building intelligent systems and production software.",
   keywords: [
-    "Pratham Arora", 
-    "Portfolio", 
-    "Software Engineer", 
-    "AI Engineer", 
-    "Web Developer", 
-    "React", 
-    "Next.js", 
-    "Machine Learning", 
+    "Pratham Arora",
+    "Software Engineer",
+    "AI Engineer",
+    "Machine Learning",
     "Plaksha University",
-    "Frontend Developer",
-    "Full Stack Developer"
+    "Full Stack Developer",
   ],
   authors: [{ name: "Pratham Arora", url: "https://pratham-arora.vercel.app" }],
   creator: "Pratham Arora",
@@ -42,23 +48,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://pratham-arora.vercel.app/",
-    title: "Pratham Arora | AI Engineer & Full Stack Developer",
-    description: "Kinetic digital experiences at the intersection of Design and Artificial Intelligence.",
-    siteName: "Pratham Arora Portfolio",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Pratham Arora Portfolio",
-      },
-    ],
+    title: "Pratham Arora",
+    description:
+      "Computer Science & AI undergraduate. Building intelligent systems and production software.",
+    siteName: "Pratham Arora",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pratham Arora | AI Engineer & Full Stack Developer",
-    description: "Kinetic digital experiences at the intersection of Design and Artificial Intelligence.",
-    images: ["/og-image.png"],
+    title: "Pratham Arora",
+    description:
+      "Computer Science & AI undergraduate. Building intelligent systems and production software.",
   },
   robots: {
     index: true,
@@ -71,9 +70,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  icons: {
-    icon: "/favicon.ico",
-  },
 }
 
 export default function RootLayout({
@@ -82,13 +78,17 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${calistoga.variable} ${urbanist.variable}`}>
-      <body className="font-sans antialiased bg-slate-950 text-slate-100 selection:bg-lime-400 selection:text-slate-900">
-        <div className="bg-noise" />
-        <ThemeProvider attribute="class" defaultTheme="dark" forceTheme="dark" disableTransitionOnChange>
+    <html
+      lang="en"
+      className={`${spaceGrotesk.variable} ${ibmPlexSans.variable} ${ibmPlexMono.variable}`}
+    >
+      <body className="font-sans antialiased">
+        <SiteNav />
+        <main className="max-w-content mx-auto px-6 md:px-12 pt-24 pb-20">
           {children}
-          <MobileNav />
-        </ThemeProvider>
+        </main>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )

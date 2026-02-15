@@ -1,83 +1,56 @@
-/* Loading fonts from Google Fonts using Next.js best practices */
-/* Fonts are now loaded in layout.tsx using next/font */
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: 44 38% 95%;
-  --foreground: 300 10% 32%;
-
-  --card: 0 0% 100%;
-  --card-foreground: 300 10% 32%;
-
-  --primary: 183 62% 28%;
-  --primary-foreground: 44 38% 95%;
-
-  --secondary: 38 78% 42%;
-  --secondary-foreground: 0 0% 100%;
-
-  --accent: 300 10% 32%;
-  --accent-foreground: 0 0% 100%;
-
-  --muted: 44 38% 95%;
-  --muted-foreground: 300 10% 32%;
-
-  --border: 44 30% 83%;
-  --input: 44 30% 83%;
-
-  --ring: 183 62% 28%;
-
-  --radius: 0.5rem;
+  --bg-primary: #0C0C0E;
+  --bg-elevated: #161618;
+  --bg-hover: #1E1E21;
+  --border: #2A2A2D;
+  --text-primary: #E8E8EC;
+  --text-secondary: #8B8B94;
+  --text-tertiary: #56565E;
+  --accent: #6EE7B7;
+  --accent-muted: rgba(110, 231, 183, 0.12);
+  --destructive: #F87171;
 }
 
-.dark {
-  --background: 300 10% 12%;
-  --foreground: 44 38% 95%;
+@layer base {
+  * {
+    @apply border-[var(--border)];
+  }
 
-  --card: 300 10% 18%;
-  --card-foreground: 44 38% 95%;
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-  --primary: 183 62% 38%;
-  --primary-foreground: 0 0% 100%;
+  ::selection {
+    background-color: var(--accent);
+    color: var(--bg-primary);
+  }
 
-  --secondary: 38 78% 42%;
-  --secondary-foreground: 0 0% 100%;
-
-  --accent: 44 30% 83%;
-  --accent-foreground: 300 10% 12%;
-
-  --muted: 300 10% 20%;
-  --muted-foreground: 44 30% 83%;
-
-  --border: 300 10% 25%;
-  --input: 300 10% 25%;
-
-  --ring: 183 62% 38%;
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--text-tertiary);
+  }
 }
 
-body {
-  @apply bg-background text-foreground;
-}
-
-.font-body {
-  font-family: "Nunito", sans-serif;
-}
-
-.font-display {
-  font-family: "Playfair Display", serif;
-}
-
-.bg-noise {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 50;
-  isolation: isolate;
-  opacity: 0.05;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
 }
