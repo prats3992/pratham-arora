@@ -17,7 +17,7 @@ export default function ResumePage() {
           {resumeData.education[0].degree} · {resumeData.education[0].institution}
         </p>
         <div className="flex flex-wrap gap-3">
-          <DownloadLink href="/temp_CV.pdf" label="Download CV" primary />
+          <DownloadLink href="/master_resume.pdf" label="Download CV" primary />
           <DownloadLink href="/sde.pdf" label="SDE Resume" />
           <DownloadLink href="/aiml.pdf" label="AI/ML Resume" />
         </div>
