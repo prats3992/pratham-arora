@@ -38,15 +38,33 @@ pnpm install
 pnpm dev
 ```
 
-## Seeding Firebase
+## Updating Firebase from resume-data.json
 
-Pushes all projects from `resume-data.json` into Firebase Realtime Database:
+This site uses a two-part data architecture:
+- **Static pages** (homepage, resume) read directly from `resume-data.json`
+- **Work page** reads project data from Firebase Realtime Database
+
+### When to Sync
+
+After updating `resume-data.json` with new projects or experience, you must sync the data to Firebase so the work page reflects the changes:
 
 ```bash
 pnpm seed
 ```
 
-Requires `NEXT_PUBLIC_FIREBASE_*` env vars in `.env.local` and write access to the database.
+This script clears the existing `projects` collection in Firebase and re-populates it with all project entries from `resume-data.json`.
+
+### Prerequisites
+
+- Ensure `NEXT_PUBLIC_FIREBASE_*` environment variables are set in `.env.local`:
+  - `NEXT_PUBLIC_FIREBASE_API_KEY`
+  - `NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN`
+  - `NEXT_PUBLIC_FIREBASE_DATABASE_URL`
+  - `NEXT_PUBLIC_FIREBASE_PROJECT_ID`
+  - `NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET`
+  - `NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID`
+  - `NEXT_PUBLIC_FIREBASE_APP_ID`
+- You must have write access to the Firebase Realtime Database
 
 ## Routes
 

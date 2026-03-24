@@ -13,18 +13,30 @@
       "institution": "Plaksha University",
       "location": "Mohali, India",
       "degree": "B.Tech. in Computer Science & AI",
-      "cgpa": "8.19",
+      "cgpa": "8.20",
       "startDate": "Aug. 2022",
       "endDate": "Expected Aug. 2026"
     }
   ],
   "skills": {
-    "languages": ["Python", "C++", "SQL", "JavaScript", "TypeScript", "C#", "HTML/CSS", "MATLAB", "Bash"],
-    "aiMl": ["PyTorch", "TensorFlow", "Scikit-learn", "LangChain", "OpenCV", "RAG Pipelines", "Segment Anything (SAM)"],
-    "webBackend": ["FastAPI", "Node.js", "Next.js (SSR/CSR)", "REST APIs", "GraphQL", "Tailwind CSS"],
-    "cloudTools": ["Azure (Cosmos DB, OpenAI)", "Git/GitHub", "Linux", "Firebase", "Vector Databases (FAISS, DiskANN)", "Vercel"]
+    "languages": ["Python", "SQL", "JavaScript", "TypeScript"],
+    "aiMl": ["PyTorch", "LangChain", "OpenCV", "RAG Pipelines", "Segment Anything (SAM)"],
+    "webBackend": ["FastAPI", "Node.js", "Next.js (SSR/CSR)", "REST APIs", "Tailwind CSS"],
+    "cloudTools": ["Azure (Cosmos DB, OpenAI)", "Firebase", "FAISS", "DiskANN", "Git/GitHub", "Vercel"]
   },
   "researchExperience": [
+    {
+      "title": "Undergraduate Researcher",
+      "supervisor": "Supervised by Prof. Pankaj Pansari",
+      "organization": "Plaksha University",
+      "startDate": "Jan. 2026",
+      "endDate": "Present",
+      "achievements": [
+        "Constructing a 500-image benchmark dataset with instrument-verified ground truth (weighing scale, calibrated beakers, digital inclinometer) across five physical estimation tasks to evaluate frontier VLMs on physical-world grounding under naturalistic conditions.",
+        "Preliminary evaluation of GPT-5.2 and Gemini 3 Pro (200 images): Gemini achieves 21.57% MAPE on angle estimation vs. 28.99% for GPT-5.2; both models score near chance (0.476) on structural stability, identifying it as an unsolved problem for current frontier models.",
+        "Designing human study platform to collect human performance baselines across all five tasks. Manuscript in preparation."
+      ]
+    },
     {
       "title": "Undergraduate Researcher",
       "supervisor": "Supervised by Prof. Sandeep Manjanna",
@@ -32,24 +44,23 @@
       "startDate": "June 2023",
       "endDate": "Aug. 2023",
       "achievements": [
-        "Developed preprocessing pipeline to optimize Segment Anything Model (SAM) for agricultural crop-weed segmentation on sparse datasets, improving segmentation quality on novel agricultural imagery through targeted data preprocessing.",
-        "Engineered custom image enhancement techniques including contrast adjustment, noise reduction, and edge detection to maximize SAM's zero-shot segmentation performance.",
-        "Improved batch processing throughput by implementing vectorized NumPy operations and multiprocessing for large-scale image datasets (10,000+ images)."
+        "Developed preprocessing pipeline (contrast adjustment, noise reduction, edge detection) to optimise Segment Anything Model (SAM) for agricultural crop-weed segmentation on sparse datasets, maximising zero-shot segmentation quality on out-of-distribution agricultural imagery.",
+        "Improved batch processing throughput for 10,000+ image datasets by implementing vectorized NumPy operations and Python multiprocessing."
       ]
     }
   ],
   "industryExperience": [
     {
-      "title": "AI Intern",
+      "title": "AI Engineering Intern",
       "company": "Cotality",
       "location": "Kolkata",
       "startDate": "June 2025",
       "endDate": "July 2025",
       "achievements": [
-        "Collaborated with one other intern to architect FastAPI backend parsing 50,000+ lines of code daily across 15+ programming languages via Abstract Syntax Tree (AST) analysis, enabling automated real-time documentation generation across polyglot codebases.",
-        "Designed hash-based change detection system using SHA-256 on AST nodes, chunking codebases function-by-function and skipping unchanged functions -- reducing AI embedding generation costs by 85% by eliminating redundant vector database updates.",
-        "Built RAG pipeline using LangChain, Azure OpenAI embeddings, and Cosmos DB with DiskANN vector search for semantic code retrieval, migrating from FAISS as repository scale grew.",
-        "Delivered 12 production RESTful API endpoints enabling real-time code documentation preview in the client-facing web interface."
+        "Architected FastAPI backend parsing 50,000+ lines of code daily across 15+ programming languages via Abstract Syntax Tree (AST) analysis, enabling automated real-time documentation generation across polyglot codebases.",
+        "Reduced AI embedding generation costs by 85% by designing a hash-based change detection system with SHA-256 on AST nodes, chunking codebases function-by-function and skipping unchanged functions to eliminate redundant vector database updates.",
+        "Built RAG pipeline using LangChain, Azure OpenAI embeddings, and Cosmos DB with DiskANN vector search for semantic code retrieval; migrated from FAISS as repository scale grew.",
+        "Designed and delivered 12 production RESTful API endpoints with typed Pydantic response schemas, powering real-time code documentation preview in the client-facing web interface."
       ]
     },
     {
@@ -59,8 +70,7 @@
       "startDate": "June 2024",
       "endDate": "July 2024",
       "achievements": [
-        "Built a modular LLM + robot control codebase for a food-preparation robotic arm, designing clean architectural boundaries that enabled parallel integration with a Computer Vision team working on real-time calibration.",
-        "Integrated Computer Vision capabilities into robotic control loop, optimizing calibration routines and improving robotic arm positioning accuracy for complex food preparation tasks."
+        "Designed modular LLM task-planning architecture for a food-preparation robotic arm, separating high-level intent logic from low-level robot actuation and establishing clean integration boundaries for parallel team workflows."
       ]
     }
   ],
@@ -87,6 +97,23 @@
         "sampleSize": "N=18",
         "significance": "p<0.05"
       }
+    },
+    {
+      "id": "anuj-desai-associates",
+      "title": "Anuj Desai Associates -- Company Website",
+      "description": "Designed and shipped a full-stack site for a CA firm with a careers page and a private admin dashboard where firm partners review and manage candidate applications, powered by Firebase Realtime Database.",
+      "longDescription": [
+        "Designed and shipped a full-stack site for a CA firm with a careers page and a private admin dashboard where firm partners review and manage candidate applications, powered by Firebase Realtime Database.",
+        "Implemented Google OAuth via Firebase Authentication with email-allowlist access control, restricting dashboard access to authorised partners while keeping the public application form accessible.",
+        "Structured the codebase for non-technical maintainability, with content editable directly via GitHub without touching component logic, eliminating the client's ongoing developer dependency."
+      ],
+      "tags": ["Next.js", "Firebase", "Google OAuth"],
+      "status": "Completed",
+      "date": "2025-01-01",
+      "githubUrl": "https://github.com/prats3992",
+      "liveUrl": "",
+      "featured": false,
+      "category": "Full Stack"
     },
     {
       "id": "resume-builder",
@@ -187,10 +214,9 @@
       "organization": "Athleda -- Plaksha Sports Society",
       "location": "Plaksha University",
       "startDate": "Apr. 2025",
-      "endDate": "Present",
+      "endDate": "Feb. 2026",
       "achievements": [
-        "Personally design and build a sports platform serving 500+ students alongside 2 junior developers -- shipping event registration, photo galleries, and a live-scoring sports fest site with real-time score updates.",
-        "Mentor junior developers through code reviews and pair programming, maintaining production quality across an actively growing platform."
+        "Built and maintained a sports platform serving 500+ students, shipping event registration, live-scoring, and photo galleries, while mentoring 2 junior developers through code reviews and production deployments."
       ]
     },
     {
@@ -201,7 +227,7 @@
       "startDate": "Feb. 2024",
       "endDate": "Feb. 2025",
       "achievements": [
-        "Contributed as a core developer on a team of 7--8 building the AI club website, then led the team through 2 full redesigns as Head, growing the platform to 800+ monthly users for events, workshops, and project showcases."
+        "Led a team of 7--8 through 2 full redesigns as Head, growing the AI club platform to 800+ monthly users for events, workshops, and project showcases."
       ]
     }
   ]

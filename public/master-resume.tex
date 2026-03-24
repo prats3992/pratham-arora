@@ -1,4 +1,4 @@
-\documentclass[a4paper,11pt]{article}
+\documentclass[a4paper,10pt]{article}
 
 \usepackage{latexsym}
 \usepackage[empty]{fullpage}
@@ -21,7 +21,7 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
-\geometry{left=0.45in, right=0.45in, top=0.42in, bottom=0.42in}
+\geometry{left=0.5in, right=0.5in, top=0.5in, bottom=0.5in}
 
 \definecolor{linkcolor}{rgb}{0.0, 0.2, 0.5}
 \hypersetup{colorlinks=true, urlcolor=linkcolor, linkcolor=linkcolor}
@@ -34,7 +34,7 @@
 \setlength{\footskip}{5pt}
 
 \titleformat{\section}{
-  \vspace{-6pt}\bfseries\raggedright\large
+  \vspace{-5pt}\bfseries\raggedright\large
 }{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
 
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
@@ -47,7 +47,7 @@
   \vspace{-2pt}\item
     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & \textit{\small #2} \\
-      \textit{\small#3} & \textit{\small #4} \\[0pt]
+      \textit{\small#3} & \textit{\small #4} \\[1pt]
     \end{tabular*}
 }
 \newcommand{\resumeExperienceHeading}[4]{
@@ -71,13 +71,13 @@
     \end{tabular*}\vspace{1pt}
 }
 
-\setlist[itemize]{itemsep=1pt, parsep=0pt, topsep=0pt, partopsep=0pt}
+\setlist[itemize]{itemsep=2pt, parsep=0pt, topsep=0pt, partopsep=0pt}
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
 \begin{document}
 
 \begin{center}
-  \textbf{\Huge Pratham Arora} \\ \vspace{5pt}
+  \textbf{\Huge Pratham Arora} \\ \vspace{6pt}
   \small
   +91-9810855594 $|$
   \href{mailto:pratham3992@gmail.com}{pratham3992@gmail.com} $|$
@@ -97,11 +97,31 @@
 \begin{itemize}[leftmargin=0.15in, label={}, itemsep=1pt]
   \small{\item{
     \textbf{Languages:} \enspace Python, SQL, JavaScript, TypeScript \\
+    \textbf{AI/ML:} \enspace PyTorch, LangChain, OpenCV, RAG Pipelines, Segment Anything (SAM) \\
     \textbf{Web \& Backend:} \enspace FastAPI, Node.js, Next.js (SSR/CSR), REST APIs, Tailwind CSS \\
-    \textbf{Cloud \& Tools:} \enspace Azure (Cosmos DB, OpenAI), Firebase, FAISS, DiskANN, Git/GitHub, Vercel \\
-    \textbf{AI/ML:} \enspace PyTorch, LangChain, RAG Pipelines
+    \textbf{Cloud \& Tools:} \enspace Azure (Cosmos DB, OpenAI), Firebase, FAISS, DiskANN, Git/GitHub, Vercel
   }}
 \end{itemize}
+
+\section{Research Experience}
+\resumeSubHeadingListStart
+
+  \resumeExperienceHeading
+    {Undergraduate Researcher}{Visual Benchmarking of VLMs $|$ Sup.\ Prof.\ Pankaj Pansari}{Plaksha University}{Jan.\ 2026 -- Present}
+    \resumeItemListStart
+      \resumeItem{Constructing a 500-image benchmark dataset with instrument-verified ground truth (weighing scale, calibrated beakers, digital inclinometer) across five physical estimation tasks (weight, liquid volume, angle, fit, structural stability) to evaluate frontier VLMs on physical-world grounding under naturalistic conditions.}
+      \resumeItem{Preliminary evaluation of GPT-5.2 and \textbf{Gemini 3 Pro} (200 images): Gemini achieves 21.57\% MAPE on angle estimation vs.\ 28.99\% for GPT-5.2; both models score near chance (0.476) on structural stability, identifying it as an unsolved problem for current frontier models.}
+      \resumeItem{Designing human study platform to collect human performance baselines across all five tasks. Manuscript in preparation.}
+    \resumeItemListEnd
+
+  \resumeExperienceHeading
+    {Undergraduate Researcher}{Supervised by Prof.\ Sandeep Manjanna}{Plaksha University}{June 2023 -- Aug.\ 2023}
+    \resumeItemListStart
+      \resumeItem{Developed preprocessing pipeline (contrast adjustment, noise reduction, edge detection) to optimise \textbf{Segment Anything Model (SAM)} for agricultural crop-weed segmentation on sparse datasets, maximising zero-shot segmentation quality on out-of-distribution agricultural imagery.}
+      \resumeItem{Improved batch processing throughput for 10,000+ image datasets by implementing vectorized NumPy operations and Python multiprocessing.}
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
 
 \section{Industry Experience}
 \resumeSubHeadingListStart
@@ -110,9 +130,9 @@
     {AI Engineering Intern}{Cotality (PropTech SaaS)}{Kolkata}{June 2025 -- July 2025}
     \resumeItemListStart
       \resumeItem{Architected \textbf{FastAPI} backend parsing 50,000+ lines of code daily across 15+ programming languages via Abstract Syntax Tree (AST) analysis, enabling automated real-time documentation generation across polyglot codebases.}
-      \resumeItem{Designed and delivered 12 production \textbf{RESTful API endpoints} with typed Pydantic response schemas, powering real-time code documentation preview consumed by the client-facing interface from day one of deployment.}
-      \resumeItem{Reduced AI embedding generation costs by \textbf{85\%} by designing a hash-based change detection system with \textbf{SHA-256 on AST nodes}, skipping unchanged functions to eliminate redundant vector database writes.}
-      \resumeItem{Built \textbf{RAG pipeline} using LangChain, Azure OpenAI embeddings, and Cosmos DB with DiskANN vector search; migrated from FAISS as retrieval latency requirements tightened with codebase growth.}
+      \resumeItem{Reduced AI embedding generation costs by \textbf{85\%} by designing a hash-based change detection system with \textbf{SHA-256 on AST nodes}, chunking codebases function-by-function and skipping unchanged functions to eliminate redundant vector database updates.}
+      \resumeItem{Built \textbf{RAG pipeline} using LangChain, Azure OpenAI embeddings, and Cosmos DB with DiskANN vector search for semantic code retrieval; migrated from FAISS as repository scale grew.}
+      \resumeItem{Designed and delivered 12 production \textbf{RESTful API endpoints} with typed Pydantic response schemas, powering real-time code documentation preview in the client-facing web interface.}
     \resumeItemListEnd
 
   \resumeExperienceHeading
@@ -130,7 +150,8 @@
     {\textbf{VR LLM Conversational Agent}}{Unity, Gemini API, Google Cloud STT/TTS}{Aug.\ 2025 -- Dec.\ 2025}
     \resumeItemListStart
       \resumeItem{Engineered a real-time VR conversational agent integrating \textbf{Gemini 2.5 Flash} with Google Cloud STT/TTS, achieving average response latency of 1.8s through parallel API calls, caching, and audio preprocessing.}
-      \resumeItem{Designed and ran a \textbf{within-subjects user study ($N=18$)} comparing three latency feedback mechanisms; \textbf{co-authored paper submitted to MIT's \textit{Presence} journal} (under review).}
+      \resumeItem{Designed \textbf{within-subjects experimental study ($N=18$)} evaluating three latency feedback mechanisms (embodied gestures, visual indicators, verbal fillers) on perceived animacy and immersion via Godspeed questionnaire.}
+      \resumeItem{Proved via \textbf{Wilcoxon signed-rank test ($p<0.05$)} that embodied gestures significantly outperform visual loading indicators; \textbf{co-authored paper submitted to MIT's \textit{Presence} journal} (under review).}
     \resumeItemListEnd
 
   \resumeProjectHeading
@@ -147,6 +168,13 @@
       \resumeItem{Built a full-stack AI tool with real-time PDF preview and ATS-optimised resume generation; integrated \textbf{Gemini 2.5 Flash} to generate personalised interview questions by cross-referencing user resumes with a DSA/STAR prep database, with \textbf{Firebase Authentication} and Google OAuth for user management.}
     \resumeItemListEnd
 
+  \resumeProjectHeading
+    {\textbf{Kelp Forest Semantic Segmentation}}{PyTorch, U-Net}{Jan.\ 2024 -- May 2024}
+    \resumeItemListStart
+      \resumeItem{Achieved \textbf{Top 100 ranking (83rd percentile)} in a DrivenData satellite imagery competition using \textbf{U-Net with EfficientNet-B3} backbone for kelp forest segmentation in noisy real-world imagery.}
+      \resumeItem{Built streak-detection pipeline using an ensemble of \textbf{CNN classifiers} (ResNet, DenseNet) with hard voting to filter atmospherically corrupted training images, achieving \textbf{F1 score of 0.952}.}
+    \resumeItemListEnd
+
 \resumeSubHeadingListEnd
 
 \section{Leadership \& Involvement}
@@ -161,7 +189,7 @@
   \resumeExperienceHeadingProgression
     {LEAP.AI @ Plaksha}{Web Developer}{Head of Web Development}{Plaksha University}{Feb.\ 2024 -- Feb.\ 2025}
     \resumeItemListStart
-      \resumeItem{Led a team of 7--8 through 2 full redesigns as Head, growing the AI club platform to \textbf{800+ monthly users}.}
+      \resumeItem{Contributed as a core developer on a team of 7--8, then led the team through \textbf{2 full redesigns} as Head, growing the AI club platform to \textbf{800+ monthly users} for events, workshops, and project showcases.}
     \resumeItemListEnd
 
 \resumeSubHeadingListEnd
