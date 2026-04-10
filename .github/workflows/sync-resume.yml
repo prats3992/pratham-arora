@@ -1,0 +1,44 @@
+name: Sync resume.tex → resume-data.json
+
+on:
+  push:
+    paths:
+      - "public/master-resume.tex"
+      - "public/sde.tex"
+      - "public/aiml.tex"
+  workflow_dispatch: # allow manual trigger from GitHub UI
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # needed to commit back to the repo
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          # Use a token so the commit can trigger Vercel's deploy webhook
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run sync script
+        run: python scripts/sync_resume.py --tex public/master-resume.tex --json resume-data.json
+
+      - name: Check if resume-data.json changed
+        id: diff
+        run: |
+          git diff --quiet resume-data.json && echo "changed=false" >> $GITHUB_OUTPUT || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push updated resume-data.json
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add resume-data.json
+          git commit -m "chore: sync resume-data.json from master-resume.tex [skip ci]"
+          git push

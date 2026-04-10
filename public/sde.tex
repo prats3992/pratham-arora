@@ -97,9 +97,8 @@
 \begin{itemize}[leftmargin=0.15in, label={}, itemsep=1pt]
   \small{\item{
     \textbf{Languages:} \enspace Python, SQL, JavaScript, TypeScript \\
-    \textbf{Web \& Backend:} \enspace FastAPI, Node.js, Next.js (SSR/CSR), REST APIs, Tailwind CSS \\
-    \textbf{Cloud \& Tools:} \enspace Azure (Cosmos DB, OpenAI), Firebase, FAISS, DiskANN, Git/GitHub, Vercel \\
-    \textbf{AI/ML:} \enspace PyTorch, LangChain, RAG Pipelines
+    \textbf{Web \& Backend:} \enspace FastAPI, Node.js, Next.js (SSR/CSR), REST APIs, Pydantic, Tailwind CSS \\
+    \textbf{Cloud \& Tools:} \enspace Azure (Cosmos DB, OpenAI), Firebase, Git/GitHub, Vercel
   }}
 \end{itemize}
 
@@ -109,16 +108,9 @@
   \resumeExperienceHeading
     {AI Engineering Intern}{Cotality (PropTech SaaS)}{Kolkata}{June 2025 -- July 2025}
     \resumeItemListStart
-      \resumeItem{Architected \textbf{FastAPI} backend parsing 50,000+ lines of code daily across 15+ programming languages via Abstract Syntax Tree (AST) analysis, enabling automated real-time documentation generation across polyglot codebases.}
-      \resumeItem{Designed and delivered 12 production \textbf{RESTful API endpoints} with typed Pydantic response schemas, powering real-time code documentation preview consumed by the client-facing interface from day one of deployment.}
+      \resumeItem{Architected \textbf{FastAPI} backend parsing \textbf{50,000+ LOC/day} across 15+ languages via Abstract Syntax Tree (AST) analysis, enabling automated real-time documentation generation across polyglot codebases.}
       \resumeItem{Reduced AI embedding generation costs by \textbf{85\%} by designing a hash-based change detection system with \textbf{SHA-256 on AST nodes}, skipping unchanged functions to eliminate redundant vector database writes.}
-      \resumeItem{Built \textbf{RAG pipeline} using LangChain, Azure OpenAI embeddings, and Cosmos DB with DiskANN vector search; migrated from FAISS as retrieval latency requirements tightened with codebase growth.}
-    \resumeItemListEnd
-
-  \resumeExperienceHeading
-    {Software Development Engineer Intern}{Orangewood Labs (Robotics)}{Noida}{June 2024 -- July 2024}
-    \resumeItemListStart
-      \resumeItem{Designed modular LLM task-planning architecture for a food-preparation robotic arm, separating high-level intent logic from low-level robot actuation and establishing clean integration boundaries for parallel team workflows.}
+      \resumeItem{Designed and delivered \textbf{12 production RESTful API endpoints} with typed Pydantic response schemas, powering real-time code documentation preview consumed by the client-facing interface from day one of deployment.}
     \resumeItemListEnd
 
 \resumeSubHeadingListEnd
@@ -129,8 +121,8 @@
   \resumeProjectHeading
     {\textbf{VR LLM Conversational Agent}}{Unity, Gemini API, Google Cloud STT/TTS}{Aug.\ 2025 -- Dec.\ 2025}
     \resumeItemListStart
-      \resumeItem{Engineered a real-time VR conversational agent integrating \textbf{Gemini 2.5 Flash} with Google Cloud STT/TTS, achieving average response latency of 1.8s through parallel API calls, caching, and audio preprocessing.}
-      \resumeItem{Designed and ran a \textbf{within-subjects user study ($N=18$)} comparing three latency feedback mechanisms; \textbf{co-authored paper submitted to MIT's \textit{Presence} journal} (under review).}
+      \resumeItem{Engineered a real-time VR conversational agent integrating \textbf{Gemini 2.5 Flash} with Google Cloud STT/TTS, achieving average response latency of \textbf{1.8s} through parallel API calls, caching, and audio preprocessing.}
+      \resumeItem{Designed within-subjects user study ($N=18$) evaluating three latency feedback mechanisms; findings (p < 0.05) directly informed the agent's final interaction design.}
     \resumeItemListEnd
 
   \resumeProjectHeading
@@ -138,13 +130,15 @@
     \resumeItemListStart
       \resumeItem{Designed and shipped a full-stack site for a CA firm with a careers page and a private admin dashboard where firm partners review and manage candidate applications, powered by \textbf{Firebase Realtime Database}.}
       \resumeItem{Implemented Google OAuth via \textbf{Firebase Authentication} with email-allowlist access control, restricting dashboard access to authorised partners while keeping the public application form accessible.}
-      \resumeItem{Structured the codebase for non-technical maintainability, with content editable directly via GitHub without touching component logic, eliminating the client's ongoing developer dependency.}
+      \resumeItem{Structured the codebase with a CMS-style content layer editable directly via GitHub, enabling the client to manage site content without developer involvement post-handoff.}
     \resumeItemListEnd
 
   \resumeProjectHeading
     {\textbf{AI Resume Builder \& Interview Prep Tool}}{Next.js, Tailwind, Firebase, Gemini API}{Jan.\ 2025 -- Apr.\ 2025}
     \resumeItemListStart
-      \resumeItem{Built a full-stack AI tool with real-time PDF preview and ATS-optimised resume generation; integrated \textbf{Gemini 2.5 Flash} to generate personalised interview questions by cross-referencing user resumes with a DSA/STAR prep database, with \textbf{Firebase Authentication} and Google OAuth for user management.}
+      \resumeItem{Built full-stack AI resume tool with real-time PDF preview and ATS-optimised generation using \textbf{Next.js} SSR and \textbf{Gemini 2.5 Flash} via streaming API.}
+      \resumeItem{Integrated Gemini to generate personalised interview questions by cross-referencing uploaded resumes against a structured \textbf{DSA/STAR prep database}, surfacing role-specific preparation gaps.}
+      \resumeItem{Implemented \textbf{Firebase Authentication} with Google OAuth for secure user management and session-based access control across the full application.}
     \resumeItemListEnd
 
 \resumeSubHeadingListEnd
@@ -161,7 +155,7 @@
   \resumeExperienceHeadingProgression
     {LEAP.AI @ Plaksha}{Web Developer}{Head of Web Development}{Plaksha University}{Feb.\ 2024 -- Feb.\ 2025}
     \resumeItemListStart
-      \resumeItem{Led a team of 7--8 through 2 full redesigns as Head, growing the AI club platform to \textbf{800+ monthly users}.}
+      \resumeItem{Led a team of 7--8 through \textbf{2 full platform redesigns} as Head of Web Development, growing the AI club site to \textbf{800+ monthly users} for events, workshops, and project showcases.}
     \resumeItemListEnd
 
 \resumeSubHeadingListEnd

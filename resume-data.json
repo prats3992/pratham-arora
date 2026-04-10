@@ -19,22 +19,48 @@
     }
   ],
   "skills": {
-    "languages": ["Python", "SQL", "JavaScript", "TypeScript"],
-    "aiMl": ["PyTorch", "LangChain", "OpenCV", "RAG Pipelines", "Segment Anything (SAM)"],
-    "webBackend": ["FastAPI", "Node.js", "Next.js (SSR/CSR)", "REST APIs", "Tailwind CSS"],
-    "cloudTools": ["Azure (Cosmos DB, OpenAI)", "Firebase", "FAISS", "DiskANN", "Git/GitHub", "Vercel"]
+    "languages": [
+      "Python",
+      "SQL",
+      "JavaScript",
+      "TypeScript"
+    ],
+    "aiMl": [
+      "PyTorch",
+      "LangChain",
+      "OpenCV",
+      "RAG Pipelines",
+      "Segment Anything (SAM)"
+    ],
+    "webBackend": [
+      "FastAPI",
+      "Node.js",
+      "Next.js (SSR/CSR)",
+      "REST APIs",
+      "Pydantic",
+      "Tailwind CSS"
+    ],
+    "cloudTools": [
+      "Azure (Cosmos DB",
+      "OpenAI)",
+      "Firebase",
+      "FAISS",
+      "DiskANN",
+      "Git/GitHub",
+      "Vercel"
+    ]
   },
   "researchExperience": [
     {
       "title": "Undergraduate Researcher",
-      "supervisor": "Supervised by Prof. Pankaj Pansari",
+      "supervisor": "Visual Benchmarking of VLMs | Sup. Prof. Pankaj Pansari",
       "organization": "Plaksha University",
       "startDate": "Jan. 2026",
       "endDate": "Present",
       "achievements": [
-        "Constructing a 500-image benchmark dataset with instrument-verified ground truth (weighing scale, calibrated beakers, digital inclinometer) across five physical estimation tasks to evaluate frontier VLMs on physical-world grounding under naturalistic conditions.",
-        "Preliminary evaluation of GPT-5.2 and Gemini 3 Pro (200 images): Gemini achieves 21.57% MAPE on angle estimation vs. 28.99% for GPT-5.2; both models score near chance (0.476) on structural stability, identifying it as an unsolved problem for current frontier models.",
-        "Designing human study platform to collect human performance baselines across all five tasks. Manuscript in preparation."
+        "Constructing a 500-image benchmark dataset across five physical estimation tasks (weight, volume, angle, fit, structural stability) with instrument-verified ground truth to evaluate frontier VLMs on physical-world grounding under naturalistic conditions.",
+        "Preliminary evaluation across 200 images: Gemini 3 Pro achieves 21.57% MAPE on angle estimation vs. 28.99% for GPT-5.2; both models score near chance (0.476) on structural stability, identifying an unsolved failure mode in current frontier models.",
+        "Designing human-baseline study platform to collect performance data across all five tasks; preparing first-author paper on physical-world grounding limitations in frontier VLMs."
       ]
     },
     {
@@ -52,43 +78,43 @@
   "industryExperience": [
     {
       "title": "AI Engineering Intern",
-      "company": "Cotality",
+      "company": "Cotality (PropTech SaaS)",
       "location": "Kolkata",
       "startDate": "June 2025",
       "endDate": "July 2025",
       "achievements": [
-        "Architected FastAPI backend parsing 50,000+ lines of code daily across 15+ programming languages via Abstract Syntax Tree (AST) analysis, enabling automated real-time documentation generation across polyglot codebases.",
+        "Architected FastAPI backend parsing 50,000+ LOC/day across 15+ languages via Abstract Syntax Tree (AST) analysis, enabling automated real-time documentation generation across polyglot codebases.",
         "Reduced AI embedding generation costs by 85% by designing a hash-based change detection system with SHA-256 on AST nodes, chunking codebases function-by-function and skipping unchanged functions to eliminate redundant vector database updates.",
-        "Built RAG pipeline using LangChain, Azure OpenAI embeddings, and Cosmos DB with DiskANN vector search for semantic code retrieval; migrated from FAISS as repository scale grew.",
+        "Built RAG pipeline using LangChain, Azure OpenAI embeddings, and Cosmos DB with DiskANN vector search for semantic code retrieval; migrated from FAISS as retrieval latency requirements tightened with repository growth.",
         "Designed and delivered 12 production RESTful API endpoints with typed Pydantic response schemas, powering real-time code documentation preview in the client-facing web interface."
-      ]
-    },
-    {
-      "title": "Software Development Engineer Intern",
-      "company": "Orangewood Labs",
-      "location": "Noida",
-      "startDate": "June 2024",
-      "endDate": "July 2024",
-      "achievements": [
-        "Designed modular LLM task-planning architecture for a food-preparation robotic arm, separating high-level intent logic from low-level robot actuation and establishing clean integration boundaries for parallel team workflows."
-      ]
+      ],
+      "metrics": {
+        "costReduction": "85%",
+        "linesPerDay": "50k+ LOC",
+        "languages": "15+ langs",
+        "endpoints": "12 APIs"
+      }
     }
   ],
   "projects": [
     {
       "id": "vr-llm-agent",
       "title": "VR LLM Conversational Agent",
-      "description": "Engineered real-time VR conversational agent integrating Gemini 2.5 Flash with Google Cloud Speech-to-Text and Text-to-Speech, achieving average response latency of 1.8s through parallel API calls, caching, and audio preprocessing.",
+      "description": "Most VR agents have 3–5 second response latency — long enough to break immersion. I built a conversational agent that hits 1.8s average by parallelizing Gemini 2.5 Flash calls with Google Cloud STT/TTS, caching partial results, and preprocessing audio before transmission.",
       "longDescription": [
-        "Engineered real-time VR conversational agent integrating Gemini 2.5 Flash with Google Cloud Speech-to-Text and Text-to-Speech, achieving average response latency of 1.8s through parallel API calls, caching, and audio preprocessing.",
-        "Designed within-subjects experimental study (N=18) to evaluate three latency feedback mechanisms (embodied gestures, visual indicators, verbal fillers) on user perception using Godspeed questionnaire and custom metrics.",
-        "Demonstrated through Wilcoxon signed-rank test (p<0.05) that embodied gestures significantly improved perceived animacy and immersion compared to explicit loading indicators.",
-        "Co-authored paper submitted to MIT's Presence journal (under review), analyzing latency feedback mechanisms in embodied AI agents."
+        "Engineered a real-time VR conversational agent integrating Gemini 2.5 Flash with Google Cloud STT/TTS, achieving average response latency of 1.8s through parallel API calls, caching, and audio preprocessing.",
+        "Designed within-subjects experimental study (N=18) evaluating three latency feedback mechanisms (embodied gestures, visual indicators, verbal fillers) on perceived animacy and immersion via Godspeed questionnaire.",
+        "Proved via Wilcoxon signed-rank test (p<0.05) that embodied gestures significantly outperform visual loading indicators; co-authored paper submitted to MIT's Presence journal (under review)."
       ],
-      "tags": ["Unity", "Gemini API", "Google Cloud STT/TTS"],
+      "tags": [
+        "Unity",
+        "Gemini 2.5 Flash",
+        "Google Cloud STT/TTS",
+        "C#"
+      ],
       "status": "Completed",
       "date": "2025-08-01",
-      "githubUrl": "https://github.com/prats3992",
+      "githubUrl": "",
       "liveUrl": "",
       "featured": true,
       "category": "AI/ML",
@@ -96,37 +122,27 @@
         "responseLatency": "1.8s avg",
         "sampleSize": "N=18",
         "significance": "p<0.05"
-      }
-    },
-    {
-      "id": "anuj-desai-associates",
-      "title": "Anuj Desai Associates -- Company Website",
-      "description": "Designed and shipped a full-stack site for a CA firm with a careers page and a private admin dashboard where firm partners review and manage candidate applications, powered by Firebase Realtime Database.",
-      "longDescription": [
-        "Designed and shipped a full-stack site for a CA firm with a careers page and a private admin dashboard where firm partners review and manage candidate applications, powered by Firebase Realtime Database.",
-        "Implemented Google OAuth via Firebase Authentication with email-allowlist access control, restricting dashboard access to authorised partners while keeping the public application form accessible.",
-        "Structured the codebase for non-technical maintainability, with content editable directly via GitHub without touching component logic, eliminating the client's ongoing developer dependency."
-      ],
-      "tags": ["Next.js", "Firebase", "Google OAuth"],
-      "status": "Completed",
-      "date": "2025-01-01",
-      "githubUrl": "https://github.com/prats3992",
-      "liveUrl": "",
-      "featured": false,
-      "category": "Full Stack"
+      },
+      "paperBadge": "Paper under review · MIT Presence journal"
     },
     {
       "id": "resume-builder",
       "title": "AI Resume Builder & Interview Prep Tool",
-      "description": "Built full-stack AI tool with real-time PDF preview and ATS-optimized resume generation, implementing Firebase Authentication with Google OAuth for secure user management across mobile and desktop.",
+      "description": "Tailoring a resume for each role is tedious and opaque. This tool takes your resume and a job description, generates an ATS-optimised version using Gemini 2.5 Flash via streaming API, and surfaces role-specific interview questions by matching your experience against a structured DSA/STAR prep database.",
       "longDescription": [
-        "Built full-stack AI tool with real-time PDF preview and ATS-optimized resume generation, implementing Firebase Authentication with Google OAuth for secure user management across mobile and desktop.",
-        "Integrated Gemini 2.5 Flash to power an 'Interview GPT' feature that generates personalized interview questions by cross-referencing the user's resume profile with a companion interview prep database (DSA problems, STAR templates) -- implementing error handling for incomplete or ambiguous resume inputs to ensure relevant question generation."
+        "Built full-stack AI resume tool with real-time PDF preview and ATS-optimised generation using Next.js SSR and Gemini 2.5 Flash via streaming API.",
+        "Integrated Gemini to generate personalised interview questions by cross-referencing uploaded resumes against a structured DSA/STAR prep database, surfacing role-specific preparation gaps.",
+        "Implemented Firebase Authentication with Google OAuth for secure user management and session-based access control across the full application."
       ],
-      "tags": ["Next.js", "Tailwind", "Firebase", "Gemini API"],
+      "tags": [
+        "Next.js",
+        "Tailwind",
+        "Firebase",
+        "Gemini 2.5 Flash"
+      ],
       "status": "Completed",
       "date": "2025-01-01",
-      "githubUrl": "https://github.com/prats3992",
+      "githubUrl": "https://github.com/prats3992/custom-resume-builder",
       "liveUrl": "",
       "featured": true,
       "category": "Full Stack"
@@ -134,12 +150,17 @@
     {
       "id": "kelp-segmentation",
       "title": "Kelp Forest Semantic Segmentation",
-      "description": "Achieved Top 100 ranking (83rd percentile) in a DrivenData satellite imagery competition using U-Net with EfficientNet-B3 backbone for semantic segmentation of kelp forests in noisy real-world satellite imagery.",
+      "description": "Kelp forests are a critical ocean ecosystem — detecting them in satellite imagery is hard because atmospheric interference corrupts images unpredictably. I trained a U-Net with EfficientNet-B3 backbone for segmentation and built a streak-detection pipeline to filter corrupted training images before they hurt model accuracy.",
       "longDescription": [
-        "Achieved Top 100 ranking (83rd percentile) in a DrivenData satellite imagery competition using U-Net with EfficientNet-B3 backbone for semantic segmentation of kelp forests in noisy real-world satellite imagery.",
-        "Built streak-detection pipeline using an ensemble of CNN classifiers (ResNet, DenseNet) with hard voting to identify and filter atmospherically corrupted satellite images from training data, achieving F1 score of 0.952 on streak classification."
+        "Achieved Top 100 finish (top 17%) in a DrivenData satellite imagery competition using U-Net with EfficientNet-B3 backbone for kelp forest segmentation in noisy real-world imagery.",
+        "Built streak-detection pipeline using an ensemble of CNN classifiers (ResNet, DenseNet) with hard voting to filter atmospherically corrupted training images, achieving F1 score of 0.952."
       ],
-      "tags": ["PyTorch", "U-Net"],
+      "tags": [
+        "PyTorch",
+        "U-Net",
+        "EfficientNet-B3",
+        "Python"
+      ],
       "status": "Completed",
       "date": "2024-01-01",
       "githubUrl": "https://github.com/prats3992",
@@ -153,19 +174,68 @@
       }
     },
     {
+      "id": "anuj-desai-associates",
+      "title": "Anuj Desai Associates — CA Firm Website",
+      "description": "Designed and shipped a full-stack site for a CA firm with a careers page and a private admin dashboard where firm partners review and manage candidate applications, powered by Firebase Realtime Database.",
+      "longDescription": [
+        "Designed and shipped a full-stack site for a CA firm with a careers page and a private admin dashboard where firm partners review and manage candidate applications, powered by Firebase Realtime Database.",
+        "Implemented Google OAuth via Firebase Authentication with email-allowlist access control, restricting dashboard access to authorised partners while keeping the public application form accessible.",
+        "Structured the codebase with a CMS-style content layer editable directly via GitHub, enabling the client to manage site content without developer involvement post-handoff."
+      ],
+      "tags": [
+        "Next.js",
+        "Firebase",
+        "Google OAuth",
+        "Vercel"
+      ],
+      "status": "Completed",
+      "date": "2025-01-01",
+      "githubUrl": "",
+      "liveUrl": "https://anujdesaiassociates.com",
+      "featured": true,
+      "category": "Full Stack"
+    },
+    {
+      "id": "edgar-diff-tracker",
+      "title": "EDGAR SEC Diff Tracker",
+      "description": "SEC filings change quietly — and those changes matter. Building a tool that diffs consecutive 10-K/10-Q filings from the EDGAR API, highlights material changes, and surfaces them in a clean UI for financial analysts. FastAPI backend, Supabase for persistence, deployed on Vercel.",
+      "longDescription": [
+        "SEC filings change quietly — and those changes matter. Building a tool that diffs consecutive 10-K/10-Q filings from the EDGAR API, highlights material changes, and surfaces them in a clean UI for financial analysts.",
+        "FastAPI backend fetches and parses XBRL filings; Supabase stores historical snapshots for diff computation.",
+        "Targeting analysts at firms like Goldman Sachs, NatWest, and similar where regulatory document monitoring is manual and time-consuming."
+      ],
+      "tags": [
+        "FastAPI",
+        "Supabase",
+        "Next.js",
+        "EDGAR API"
+      ],
+      "status": "In Progress",
+      "date": "2026-04-01",
+      "githubUrl": "",
+      "liveUrl": "",
+      "featured": true,
+      "category": "Full Stack",
+      "inProgress": true
+    },
+    {
       "id": "c-vrp-time-window",
       "title": "Capacitated Vehicle Routing with Time Windows",
-      "description": "Modelled a multi-constraint VRP end-to-end -- formulating capacity, time-window, and depot constraints; tuning OR-Tools solver search strategies; and designing the full data pipeline from raw inputs to optimized routes.",
+      "description": "Modelled a multi-constraint VRP end-to-end — formulating capacity, time-window, and depot constraints; tuning OR-Tools solver search strategies; and designing the full data pipeline from raw inputs to optimized routes.",
       "longDescription": [
-        "Modelled a multi-constraint VRP end-to-end -- formulating capacity, time-window, and depot constraints; tuning OR-Tools solver search strategies; and designing the full data pipeline from raw inputs to optimized routes.",
+        "Modelled a multi-constraint VRP end-to-end — formulating capacity, time-window, and depot constraints; tuning OR-Tools solver search strategies; and designing the full data pipeline from raw inputs to optimized routes.",
         "Integrated Google Distance Matrix API for real-world transit data and built interactive Maps visualizations for route validation and multi-stop delivery planning."
       ],
-      "tags": ["Google OR-Tools", "Google Maps API"],
+      "tags": [
+        "Google OR-Tools",
+        "Google Maps API",
+        "Python"
+      ],
       "status": "Completed",
       "date": "2023-09-01",
       "githubUrl": "https://github.com/prats3992",
       "liveUrl": "",
-      "featured": true,
+      "featured": false,
       "category": "Systems"
     },
     {
@@ -177,7 +247,13 @@
         "Designed Firebase NoSQL schema with real-time deduplication logic using comment IDs and timestamps as composite keys, preventing duplicates across 5 parallel scraper instances.",
         "Identified 19.4% sentiment shift ('Buffer Effect') in pre-eclampsia discussions using VADER sentiment analysis and LDA topic modeling, with 35.8x volume increase post-pandemic."
       ],
-      "tags": ["Python", "PRAW", "VADER", "LDA", "Firebase"],
+      "tags": [
+        "Python",
+        "PRAW",
+        "VADER",
+        "LDA",
+        "Firebase"
+      ],
       "status": "Completed",
       "date": "2025-08-01",
       "githubUrl": "https://github.com/prats3992",
@@ -193,13 +269,17 @@
     {
       "id": "ui-wireframe-generator",
       "title": "UI Wireframe Generator",
-      "description": "Explored generative approaches for UI wireframe synthesis from text prompts using RICO dataset (72,000+ UI screens), experimenting with a Cross-Attention GAN (CAGAN) modified from the SAGAN architecture.",
+      "description": "Explored generative approaches for UI wireframe synthesis from text prompts using RICO dataset (72,000+ UI screens), experimenting with a Cross-Attention GAN (CAGAN) and LLaMA-7B fine-tuned on custom text-UI pairs.",
       "longDescription": [
         "Explored generative approaches for UI wireframe synthesis from text prompts using RICO dataset (72,000+ UI screens), experimenting with a Cross-Attention GAN (CAGAN) modified from the SAGAN architecture.",
         "Fine-tuned LLaMA-7B on custom text-UI pairs to translate natural language requirements into structured JSON layouts, achieving best results with LLM-based generation over diffusion models under GPU constraints.",
         "Benchmarked multiple generative architectures (DDPM, Stable Diffusion, StyleGAN, SAGAN, CAGAN, LLaMA) documenting tradeoffs in quality, training stability, and compute for UI generation tasks."
       ],
-      "tags": ["Python", "PyTorch", "Meta LLaMA"],
+      "tags": [
+        "Python",
+        "PyTorch",
+        "Meta LLaMA"
+      ],
       "status": "Completed",
       "date": "2024-08-01",
       "githubUrl": "https://github.com/prats3992",
@@ -211,7 +291,7 @@
   "leadership": [
     {
       "title": "Head of Technology",
-      "organization": "Athleda -- Plaksha Sports Society",
+      "organization": "Plaksha University",
       "location": "Plaksha University",
       "startDate": "Apr. 2025",
       "endDate": "Feb. 2026",
@@ -227,7 +307,7 @@
       "startDate": "Feb. 2024",
       "endDate": "Feb. 2025",
       "achievements": [
-        "Led a team of 7--8 through 2 full redesigns as Head, growing the AI club platform to 800+ monthly users for events, workshops, and project showcases."
+        "Contributed as a core developer on a team of 7–8, then led the team through 2 full platform redesigns as Head, growing the AI club site to 800+ monthly users for events, workshops, and project showcases."
       ]
     }
   ]

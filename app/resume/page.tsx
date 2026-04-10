@@ -3,6 +3,8 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Resume",
+  description:
+    "Résumé of Pratham Arora — final-year CS & AI student at Plaksha University. Three tailored versions available: Master Resume, SDE-focused (backend, full-stack, fintech), and AI/ML-focused (RAG pipelines, LLM systems, research).",
 }
 
 export default function ResumePage() {
@@ -16,10 +18,23 @@ export default function ResumePage() {
         <p className="text-[var(--text-secondary)] mb-6">
           {resumeData.education[0].degree} · {resumeData.education[0].institution}
         </p>
-        <div className="flex flex-wrap gap-3">
-          <DownloadLink href="/master_resume.pdf" label="Download CV" primary />
-          <DownloadLink href="/sde.pdf" label="SDE Resume" />
-          <DownloadLink href="/aiml.pdf" label="AI/ML Resume" />
+        <div className="flex flex-wrap gap-4">
+          <DownloadLink
+            href="/master_resume.pdf"
+            label="Master Resume"
+            descriptor="Complete — all experience, research & projects"
+            primary
+          />
+          <DownloadLink
+            href="/sde.pdf"
+            label="SDE Resume"
+            descriptor="Backend, full-stack & fintech-focused"
+          />
+          <DownloadLink
+            href="/aiml.pdf"
+            label="AI/ML Resume"
+            descriptor="Research, RAG pipelines & LLM systems"
+          />
         </div>
       </section>
 
@@ -143,29 +158,36 @@ function SectionHead({ children }: { children: React.ReactNode }) {
 function DownloadLink({
   href,
   label,
+  descriptor,
   primary,
 }: {
   href: string
   label: string
+  descriptor?: string
   primary?: boolean
 }) {
   return (
-    <a
-      href={href}
-      download
-      className={`inline-flex items-center gap-2 px-4 py-2 rounded text-sm font-medium transition-colors duration-150 ${
-        primary
-          ? "bg-[var(--accent)] text-[var(--bg-primary)] hover:opacity-90"
-          : "border border-[var(--border)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-tertiary)]"
-      }`}
-    >
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-        <polyline points="7 10 12 15 17 10" />
-        <line x1="12" y1="15" x2="12" y2="3" />
-      </svg>
-      {label}
-    </a>
+    <div className="flex flex-col gap-1">
+      <a
+        href={href}
+        download
+        className={`inline-flex items-center gap-2 px-4 py-2 rounded text-sm font-medium transition-colors duration-150 ${
+          primary
+            ? "bg-[var(--accent)] text-[var(--bg-primary)] hover:opacity-90"
+            : "border border-[var(--border)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-tertiary)]"
+        }`}
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+          <polyline points="7 10 12 15 17 10" />
+          <line x1="12" y1="15" x2="12" y2="3" />
+        </svg>
+        {label}
+      </a>
+      {descriptor && (
+        <span className="text-2xs text-[var(--text-tertiary)] pl-1">{descriptor}</span>
+      )}
+    </div>
   )
 }
 

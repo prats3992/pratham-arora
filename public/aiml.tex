@@ -96,7 +96,7 @@
 \section{Skills}
 \begin{itemize}[leftmargin=0.15in, label={}, itemsep=1pt]
   \small{\item{
-    \textbf{AI/ML:} \enspace PyTorch, LangChain, OpenCV, RAG Pipelines, Segment Anything (SAM) \\
+    \textbf{AI/ML:} \enspace PyTorch, LangChain, RAG Pipelines, Segment Anything (SAM), OpenCV \\
     \textbf{Languages:} \enspace Python, SQL, JavaScript, TypeScript \\
     \textbf{Cloud \& Data:} \enspace Azure (Cosmos DB, OpenAI), Firebase, FAISS, DiskANN, Google Cloud \\
     \textbf{Engineering:} \enspace FastAPI, Node.js, Next.js, REST APIs, Git/GitHub, Vercel
@@ -109,14 +109,14 @@
   \resumeExperienceHeading
     {Undergraduate Researcher}{Visual Benchmarking of VLMs $|$ Sup.\ Prof.\ Pankaj Pansari}{Plaksha University}{Jan.\ 2026 -- Present}
     \resumeItemListStart
-      \resumeItem{Constructing a 500-image benchmark dataset with instrument-verified ground truth (weighing scale, calibrated beakers, digital inclinometer) across five physical estimation tasks to evaluate frontier VLMs on physical-world grounding under naturalistic conditions.}
-      \resumeItem{Preliminary evaluation of GPT-5.2 and \textbf{Gemini 3 Pro} (200 images): Gemini achieves 21.57\% MAPE on angle estimation vs.\ 28.99\% for GPT-5.2; both models score near chance (0.476) on structural stability. Manuscript in preparation.}
+      \resumeItem{Constructing a 500-image benchmark dataset across five physical estimation tasks (weight, volume, angle, fit, structural stability) with instrument-verified ground truth to evaluate frontier VLMs on physical-world grounding under naturalistic conditions.}
+      \resumeItem{Preliminary evaluation across 200 images: \textbf{Gemini 3 Pro} achieves 21.57\% MAPE on angle estimation vs.\ 28.99\% for GPT-5.2; both models score near chance (0.476) on structural stability, identifying an unsolved failure mode in frontier VLMs. Preparing first-author paper.}
     \resumeItemListEnd
 
   \resumeExperienceHeading
     {Undergraduate Researcher}{Sup.\ Prof.\ Sandeep Manjanna}{Plaksha University}{June 2023 -- Aug.\ 2023}
     \resumeItemListStart
-      \resumeItem{Developed preprocessing pipeline (contrast adjustment, noise reduction, edge detection) to optimise \textbf{Segment Anything Model (SAM)} for agricultural crop-weed segmentation on sparse datasets; improved batch throughput for 10,000+ images via vectorized NumPy and multiprocessing.}
+      \resumeItem{Developed preprocessing pipeline (contrast adjustment, noise reduction, edge detection) to optimise \textbf{Segment Anything Model (SAM)} for agricultural crop-weed segmentation on sparse datasets; improved batch throughput for \textbf{10,000+ images} via vectorized NumPy and multiprocessing.}
     \resumeItemListEnd
 
 \resumeSubHeadingListEnd
@@ -127,14 +127,9 @@
   \resumeExperienceHeading
     {AI Engineering Intern}{Cotality (PropTech SaaS)}{Kolkata}{June 2025 -- July 2025}
     \resumeItemListStart
-      \resumeItem{Built \textbf{RAG pipeline} using LangChain, Azure OpenAI embeddings, and Cosmos DB with DiskANN vector search for semantic code retrieval; migrated from FAISS as retrieval latency requirements tightened with repository growth.}
+      \resumeItem{Architected \textbf{FastAPI} backend parsing \textbf{50,000+ LOC/day} across 15+ languages via AST analysis, enabling automated real-time documentation generation across polyglot codebases.}
       \resumeItem{Reduced AI embedding generation costs by \textbf{85\%} by designing a hash-based change detection system with \textbf{SHA-256 on AST nodes}, chunking codebases function-by-function and skipping unchanged functions to eliminate redundant vector database updates.}
-    \resumeItemListEnd
-
-  \resumeExperienceHeading
-    {Software Development Engineer Intern}{Orangewood Labs (Robotics)}{Noida}{June 2024 -- July 2024}
-    \resumeItemListStart
-      \resumeItem{Designed modular LLM task-planning architecture for a food-preparation robotic arm, separating high-level intent logic from low-level robot actuation and establishing clean integration boundaries for parallel team workflows.}
+      \resumeItem{Built \textbf{RAG pipeline} using LangChain, Azure OpenAI embeddings, and Cosmos DB with DiskANN vector search for semantic code retrieval; migrated from FAISS as retrieval latency requirements tightened with repository growth.}
     \resumeItemListEnd
 
 \resumeSubHeadingListEnd
@@ -145,7 +140,7 @@
   \resumeProjectHeading
     {\textbf{VR LLM Conversational Agent}}{Unity, Gemini API, Google Cloud STT/TTS}{Aug.\ 2025 -- Dec.\ 2025}
     \resumeItemListStart
-      \resumeItem{Engineered a real-time VR conversational agent integrating \textbf{Gemini 2.5 Flash} with Google Cloud STT/TTS, achieving average response latency of 1.8s through parallel API calls, caching, and audio preprocessing.}
+      \resumeItem{Engineered a real-time VR conversational agent integrating \textbf{Gemini 2.5 Flash} with Google Cloud STT/TTS, achieving average response latency of \textbf{1.8s} through parallel API calls, caching, and audio preprocessing.}
       \resumeItem{Designed \textbf{within-subjects experimental study ($N=18$)} evaluating three latency feedback mechanisms (embodied gestures, visual indicators, verbal fillers) on perceived animacy and immersion via Godspeed questionnaire.}
       \resumeItem{Proved via \textbf{Wilcoxon signed-rank test ($p<0.05$)} that embodied gestures significantly outperform visual loading indicators; \textbf{co-authored paper submitted to MIT's \textit{Presence} journal} (under review).}
     \resumeItemListEnd
@@ -153,7 +148,7 @@
   \resumeProjectHeading
     {\textbf{Kelp Forest Semantic Segmentation}}{PyTorch, U-Net}{Jan.\ 2024 -- May 2024}
     \resumeItemListStart
-      \resumeItem{Achieved \textbf{Top 100 ranking (83rd percentile)} in a DrivenData satellite imagery competition using \textbf{U-Net with EfficientNet-B3} backbone for kelp forest segmentation in noisy real-world imagery.}
+      \resumeItem{Achieved \textbf{Top 100 finish (top 17\%)} in a DrivenData satellite imagery competition using \textbf{U-Net with EfficientNet-B3} backbone for kelp forest segmentation in noisy real-world imagery.}
       \resumeItem{Built streak-detection pipeline using an ensemble of \textbf{CNN classifiers} (ResNet, DenseNet) with hard voting to filter atmospherically corrupted training images, achieving \textbf{F1 score of 0.952}.}
     \resumeItemListEnd
 
@@ -171,7 +166,7 @@
   \resumeExperienceHeadingProgression
     {LEAP.AI @ Plaksha}{Web Developer}{Head of Web Development}{Plaksha University}{Feb.\ 2024 -- Feb.\ 2025}
     \resumeItemListStart
-      \resumeItem{Led a team of 7--8 through 2 full redesigns as Head, growing the AI club platform to \textbf{800+ monthly users}.}
+      \resumeItem{Led a team of 7--8 through \textbf{2 full platform redesigns} as Head of Web Development, growing the AI club site to \textbf{800+ monthly users} for events, workshops, and project showcases.}
     \resumeItemListEnd
 
 \resumeSubHeadingListEnd
