@@ -31,8 +31,12 @@ export function WorkClient({ projects }: WorkClientProps) {
     ...Array.from(new Set(projects.map((p) => p.category).filter(Boolean))),
   ]
 
+  const sorted = [...projects].sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  )
+
   const filtered =
-    filter === "All" ? projects : projects.filter((p) => p.category === filter)
+    filter === "All" ? sorted : sorted.filter((p) => p.category === filter)
 
   return (
     <div className="space-y-12">

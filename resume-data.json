@@ -41,11 +41,9 @@
       "Tailwind CSS"
     ],
     "cloudTools": [
-      "Azure (Cosmos DB",
-      "OpenAI)",
+      "Azure (Cosmos DB, OpenAI)",
       "Firebase",
       "FAISS",
-      "DiskANN",
       "Git/GitHub",
       "Vercel"
     ]
@@ -60,7 +58,7 @@
       "achievements": [
         "Constructing a 500-image benchmark dataset across five physical estimation tasks (weight, volume, angle, fit, structural stability) with instrument-verified ground truth to evaluate frontier VLMs on physical-world grounding under naturalistic conditions.",
         "Preliminary evaluation across 200 images: Gemini 3 Pro achieves 21.57% MAPE on angle estimation vs. 28.99% for GPT-5.2; both models score near chance (0.476) on structural stability, identifying an unsolved failure mode in current frontier models.",
-        "Designing human-baseline study platform to collect performance data across all five tasks; preparing first-author paper on physical-world grounding limitations in frontier VLMs."
+        "Designing human-baseline study platform to collect performance data across all five tasks."
       ]
     },
     {
@@ -194,29 +192,6 @@
       "liveUrl": "https://anujdesaiassociates.com",
       "featured": true,
       "category": "Full Stack"
-    },
-    {
-      "id": "edgar-diff-tracker",
-      "title": "EDGAR SEC Diff Tracker",
-      "description": "SEC filings change quietly — and those changes matter. Building a tool that diffs consecutive 10-K/10-Q filings from the EDGAR API, highlights material changes, and surfaces them in a clean UI for financial analysts. FastAPI backend, Supabase for persistence, deployed on Vercel.",
-      "longDescription": [
-        "SEC filings change quietly — and those changes matter. Building a tool that diffs consecutive 10-K/10-Q filings from the EDGAR API, highlights material changes, and surfaces them in a clean UI for financial analysts.",
-        "FastAPI backend fetches and parses XBRL filings; Supabase stores historical snapshots for diff computation.",
-        "Targeting analysts at firms like Goldman Sachs, NatWest, and similar where regulatory document monitoring is manual and time-consuming."
-      ],
-      "tags": [
-        "FastAPI",
-        "Supabase",
-        "Next.js",
-        "EDGAR API"
-      ],
-      "status": "In Progress",
-      "date": "2026-04-01",
-      "githubUrl": "",
-      "liveUrl": "",
-      "featured": true,
-      "category": "Full Stack",
-      "inProgress": true
     },
     {
       "id": "c-vrp-time-window",

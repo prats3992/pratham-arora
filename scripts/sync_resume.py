@@ -100,14 +100,42 @@ def extract_braced_args(text: str, start: int, n: int) -> tuple[list[str], int]:
     return args, pos
 
 
+def split_on_commas(s: str) -> list[str]:
+    """Split on commas that are NOT inside parentheses.
+    e.g. 'Azure (Cosmos DB, OpenAI), Firebase' → ['Azure (Cosmos DB, OpenAI)', 'Firebase']
+    """
+    parts: list[str] = []
+    depth = 0
+    current: list[str] = []
+    for ch in s:
+        if ch == "(":
+            depth += 1
+            current.append(ch)
+        elif ch == ")":
+            depth -= 1
+            current.append(ch)
+        elif ch == "," and depth == 0:
+            parts.append("".join(current).strip())
+            current = []
+        else:
+            current.append(ch)
+    if current:
+        parts.append("".join(current).strip())
+    return [p for p in parts if p]
+
+
 # ── Section extractors ────────────────────────────────────────────────────────
 
 def extract_skills(tex: str) -> dict:
     """Parse the Skills itemize block."""
-    m = re.search(r"\\section\{Skills\}(.*?)\\section\{", tex, re.DOTALL)
-    if not m:
+    sec_start = tex.find("\\section{Skills}")
+    if sec_start == -1:
         return {}
-    block = m.group(1)
+    next_sec = tex.find("\\section{", sec_start + 1)
+    end_doc = tex.find("\\end{document}", sec_start)
+    candidates = [x for x in [next_sec, end_doc] if x != -1]
+    sec_end = min(candidates) if candidates else len(tex)
+    block = tex[sec_start:sec_end]
 
     def get_skill_list(label: str) -> list[str]:
         pattern = rf"\\textbf\{{{label}:?\}}\s*\\enspace\s*([^\\\n]+)"
@@ -115,7 +143,7 @@ def extract_skills(tex: str) -> dict:
         if not sm:
             return []
         raw = sm.group(1).rstrip("\\").strip()
-        return [s.strip() for s in raw.split(",") if s.strip()]
+        return split_on_commas(raw)
 
     return {
         "languages":  get_skill_list("Languages"),

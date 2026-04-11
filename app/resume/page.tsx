@@ -20,15 +20,10 @@ export default function ResumePage() {
         </p>
         <div className="flex flex-wrap gap-4">
           <DownloadLink
-            href="/master_resume.pdf"
-            label="Master Resume"
-            descriptor="Complete — all experience, research & projects"
-            primary
-          />
-          <DownloadLink
             href="/sde.pdf"
             label="SDE Resume"
             descriptor="Backend, full-stack & fintech-focused"
+            primary
           />
           <DownloadLink
             href="/aiml.pdf"
