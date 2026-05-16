@@ -44,16 +44,8 @@ export default function Home() {
           NLP. Researching where frontier VLMs fail at physical-world reasoning.
         </p>
         <p className="text-sm text-[var(--accent)] font-mono mb-6">
-          Available for full-time roles from August 2026 ·{" "}
-          <span className="text-[var(--text-tertiary)]">
-            Tailored AI/ML and SDE resumes available on the{" "}
-            <Link
-              href="/resume"
-              className="hover:text-[var(--text-primary)] transition-colors duration-150 underline underline-offset-2"
-            >
-              resume page
-            </Link>
-          </span>
+          Available for full-time roles.
+          
         </p>
         <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[13px] text-[var(--text-tertiary)]">
           <span>{resumeData.personalInfo.location}</span>
