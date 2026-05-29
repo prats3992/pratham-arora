@@ -7,9 +7,10 @@ What it updates (from LaTeX):
   - education: institution, degree, cgpa, startDate, endDate
   - skills: languages, aiMl, webBackend, cloudTools
   - industryExperience: title, company, location, startDate, endDate, achievements
-  - researchExperience: title, supervisor, organization, startDate, endDate, achievements
+    - researchExperience: title, supervisor, organization, startDate, endDate, achievements
+    - industryExperience / researchExperience / leadership: optional links from comment markers
   - projects[*].longDescription  (first element = description, rest = extra bullets)
-  - leadership: title, organization, startDate, endDate, achievements
+    - leadership: title, subtitle, organization, startDate, endDate, achievements
 
 What it leaves untouched (JSON-only metadata):
   - projects: githubUrl, liveUrl, featured, category, metrics, paperBadge, inProgress, tags, id, date, status
@@ -124,6 +125,25 @@ def split_on_commas(s: str) -> list[str]:
     return [p for p in parts if p]
 
 
+def norm_key(text: str) -> str:
+    return re.sub(r"\s+", " ", strip_latex(text)).strip().lower()
+
+
+def find_existing_entry(entries: list[dict], candidates: list[tuple[str, str]]) -> dict:
+    candidate_keys = [(norm_key(a), norm_key(b)) for a, b in candidates if a or b]
+    for entry in entries:
+        entry_keys = {
+            (
+                norm_key(entry.get("title", "")),
+                norm_key(entry.get("company", entry.get("organization", ""))),
+            )
+        }
+        for key_a, key_b in candidate_keys:
+            if (key_a, key_b) in entry_keys:
+                return entry
+    return {}
+
+
 # ── Section extractors ────────────────────────────────────────────────────────
 
 def extract_skills(tex: str) -> dict:
@@ -208,6 +228,37 @@ def extract_experience_blocks(tex: str, section_name: str) -> list[dict]:
         )
         achievements = extract_resume_items(item_block_m.group(1)) if item_block_m else []
 
+        # Optional link markers live in the comment zone before the item list.
+        # Supported forms:
+        #   % @docs: https://...
+        #   % @site: https://...
+        #   % @link: https://...
+        #   % @link Club Site: https://...
+        links = []
+        next_item_list = block.find("\\resumeItemListStart", after_args)
+        comment_zone = block[after_args:next_item_list] if next_item_list != -1 else ""
+        for line in comment_zone.splitlines():
+            stripped = line.strip()
+            link_match = re.match(
+                r"%\s*@(?P<kind>docs|site|link)(?:\s+(?P<label>[^:]+))?:\s*(?P<url>\S*)\s*$",
+                stripped,
+                re.IGNORECASE,
+            )
+            if not link_match:
+                continue
+            url = link_match.group("url").strip()
+            if not url:
+                continue
+            kind = link_match.group("kind").lower()
+            label = link_match.group("label")
+            if kind == "docs":
+                display_label = "Docs"
+            elif kind == "site":
+                display_label = "Site"
+            else:
+                display_label = strip_latex(label).strip() if label else "Link"
+            links.append({"label": display_label, "url": url})
+
         results.append({
             "title": title,
             "subtitle": subtitle,
@@ -215,6 +266,7 @@ def extract_experience_blocks(tex: str, section_name: str) -> list[dict]:
             "startDate": start_date,
             "endDate": end_date,
             "achievements": achievements,
+            "links": links,
         })
 
     return results
@@ -288,8 +340,11 @@ def sync(tex_path: Path, json_path: Path) -> None:
     if research_blocks:
         new_research = []
         for i, b in enumerate(research_blocks):
-            existing = data["researchExperience"][i] if i < len(data["researchExperience"]) else {}
-            new_research.append({
+            existing = find_existing_entry(
+                data["researchExperience"],
+                [(b["title"], b["org"])],
+            )
+            entry = {
                 **existing,
                 "title": b["title"],
                 "supervisor": b["subtitle"],   # subtitle = "sup. by ..."
@@ -297,7 +352,10 @@ def sync(tex_path: Path, json_path: Path) -> None:
                 "startDate": b["startDate"],
                 "endDate": b["endDate"],
                 "achievements": b["achievements"],
-            })
+            }
+            if b.get("links"):
+                entry["links"] = b["links"]
+            new_research.append(entry)
         data["researchExperience"] = new_research
         print(f"  Research: synced {len(new_research)} entries")
 
@@ -306,12 +364,15 @@ def sync(tex_path: Path, json_path: Path) -> None:
     if industry_blocks:
         new_industry = []
         for i, b in enumerate(industry_blocks):
-            existing = data["industryExperience"][i] if i < len(data["industryExperience"]) else {}
+            existing = find_existing_entry(
+                data["industryExperience"],
+                [(b["title"], b["subtitle"])],
+            )
             # subtitle = "Company | Location"
             sub_parts = re.split(r"\s*\|\s*|\s*\$\|\$\s*", b["subtitle"], maxsplit=1)
             company = sub_parts[0].strip() if sub_parts else b["subtitle"]
             location = sub_parts[1].strip() if len(sub_parts) > 1 else existing.get("location", "")
-            new_industry.append({
+            entry = {
                 **existing,
                 "title": b["title"],
                 "company": company,
@@ -319,7 +380,10 @@ def sync(tex_path: Path, json_path: Path) -> None:
                 "startDate": b["startDate"],
                 "endDate": b["endDate"],
                 "achievements": b["achievements"],
-            })
+            }
+            if b.get("links"):
+                entry["links"] = b["links"]
+            new_industry.append(entry)
         data["industryExperience"] = new_industry
         print(f"  Industry: synced {len(new_industry)} entries")
 
@@ -367,15 +431,24 @@ def sync(tex_path: Path, json_path: Path) -> None:
     if leader_blocks:
         new_leadership = []
         for i, b in enumerate(leader_blocks):
-            existing = data["leadership"][i] if i < len(data["leadership"]) else {}
-            new_leadership.append({
+            existing = find_existing_entry(
+                data["leadership"],
+                [(b["title"], b["org"])],
+            )
+            entry = {
                 **existing,
                 "title": b["title"],
+                "subtitle": b["subtitle"],
                 "organization": b["org"],
                 "startDate": b["startDate"],
                 "endDate": b["endDate"],
                 "achievements": b["achievements"],
-            })
+            }
+            if b["subtitle"] and "→" in b["subtitle"]:
+                entry["titleProgression"] = b["subtitle"]
+            if b.get("links"):
+                entry["links"] = b["links"]
+            new_leadership.append(entry)
         data["leadership"] = new_leadership
         print(f"  Leadership: synced {len(new_leadership)} entries")
 

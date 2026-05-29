@@ -19,12 +19,47 @@ interface ResumeProject {
   inProgress?: boolean
 }
 
+interface ExperienceLink {
+  label: string
+  url: string
+}
+
+interface ResumeExperience {
+  title: string
+  company: string
+  location: string
+  startDate: string
+  endDate: string
+  achievements: string[]
+  metrics?: Record<string, string>
+  links?: ExperienceLink[]
+}
+
+interface ResumeResearch {
+  title: string
+  supervisor: string
+  organization: string
+  startDate: string
+  endDate: string
+  achievements: string[]
+  links?: ExperienceLink[]
+}
+
+interface ResumeLeadership {
+  title: string
+  organization: string
+  startDate: string
+  endDate: string
+  achievements: string[]
+  links?: ExperienceLink[]
+}
+
 const resumeData = {
   ...rawData,
   projects: rawData.projects as unknown as ResumeProject[],
-  industryExperience: rawData.industryExperience as unknown as Array<
-    (typeof rawData.industryExperience)[0] & { metrics?: Record<string, string> }
-  >,
+  industryExperience: rawData.industryExperience as unknown as ResumeExperience[],
+  researchExperience: rawData.researchExperience as unknown as ResumeResearch[],
+  leadership: rawData.leadership as unknown as ResumeLeadership[],
 }
 
 export default function Home() {
@@ -93,7 +128,7 @@ export default function Home() {
                   </span>
                 </h3>
                 <span className="font-mono text-2xs text-[var(--text-tertiary)] shrink-0">
-                  {exp.startDate} – {exp.endDate}
+                  {formatDateRange(exp.startDate, exp.endDate)}
                 </span>
               </div>
 
@@ -106,6 +141,23 @@ export default function Home() {
                       label={formatMetricLabel(key)}
                       value={val}
                     />
+                  ))}
+                </div>
+              )}
+
+              {exp.links && exp.links.length > 0 && (
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {exp.links.map((link) => (
+                    <a
+                      key={`${link.label}-${link.url}`}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 px-2.5 py-1 text-2xs font-mono rounded border border-[var(--border)] text-[var(--text-tertiary)] hover:text-[var(--accent)] hover:border-[var(--text-tertiary)] transition-colors duration-150"
+                    >
+                      {link.label}
+                      <span aria-hidden="true">&#8599;</span>
+                    </a>
                   ))}
                 </div>
               )}
@@ -157,12 +209,28 @@ export default function Home() {
                 </span>
               </h3>
               <span className="font-mono text-2xs text-[var(--text-tertiary)] shrink-0">
-                {exp.startDate} – {exp.endDate}
+                {formatDateRange(exp.startDate, exp.endDate)}
               </span>
             </div>
             <p className="text-2xs text-[var(--text-tertiary)] mb-2">
               {exp.supervisor}
             </p>
+            {exp.links && exp.links.length > 0 && (
+              <div className="flex flex-wrap gap-2 mb-3">
+                {exp.links.map((link) => (
+                  <a
+                    key={`${link.label}-${link.url}`}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 px-2.5 py-1 text-2xs font-mono rounded border border-[var(--border)] text-[var(--text-tertiary)] hover:text-[var(--accent)] hover:border-[var(--text-tertiary)] transition-colors duration-150"
+                  >
+                    {link.label}
+                    <span aria-hidden="true">&#8599;</span>
+                  </a>
+                ))}
+              </div>
+            )}
             <ul className="space-y-1">
               {exp.achievements.map((a, j) => (
                 <li
@@ -377,4 +445,8 @@ function formatMetricLabel(key: string): string {
     .replace(/([A-Z])/g, " $1")
     .replace(/^./, (s) => s.toUpperCase())
     .trim()
+}
+
+function formatDateRange(startDate: string, endDate?: string): string {
+  return endDate && endDate.trim() ? `${startDate} – ${endDate}` : startDate
 }

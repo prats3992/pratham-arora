@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     template: "%s — Pratham Arora",
   },
   description:
-    "Final-year CS & AI student at Plaksha University. I build production ML systems — RAG pipelines, LLM agents, applied NLP. Researching where frontier VLMs fail at physical-world reasoning. Available for full-time roles August 2026.",
+    "Final-year CS & AI student at Plaksha University. I build production ML systems — RAG pipelines, LLM agents, applied NLP. Researching where frontier VLMs fail at physical-world reasoning. Available for full-time roles.",
   keywords: [
     "Pratham Arora",
     "AI Engineer",
@@ -56,14 +56,14 @@ export const metadata: Metadata = {
     url: "https://pratham-arora.vercel.app/",
     title: "Pratham Arora — AI & Software Engineer",
     description:
-      "Final-year CS & AI student at Plaksha. Builds production ML systems — RAG pipelines, LLM agents, applied NLP. 85% cost reduction at Cotality. Paper under review at MIT's Presence journal. Available August 2026.",
+      "Final-year CS & AI student at Plaksha. Builds production ML systems — RAG pipelines, LLM agents, applied NLP. 85% cost reduction at Cotality. Paper under review at MIT's Presence journal. Available 2026.",
     siteName: "Pratham Arora",
   },
   twitter: {
     card: "summary_large_image",
     title: "Pratham Arora — AI & Software Engineer",
     description:
-      "Final-year CS & AI student at Plaksha. Builds production ML systems — RAG pipelines, LLM agents, applied NLP. 85% cost reduction at Cotality. Paper under review at MIT's Presence journal. Available August 2026.",
+      "Final-year CS & AI student at Plaksha. Builds production ML systems — RAG pipelines, LLM agents, applied NLP. 85% cost reduction at Cotality. Paper under review at MIT's Presence journal. Available 2026.",
   },
   robots: {
     index: true,

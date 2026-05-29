@@ -89,7 +89,7 @@
 \section{Education}
 \resumeSubHeadingListStart
   \resumeSubheading
-    {Plaksha University}{Mohali, India $|$ Expected Aug.\ 2026}
+    {Plaksha University}{Mohali, India $|$ July 2026}
     {B.Tech.\ in Computer Science \& AI}{CGPA: 8.20 / 10.0}
 \resumeSubHeadingListEnd
 
@@ -100,9 +100,9 @@
   \resumeExperienceHeading
     {Undergraduate Researcher}{Visual Benchmarking of VLMs $|$ Sup.\ Prof.\ Pankaj Pansari}{Plaksha University}{Jan.\ 2026 -- Present}
     \resumeItemListStart
-      \resumeItem{Constructing a 500-image benchmark dataset across five physical estimation tasks (weight, volume, angle, fit, structural stability) with instrument-verified ground truth to evaluate frontier VLMs on physical-world grounding under naturalistic conditions.}
-      \resumeItem{Preliminary evaluation across 200 images: \textbf{Gemini 3 Pro} achieves 21.57\% MAPE on angle estimation vs.\ 28.99\% for GPT-5.2; both models score near chance (0.476) on structural stability, identifying an unsolved failure mode in current frontier models.}
-      \resumeItem{Designing human-baseline study platform to collect performance data across all five tasks.}
+      \resumeItem{Constructed a 459-image benchmark with instrument-verified ground truth across 5 physical estimation tasks; personally handling all instrument measurements and building a 3-tier blur-degradation pipeline (OpenCV) to test model perceptual robustness.}
+      \resumeItem{Benchmarked 6 VLMs (Gemini 3.1 Pro, GPT-5.4, Gemini-Robotics-ER, Claude Opus 4.7, Gemma 4, Qwen 3.5) across 3 independent runs each, finding performance collapses significantly under image blur across all frontier models.}
+      \resumeItem{Identified a misidentification-vs-miscalibration failure dichotomy via top-10 error analysis per category: GPT-5.4 fails by misidentifying objects, while Gemini variants correctly identify but overestimate weights by 1.8--2.5$\times$.}
     \resumeItemListEnd
 
   \resumeExperienceHeading
@@ -118,19 +118,36 @@
 \resumeSubHeadingListStart
 
   \resumeExperienceHeading
-    {AI Engineering Intern}{Cotality (PropTech SaaS)}{Kolkata}{June 2025 -- July 2025}
+    {Freelance Web Developer}{PQRS Research (Dr.\ Niket Tandon)}{Remote}{May 2026 -- Present}
+    % @site:
     \resumeItemListStart
-      \resumeItem{Architected \textbf{FastAPI} backend parsing \textbf{50,000+ LOC/day} across 15+ languages via Abstract Syntax Tree (AST) analysis, enabling automated real-time documentation generation across polyglot codebases.}
-      \resumeItem{Reduced AI embedding generation costs by \textbf{85\%} by designing a hash-based change detection system with \textbf{SHA-256 on AST nodes}, chunking codebases function-by-function and skipping unchanged functions to eliminate redundant vector database updates.}
-      \resumeItem{Built \textbf{RAG pipeline} using LangChain, Azure OpenAI embeddings, and Cosmos DB with DiskANN vector search for semantic code retrieval; migrated from FAISS as retrieval latency requirements tightened with repository growth.}
-      \resumeItem{Designed and delivered \textbf{12 production RESTful API endpoints} with typed Pydantic response schemas, powering real-time code documentation preview in the client-facing web interface.}
+      \resumeItem{Leading a full redesign and feature buildout of the PQRS Research website in Next.js, including a dual onboarding system with distinct registration and intake flows for mentors and mentees.}
     \resumeItemListEnd
 
-  % \resumeExperienceHeading
-  %   {Software Development Engineer Intern}{Orangewood Labs (Robotics)}{Noida}{June 2024 -- July 2024}
-  %   \resumeItemListStart
-  %     \resumeItem{Designed modular LLM task-planning system for a food-preparation robotic arm, decoupling high-level intent logic from low-level actuation to enable parallel development across firmware and AI teams.}
-  %   \resumeItemListEnd
+  \resumeExperienceHeading
+    {AI Engineering Intern}{Cotality}{Kolkata}{June 2025 -- July 2025}
+    % @docs: https://docs.google.com/document/d/1dtZ9-4tBXvBmNzhmxh4pAvohxTniWtH-M9lDnvHBUPI/edit?usp=sharing
+    \resumeItemListStart
+      \resumeItem{Architected a \textbf{FastAPI} backend with AST-based parsing for 15+ languages, enabling automated documentation generation across polyglot codebases at \textbf{50,000+ LOC/day}.}
+      \resumeItem{Cut AI embedding costs by \textbf{85\%} by building a hash-based system that fingerprints each function's AST and skips re-embedding unchanged code, eliminating redundant Azure OpenAI API calls.}
+      \resumeItem{Built a \textbf{RAG pipeline} using LangChain and Azure OpenAI, backed by \textbf{Cosmos DB with IVF vector indexing} for semantic code retrieval --- migrated from FAISS to support persistent, production-scale storage.}
+      \resumeItem{Shipped \textbf{12 production REST API endpoints} with typed Pydantic schemas, powering real-time documentation preview in the client-facing web interface.}
+    \resumeItemListEnd
+
+  \resumeExperienceHeading
+    {Freelance Web Developer}{Anuj Desai Associates}{Remote}{May 2025}
+    % @site: https://anujdesaiassociates.com
+    \resumeItemListStart
+      \resumeItem{Delivered a full-stack site with a public careers page and a \textbf{Firebase}-backed admin dashboard, giving firm partners a private portal to review and manage job applications.}
+      \resumeItem{Secured admin access via \textbf{Google OAuth} with an email allowlist (Firebase Auth), enforcing partner-only access without a separate auth backend.}
+      \resumeItem{Built a GitHub-editable content layer so the client can update site copy post-handoff without developer involvement.}
+    \resumeItemListEnd
+
+  \resumeExperienceHeading
+    {Software Development Engineer Intern}{Orangewood Labs (Robotics)}{Noida}{June 2024 -- July 2024}
+    \resumeItemListStart
+      \resumeItem{Designed modular LLM task-planning system for a food-preparation robotic arm, decoupling high-level intent logic from low-level actuation to enable parallel development across firmware and AI teams.}
+    \resumeItemListEnd
 
 \resumeSubHeadingListEnd
 
@@ -145,16 +162,6 @@
       \resumeItem{Engineered a real-time VR conversational agent integrating \textbf{Gemini 2.5 Flash} with Google Cloud STT/TTS, achieving average response latency of \textbf{1.8s} through parallel API calls, caching, and audio preprocessing.}
       \resumeItem{Designed \textbf{within-subjects experimental study ($N=18$)} evaluating three latency feedback mechanisms (embodied gestures, visual indicators, verbal fillers) on perceived animacy and immersion via Godspeed questionnaire.}
       \resumeItem{Proved via \textbf{Wilcoxon signed-rank test ($p<0.05$)} that embodied gestures significantly outperform visual loading indicators; \textbf{co-authored paper submitted to MIT's \textit{Presence} journal} (under review).}
-    \resumeItemListEnd
-
-  \resumeProjectHeading
-    {\textbf{Anuj Desai Associates -- Company Website}}{Next.js, Firebase, Google OAuth}{2025}
-    % @github:
-    % @live: https://anujdesaiassociates.com
-    \resumeItemListStart
-      \resumeItem{Designed and shipped a full-stack site for a CA firm with a careers page and a private admin dashboard where firm partners review and manage candidate applications, powered by \textbf{Firebase Realtime Database}.}
-      \resumeItem{Implemented Google OAuth via \textbf{Firebase Authentication} with email-allowlist access control, restricting dashboard access to authorised partners while keeping the public application form accessible.}
-      \resumeItem{Structured the codebase with a CMS-style content layer editable directly via GitHub, enabling the client to manage site content without developer involvement post-handoff.}
     \resumeItemListEnd
 
   \resumeProjectHeading
@@ -182,13 +189,15 @@
 \resumeSubHeadingListStart
 
   \resumeExperienceHeading
-    {Head of Technology}{Athleda -- Plaksha Sports Society}{Plaksha University}{Apr.\ 2025 -- Feb.\ 2026}
+    {Athleda -- Plaksha Sports Society}{Head of Technology}{Plaksha University}{Apr.\ 2025 -- Feb.\ 2026}
+    % @site: https://athleda.vercel.app/
     \resumeItemListStart
       \resumeItem{Built and maintained a sports platform serving \textbf{500+ students}, shipping event registration, live-scoring, and photo galleries, while mentoring 2 junior developers through code reviews and production deployments.}
     \resumeItemListEnd
 
   \resumeExperienceHeadingProgression
     {LEAP.AI @ Plaksha}{Web Developer}{Head of Web Development}{Plaksha University}{Feb.\ 2024 -- Feb.\ 2025}
+    % @site: https://leapai.club/
     \resumeItemListStart
       \resumeItem{Contributed as a core developer on a team of 7--8, then led the team through \textbf{2 full platform redesigns} as Head, growing the AI club site to \textbf{800+ monthly users} for events, workshops, and project showcases.}
     \resumeItemListEnd

@@ -15,7 +15,7 @@
       "degree": "B.Tech. in Computer Science & AI",
       "cgpa": "8.20",
       "startDate": "Aug. 2022",
-      "endDate": "Expected Aug. 2026"
+      "endDate": "July 2026"
     }
   ],
   "skills": {
@@ -56,9 +56,9 @@
       "startDate": "Jan. 2026",
       "endDate": "Present",
       "achievements": [
-        "Constructing a 500-image benchmark dataset across five physical estimation tasks (weight, volume, angle, fit, structural stability) with instrument-verified ground truth to evaluate frontier VLMs on physical-world grounding under naturalistic conditions.",
-        "Preliminary evaluation across 200 images: Gemini 3 Pro achieves 21.57% MAPE on angle estimation vs. 28.99% for GPT-5.2; both models score near chance (0.476) on structural stability, identifying an unsolved failure mode in current frontier models.",
-        "Designing human-baseline study platform to collect performance data across all five tasks."
+        "Constructed a 459-image benchmark with instrument-verified ground truth across 5 physical estimation tasks; personally handling all instrument measurements and building a 3-tier blur-degradation pipeline (OpenCV) to test model perceptual robustness.",
+        "Benchmarked 6 VLMs (Gemini 3.1 Pro, GPT-5.4, Gemini-Robotics-ER, Claude Opus 4.7, Gemma 4, Qwen 3.5) across 3 independent runs each, finding performance collapses significantly under image blur across all frontier models.",
+        "Identified a misidentification-vs-miscalibration failure dichotomy via top-10 error analysis per category: GPT-5.4 fails by misidentifying objects, while Gemini variants correctly identify but overestimate weights by 1.8–2.5."
       ]
     },
     {
@@ -75,23 +75,67 @@
   ],
   "industryExperience": [
     {
-      "title": "AI Engineering Intern",
-      "company": "Cotality (PropTech SaaS)",
+      "title": "Freelance Web Developer",
+      "company": "PQRS Research (Dr. Niket Tandon)",
       "location": "Kolkata",
+      "startDate": "May 2026",
+      "endDate": "Present",
+      "achievements": [
+        "Leading a full redesign and feature buildout of the PQRS Research website in Next.js, including a dual onboarding system with distinct registration and intake flows for mentors and mentees."
+      ]
+    },
+    {
+      "title": "AI Engineering Intern",
+      "company": "Cotality",
+      "location": "",
       "startDate": "June 2025",
       "endDate": "July 2025",
       "achievements": [
-        "Architected FastAPI backend parsing 50,000+ LOC/day across 15+ languages via Abstract Syntax Tree (AST) analysis, enabling automated real-time documentation generation across polyglot codebases.",
-        "Reduced AI embedding generation costs by 85% by designing a hash-based change detection system with SHA-256 on AST nodes, chunking codebases function-by-function and skipping unchanged functions to eliminate redundant vector database updates.",
-        "Built RAG pipeline using LangChain, Azure OpenAI embeddings, and Cosmos DB with DiskANN vector search for semantic code retrieval; migrated from FAISS as retrieval latency requirements tightened with repository growth.",
-        "Designed and delivered 12 production RESTful API endpoints with typed Pydantic response schemas, powering real-time code documentation preview in the client-facing web interface."
+        "Architected a FastAPI backend with AST-based parsing for 15+ languages, enabling automated documentation generation across polyglot codebases at 50,000+ LOC/day.",
+        "Cut AI embedding costs by 85% by building a hash-based system that fingerprints each function's AST and skips re-embedding unchanged code, eliminating redundant Azure OpenAI API calls.",
+        "Built a RAG pipeline using LangChain and Azure OpenAI, backed by Cosmos DB with IVF vector indexing for semantic code retrieval –- migrated from FAISS to support persistent, production-scale storage.",
+        "Shipped 12 production REST API endpoints with typed Pydantic schemas, powering real-time documentation preview in the client-facing web interface."
       ],
       "metrics": {
         "costReduction": "85%",
         "linesPerDay": "50k+ LOC",
         "languages": "15+ langs",
         "endpoints": "12 APIs"
-      }
+      },
+      "links": [
+        {
+          "label": "Docs",
+          "url": "https://docs.google.com/document/d/1dtZ9-4tBXvBmNzhmxh4pAvohxTniWtH-M9lDnvHBUPI/edit?usp=sharing"
+        }
+      ]
+    },
+    {
+      "title": "Freelance Web Developer",
+      "company": "Anuj Desai Associates",
+      "location": "",
+      "startDate": "May 2025",
+      "endDate": "",
+      "achievements": [
+        "Delivered a full-stack site with a public careers page and a Firebase-backed admin dashboard, giving firm partners a private portal to review and manage job applications.",
+        "Secured admin access via Google OAuth with an email allowlist (Firebase Auth), enforcing partner-only access without a separate auth backend.",
+        "Built a GitHub-editable content layer so the client can update site copy post-handoff without developer involvement."
+      ],
+      "links": [
+        {
+          "label": "Site",
+          "url": "https://anujdesaiassociates.com"
+        }
+      ]
+    },
+    {
+      "title": "Software Development Engineer Intern",
+      "company": "Orangewood Labs (Robotics)",
+      "location": "",
+      "startDate": "June 2024",
+      "endDate": "July 2024",
+      "achievements": [
+        "Designed modular LLM task-planning system for a food-preparation robotic arm, decoupling high-level intent logic from low-level actuation to enable parallel development across firmware and AI teams."
+      ]
     }
   ],
   "projects": [
@@ -196,13 +240,19 @@
   ],
   "leadership": [
     {
-      "title": "Head of Technology",
+      "title": "Athleda – Plaksha Sports Society",
+      "subtitle": "Head of Technology",
       "organization": "Plaksha University",
-      "location": "Plaksha University",
       "startDate": "Apr. 2025",
       "endDate": "Feb. 2026",
       "achievements": [
         "Built and maintained a sports platform serving 500+ students, shipping event registration, live-scoring, and photo galleries, while mentoring 2 junior developers through code reviews and production deployments."
+      ],
+      "links": [
+        {
+          "label": "Site",
+          "url": "https://athleda.vercel.app/"
+        }
       ]
     },
     {
@@ -214,6 +264,13 @@
       "endDate": "Feb. 2025",
       "achievements": [
         "Contributed as a core developer on a team of 7–8, then led the team through 2 full platform redesigns as Head, growing the AI club site to 800+ monthly users for events, workshops, and project showcases."
+      ],
+      "subtitle": "Web Developer → Head of Web Development",
+      "links": [
+        {
+          "label": "Site",
+          "url": "https://leapai.club/"
+        }
       ]
     }
   ]

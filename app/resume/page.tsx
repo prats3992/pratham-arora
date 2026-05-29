@@ -1,6 +1,46 @@
 import resumeData from "@/resume-data.json"
 import type { Metadata } from "next"
 
+interface ExperienceLink {
+  label: string
+  url: string
+}
+
+interface ResearchExperienceEntry {
+  title: string
+  supervisor: string
+  organization: string
+  startDate: string
+  endDate: string
+  achievements: string[]
+  links?: ExperienceLink[]
+}
+
+interface IndustryExperienceEntry {
+  title: string
+  company: string
+  location: string
+  startDate: string
+  endDate: string
+  achievements: string[]
+  links?: ExperienceLink[]
+}
+
+interface LeadershipEntry {
+  title: string
+  subtitle?: string
+  organization: string
+  startDate: string
+  endDate: string
+  achievements: string[]
+  titleProgression?: string
+  links?: ExperienceLink[]
+}
+
+const researchExperience = resumeData.researchExperience as ResearchExperienceEntry[]
+const industryExperience = resumeData.industryExperience as IndustryExperienceEntry[]
+const leadership = resumeData.leadership as LeadershipEntry[]
+
 export const metadata: Metadata = {
   title: "Resume",
   description:
@@ -94,13 +134,14 @@ export default function ResumePage() {
       {/* Research Experience */}
       <section>
         <SectionHead>Research Experience</SectionHead>
-        {resumeData.researchExperience.map((exp, i) => (
+        {researchExperience.map((exp, i) => (
           <ExperienceBlock
             key={i}
             title={exp.title}
             subtitle={`${exp.supervisor} · ${exp.organization}`}
-            date={`${exp.startDate} – ${exp.endDate}`}
+            date={formatDateRange(exp.startDate, exp.endDate)}
             achievements={exp.achievements}
+            links={exp.links}
           />
         ))}
       </section>
@@ -109,13 +150,14 @@ export default function ResumePage() {
       <section>
         <SectionHead>Industry Experience</SectionHead>
         <div className="space-y-8">
-          {resumeData.industryExperience.map((exp, i) => (
+          {industryExperience.map((exp, i) => (
             <ExperienceBlock
               key={i}
               title={exp.title}
               subtitle={`${exp.company} · ${exp.location}`}
-              date={`${exp.startDate} – ${exp.endDate}`}
+              date={formatDateRange(exp.startDate, exp.endDate)}
               achievements={exp.achievements}
+              links={exp.links}
             />
           ))}
         </div>
@@ -125,13 +167,14 @@ export default function ResumePage() {
       <section>
         <SectionHead>Leadership</SectionHead>
         <div className="space-y-8">
-          {resumeData.leadership.map((item, i) => (
+          {leadership.map((item, i) => (
             <ExperienceBlock
               key={i}
               title={item.title}
-              subtitle={item.organization}
-              date={`${item.startDate} – ${item.endDate}`}
+              subtitle={formatLeadershipSubtitle(item)}
+              date={formatDateRange(item.startDate, item.endDate)}
               achievements={item.achievements}
+              links={item.links}
             />
           ))}
         </div>
@@ -240,11 +283,13 @@ function ExperienceBlock({
   subtitle,
   date,
   achievements,
+  links,
 }: {
   title: string
   subtitle: string
   date: string
   achievements: string[]
+  links?: Array<{ label: string; url: string }>
 }) {
   return (
     <div>
@@ -259,6 +304,22 @@ function ExperienceBlock({
           {date}
         </span>
       </div>
+      {links && links.length > 0 && (
+        <div className="flex flex-wrap gap-2 mb-3">
+          {links.map((link) => (
+            <a
+              key={`${link.label}-${link.url}`}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 px-2.5 py-1 text-2xs font-mono rounded border border-[var(--border)] text-[var(--text-tertiary)] hover:text-[var(--accent)] hover:border-[var(--text-tertiary)] transition-colors duration-150"
+            >
+              {link.label}
+              <span aria-hidden="true">&#8599;</span>
+            </a>
+          ))}
+        </div>
+      )}
       <ul className="space-y-1.5">
         {achievements.map((a, j) => (
           <li
@@ -271,4 +332,16 @@ function ExperienceBlock({
       </ul>
     </div>
   )
+}
+
+function formatDateRange(startDate: string, endDate?: string) {
+  return endDate && endDate.trim() ? `${startDate} – ${endDate}` : startDate
+}
+
+function formatLeadershipSubtitle(item: LeadershipEntry) {
+  const primary = item.subtitle || item.titleProgression || item.organization
+  if (primary === item.organization) {
+    return item.organization
+  }
+  return `${primary} · ${item.organization}`
 }

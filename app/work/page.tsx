@@ -1,5 +1,5 @@
 import resumeData from "@/resume-data.json"
-import { WorkClient } from "./work-client"
+import { WorkClient, type Project } from "./work-client"
 
 export const metadata = {
   title: "Work",
@@ -8,6 +8,6 @@ export const metadata = {
 }
 
 export default function WorkPage() {
-  const projects = resumeData.projects
+  const projects = resumeData.projects as Project[]
   return <WorkClient projects={projects} />
 }

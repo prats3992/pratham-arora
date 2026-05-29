@@ -91,6 +91,26 @@ Place `% @github:` and `% @live:` comment markers directly after a `\resumeProje
 
 Leave the URL blank (`% @github:`) to skip updating that field.
 
+You can use the same pattern for experience and leadership entries too. Put the marker comments directly after a `\resumeExperienceHeading` or `\resumeExperienceHeadingProgression` line and before `\resumeItemListStart`:
+
+```latex
+\resumeExperienceHeading
+  {AI Engineering Intern}{Cotality}{Kolkata}{June 2025 -- July 2025}
+  % @docs: https://docs.example.com/cotality-project-notes
+  \resumeItemListStart
+    ...
+```
+
+```latex
+\resumeExperienceHeading
+  {Head of Technology}{Athleda -- Plaksha Sports Society}{Plaksha University}{Apr. 2025 -- Feb. 2026}
+  % @site: https://athleda.example.com
+  \resumeItemListStart
+    ...
+```
+
+The sync stores these as labeled links and the site renders them as compact link chips.
+
 #### Running the sync manually
 
 ```bash

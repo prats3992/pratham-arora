@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { MetricCard } from "@/components/metric-card"
 
-interface Project {
+export interface Project {
   id: string
   title: string
   description: string
