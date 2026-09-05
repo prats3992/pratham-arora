@@ -1,0 +1,318 @@
+% ======================================================================
+% ACADEMIC CV - Pratham Arora
+% B.Tech Computer Science & Artificial Intelligence, Plaksha University
+% Purpose: Applications to CS Master's programs
+% Compiler: pdfLaTeX
+% ======================================================================
+ 
+\documentclass[11pt,letterpaper]{article}
+ 
+% ---------------------- PACKAGES ----------------------
+\usepackage[margin=0.55in,top=0.22in,bottom=0.22in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{array}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{ragged2e}
+\usepackage{microtype}
+ 
+% ---------------------- COLORS ----------------------
+\definecolor{darktext}{RGB}{25,25,25}
+\definecolor{accent}{RGB}{20,55,95}      % muted academic navy, used sparingly
+\definecolor{rulegray}{RGB}{120,120,120}
+ 
+\color{darktext}
+ 
+% ---------------------- HYPERLINK SETUP ----------------------
+\hypersetup{
+    colorlinks=true,
+    urlcolor=accent,
+    linkcolor=accent,
+    citecolor=accent,
+    pdftitle={Pratham Arora - Curriculum Vitae},
+    pdfauthor={Pratham Arora},
+    pdfsubject={Curriculum Vitae},
+    pdfborder={0 0 0}
+}
+ 
+\usepackage{needspace}
+ 
+% ---------------------- PAGE SETUP ----------------------
+\pagestyle{empty} % no page number needed for a 1-2 page CV
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\raggedbottom
+ 
+% ---------------------- SECTION HEADING STYLE ----------------------
+\titleformat{\section}
+  {\normalfont\large\bfseries\color{darktext}}
+  {}{0em}{}
+  [\vspace{0.3ex}\hrule height 0.8pt \vspace{0.5ex}]
+\titlespacing*{\section}{0pt}{1.4ex plus 0.2ex minus 0.1ex}{0.6ex}
+ 
+\titleformat{\subsection}
+  {\normalfont\bfseries}
+  {}{0em}{}
+\titlespacing*{\subsection}{0pt}{0.3ex}{0.1ex}
+ 
+% ---------------------- LIST (BULLET) STYLE ----------------------
+\setlist[itemize]{
+    leftmargin=1.15em,
+    topsep=2pt,
+    itemsep=0pt,
+    parsep=0pt,
+    partopsep=0pt,
+    label=\textbullet
+}
+ 
+% ---------------------- CUSTOM COMMANDS ----------------------
+% \cventry{Title/Role}{Date range}{Organization/Institution}{Location}
+\newcommand{\cventry}[4]{%
+    \begin{tabularx}{\linewidth}{@{}Y r@{}}
+        \textbf{#1} & \textbf{\footnotesize #2} \\
+        \textit{\footnotesize #3} & \textit{\footnotesize #4} \\
+    \end{tabularx}%
+    \vspace{0.3ex}
+}
+ 
+% \cvheaderline for education-type entries with degree + GPA on one line
+\newcommand{\cvheaderline}[2]{%
+    \begin{tabularx}{\linewidth}{@{}Y r@{}}
+        \textbf{#1} & \textbf{\footnotesize #2}
+    \end{tabularx}%
+}
+ 
+\newcommand{\sectionspace}{\vspace{0.2ex}}
+ 
+% ======================================================================
+% DOCUMENT START
+% ======================================================================
+\begin{document}
+ 
+% ----------------------------------------------------------------------
+% ===== HEADER =====
+% ----------------------------------------------------------------------
+\begin{center}
+    {\Huge \textbf{Pratham Arora}}
+    \vspace{0.5ex}
+ 
+    {\small
+    Mumbai, Maharashtra, India \quad|\quad
+    \href{mailto:pratham3992@gmail.com}{pratham3992@gmail.com} \quad|\quad
+    +91-98108-55594 \quad|\quad
+    \href{https://linkedin.com/in/pratham3992arora}{linkedin.com/in/pratham3992arora} \quad|\quad
+    \href{https://github.com/prats3992}{github.com/prats3992} \quad|\quad
+    \href{https://pratham-arora.vercel.app}{pratham-arora.vercel.app}
+    }
+\end{center}
+ 
+\vspace{-1ex}
+ 
+% ----------------------------------------------------------------------
+% ===== RESEARCH INTERESTS =====
+% ----------------------------------------------------------------------
+\section*{Research Interests}
+\vspace{-0.5ex}
+Human-Computer Interaction, Human-AI Interaction, Vision-Language Models, Applied Machine Learning
+ 
+\vspace{0.3ex}
+ 
+% ----------------------------------------------------------------------
+% ===== EDUCATION =====
+% ----------------------------------------------------------------------
+\section*{Education}
+\vspace{-0.5ex}
+ 
+\cvheaderline{Plaksha University}{July 2026}
+{\footnotesize \textit{B.Tech.\ in Computer Science \& Artificial Intelligence} \hfill \textit{Mohali, Punjab, India}}\\[0.15ex]
+{\footnotesize CGPA: 8.35 / 10.0}
+ 
+% ----------------------------------------------------------------------
+% ===== RESEARCH EXPERIENCE =====
+% ----------------------------------------------------------------------
+\section*{Research Experience}
+\vspace{-0.5ex}
+ 
+\needspace{13\baselineskip}
+\cventry{Undergraduate Researcher, Vision-Language Model Benchmarking}{Jan 2026 -- May 2026}{Supervisor: Prof.\ Pankaj Pansari, Plaksha University}{Mohali, India}
+\begin{itemize}
+    \item Served as primary data collector for a 459-image benchmark with instrument-verified ground truth across 5 physical estimation tasks, personally performing all instrument measurements and building a 3-tier blur-degradation pipeline (OpenCV) to test model perceptual robustness.
+    \item Independently ran the initial round of experiments across the VLM suite (Gemini 3.1 Pro, Gemini-Robotics-ER, GPT-5.4) before the rest of the team joined, then contributed to experimental design decisions on batch structure and run repetition as the team scaled to cover the remaining models.
+    % ----- REMOVED: claimed authorship of the evaluation pipeline, which was built by other team members, not me; leaving commented in case wording is needed later -----
+    % \item Built an automated evaluation pipeline benchmarking 6 vision-language models (Gemini 3.1 Pro, GPT-5.4, Gemini-Robotics-ER, Claude Opus 4.7, Gemma 4, Qwen 3.5) across 3 independent runs each, finding that performance collapses significantly under image blur across all frontier models.
+    \item Sole author of the model error analysis: reviewed the 10 worst-performing responses per category per batch across GPT-5.4, Gemini variants, and Gemini-Robotics-ER, identifying a misidentification-vs-miscalibration failure dichotomy: GPT-5.4 fails by misidentifying objects, while Gemini variants correctly identify objects but overestimate weights by 1.8--2.5$\times$; findings directly informed the reasoning-distillation prompts later used to fine-tune open-weight models.
+    \item Co-authored \textit{QUIVER: Benchmarking and Enhancing Physical Reasoning Abilities of Vision-Language Models}, submitted to AAAI 2027 (see \textit{Publications}).
+\end{itemize}
+ 
+\vspace{0.02ex}
+ 
+\needspace{7\baselineskip}
+\cventry{Undergraduate Researcher}{Jun 2023 -- Aug 2023}{Supervisor: Prof.\ Sandeep Manjanna, Plaksha University}{Mohali, India}
+\begin{itemize}
+    \item Developed a preprocessing pipeline (contrast adjustment, noise reduction, edge detection) to optimize the Segment Anything Model (SAM) for agricultural crop-weed segmentation on sparse datasets, maximizing zero-shot segmentation quality on out-of-distribution agricultural imagery.
+    \item Improved batch processing throughput for 10,000+ image datasets by implementing vectorized NumPy operations and Python multiprocessing.
+\end{itemize}
+ 
+% ----------------------------------------------------------------------
+% ===== PUBLICATIONS =====
+% ----------------------------------------------------------------------
+\section*{Publications}
+\vspace{-0.5ex}
+ 
+% ----- DIVISION BY TYPE: only 2 papers right now, not worth subsectioning; uncomment to restore when there are more -----
+% \subsection*{Journal Articles}
+% \begin{itemize}
+%     \item \textbf{P.\ Arora}, A.\ Lodha, S.\ Siddharth. ``Wait for It: A Component-Level Analysis of Latency Feedback Mechanisms for LLM Agents in VR.'' \textit{Under review, MIT Presence}, 2026.
+% \end{itemize}
+%
+% \subsection*{Conference Papers}
+% \begin{itemize}
+%     \item V.\ Lalwani, A.\ Shafiq, \textbf{P.\ Arora}, M.\ K.\ Gurumurthy, P.\ Pansari. ``QUIVER: Benchmarking and Enhancing Physical Reasoning Abilities of Vision-Language Models.'' \textit{Submitted to AAAI}, 2027.
+% \end{itemize}
+% ----- END DIVISION -----
+ 
+\begin{itemize}
+    \item \textbf{P.\ Arora}, A.\ Lodha, S.\ Siddharth. ``Wait for It: A Component-Level Analysis of Latency Feedback Mechanisms for LLM Agents in VR.'' \textit{Under review, MIT Presence}, 2026.
+    \item V.\ Lalwani, A.\ Shafiq, \textbf{P.\ Arora}, M.\ K.\ Gurumurthy, P.\ Pansari. ``QUIVER: Benchmarking and Enhancing Physical Reasoning Abilities of Vision-Language Models.'' \textit{Submitted to AAAI}, 2027.
+\end{itemize}
+ 
+% ----------------------------------------------------------------------
+% ===== TEACHING EXPERIENCE (commented out for now; uncomment to restore) =====
+% ----------------------------------------------------------------------
+% \section*{Teaching Experience}
+% \vspace{-0.5ex}
+%
+% \needspace{4\baselineskip}
+% \cventry{Student Tutor, Coding Cafe}{Oct 2025 -- Dec 2025}{Introductory Python for First-Year Students, Plaksha University}{Mohali, India}
+% \begin{itemize}
+%     \item Acted as teaching assistant for Coding Cafe, an introductory Python programming course for first-year students, designing lab assignments and supporting weekly lab sessions.
+% \end{itemize}
+ 
+% ----------------------------------------------------------------------
+% ===== TECHNICAL PROJECTS =====
+% ----------------------------------------------------------------------
+\section*{Technical Projects}
+\vspace{-0.5ex}
+ 
+\needspace{11\baselineskip}
+\cventry{VR LLM Conversational Agent}{Aug 2025 -- Dec 2025}{Unity, Gemini API, Google Cloud STT/TTS}{}
+\begin{itemize}
+    \item Engineered a real-time VR conversational agent integrating Gemini 2.5 Flash with Google Cloud STT/TTS, achieving average response latency of 1.8s through parallel API calls, caching, and audio preprocessing.
+    \item Designed a within-subjects experimental study ($N=18$) evaluating three latency feedback mechanisms (embodied gestures, visual indicators, verbal fillers) using the Godspeed questionnaire, covering dimensions including perceived animacy and immersion.
+    \item Proved via Wilcoxon signed-rank test ($p<0.05$) that embodied gestures significantly outperform visual loading indicators; co-authored \textit{Wait for It: A Component-Level Analysis of Latency Feedback Mechanisms for LLM Agents in VR}, under review at MIT's Presence (see \textit{Publications}).
+\end{itemize}
+ 
+% ----- CUT: off-narrative for research/ML/HCI-focused applications; uncomment to restore -----
+% \vspace{0.02ex}
+%
+% \cventry{AI Resume Builder \& Interview Prep Tool}{Jan 2025 -- Apr 2025}{Next.js, Tailwind, Firebase, Gemini API}{}
+% \begin{itemize}
+%     \item Built a full-stack AI resume tool with real-time PDF preview and ATS-optimized generation using Next.js SSR and the Gemini 2.5 Flash streaming API.
+%     \item Integrated Gemini to generate personalized interview questions by cross-referencing uploaded resumes against a structured DSA/STAR prep database, surfacing role-specific preparation gaps.
+%     \item Implemented Firebase Authentication with Google OAuth for secure user management and session-based access control across the application.
+% \end{itemize}
+% ----- END CUT -----
+ 
+\vspace{0.02ex}
+ 
+\needspace{6\baselineskip}
+\cventry{Kelp Forest Semantic Segmentation}{Jan 2024 -- May 2024}{PyTorch, U-Net}{}
+\begin{itemize}
+    \item Achieved a Top 100 finish (top 17\%) in a DrivenData satellite imagery competition using a U-Net with EfficientNet-B3 backbone for kelp forest segmentation in noisy real-world imagery.
+    \item Built a streak-detection pipeline using an ensemble of CNN classifiers (ResNet, DenseNet) with hard voting to filter atmospherically corrupted training images, achieving an F1 score of 0.952.
+\end{itemize}
+ 
+% ----------------------------------------------------------------------
+% ===== INDUSTRY / INTERNSHIP EXPERIENCE =====
+% ----------------------------------------------------------------------
+\section*{Industry Experience}
+\vspace{-0.5ex}
+ 
+\needspace{5\baselineskip}
+\cventry{AI \& Automation Architect}{Jul 2026 -- Present}{Practus Advisors}{Mumbai, India}
+\begin{itemize}
+    \item Building automations for the growth office's reporting workflows to cut manual work and help the team extract more value from existing reports.
+    \item Contributing to the firm's in-house ERP build, focused on finance data migration.
+\end{itemize}
+ 
+\vspace{0.02ex}
+ 
+\needspace{4\baselineskip}
+\cventry{Freelance Web Developer}{May 2026 -- Present}{PQRS Research (Dr.\ Niket Tandon)}{Remote}
+\begin{itemize}
+    \item Leading a full redesign and feature buildout of the PQRS Research website in Next.js, including a dual onboarding system with distinct registration and intake flows for mentors and mentees.
+\end{itemize}
+ 
+\vspace{0.02ex}
+ 
+\needspace{11\baselineskip}
+\cventry{AI Engineering Intern}{Jun 2025 -- Jul 2025}{Cotality}{Kolkata, India}
+\begin{itemize}
+    \item Architected a FastAPI backend with AST-based parsing for 15+ languages, enabling automated documentation generation across polyglot codebases at 50,000+ LOC/day.
+    \item Cut AI embedding costs by 85\% by building a hash-based system that fingerprints each function's AST and skips re-embedding unchanged code, eliminating redundant Azure OpenAI API calls.
+    \item Built a production RAG pipeline using LangChain and Azure OpenAI, backed by Cosmos DB with IVF vector indexing for semantic code retrieval, serving 17+ enterprise repositories; migrated from FAISS to support persistent, production-scale storage.
+    \item Shipped 12 production REST API endpoints with typed Pydantic schemas, powering real-time documentation preview in the client-facing web interface.
+\end{itemize}
+ 
+% ----- CUT: kept for the record only, not for show -- hardcoded work, not representative; uncomment only if truly needed -----
+% \vspace{0.02ex}
+%
+% \needspace{4\baselineskip}
+% \cventry{Software Development Engineer Intern}{Jun 2024 -- Jul 2024}{Orangewood Labs (Robotics)}{Noida, India}
+% \begin{itemize}
+%     \item Designed a modular LLM task-planning system for a food-preparation robotic arm, decoupling high-level intent logic from low-level actuation to enable parallel development across firmware and AI teams.
+% \end{itemize}
+% ----- END CUT -----
+ 
+% ----- CUT: off-narrative for research/HCI-focused applications; uncomment to restore -----
+% \vspace{0.02ex}
+%
+% \cventry{Freelance Web Developer}{May 2025}{Anuj Desai Associates}{Remote}
+% \begin{itemize}
+%     \item Delivered a full-stack site with a public careers page and a Firebase-backed admin dashboard, giving firm partners a private portal to review and manage job applications.
+%     \item Secured admin access via Google OAuth with an email allowlist (Firebase Auth), enforcing partner-only access without a separate auth backend.
+%     \item Built a GitHub-editable content layer so the client can update site copy post-handoff without developer involvement.
+% \end{itemize}
+% ----- END CUT -----
+ 
+% ----------------------------------------------------------------------
+% ===== LEADERSHIP & INVOLVEMENT =====
+% ----------------------------------------------------------------------
+\section*{Leadership \& Involvement}
+\vspace{-0.5ex}
+\begin{itemize}
+    \item \textbf{Head of Technology}, Athleda, Plaksha Sports Society (Apr 2025 -- Feb 2026): built and maintained a sports platform serving 500+ students, mentoring 2 junior developers through code reviews and production deployments.
+    \item \textbf{Web Developer to Head of Web Development}, LEAP.AI @ Plaksha (Feb 2024 -- Feb 2025): led a team of 7--8 through 2 full platform redesigns, growing the AI club site to 800+ monthly users.
+    \item \textbf{Cohort Representative}, CSAI'22, Plaksha University (Oct 2024 -- Jul 2026): coordinated grading-component scheduling across professors to prevent burnout, and built a web tool for students to plan their semester calendar around elective options.
+\end{itemize}
+ 
+% ----------------------------------------------------------------------
+% ===== TECHNICAL SKILLS =====
+% ----------------------------------------------------------------------
+\section*{Technical Skills}
+\vspace{-0.5ex}
+\begin{itemize}[leftmargin=1.15em]
+    \item \textbf{Languages:} Python, SQL, TypeScript
+    \item \textbf{ML \& Computer Vision:} PyTorch, OpenCV, Segment Anything (SAM), LangChain
+    % \item \textbf{Research Methods:} Experimental design (within-subjects studies), statistical hypothesis testing (Wilcoxon signed-rank), benchmark construction, model error analysis
+    \item \textbf{Systems \& Cloud:} FastAPI, Node.js, Next.js, REST APIs, Pydantic, Azure (Cosmos DB, OpenAI), Firebase, FAISS, Google Cloud, Git/GitHub, Vercel
+\end{itemize}
+ 
+% ----------------------------------------------------------------------
+% ===== REFERENCES (commented out until contact details are confirmed and permission obtained) =====
+% ----------------------------------------------------------------------
+% \section*{References}
+% \vspace{-0.5ex}
+% \begin{itemize}
+%     \item \textbf{Prof.\ Pankaj Pansari}, Plaksha University, [email]
+%     \item \textbf{Prof.\ Siddharth}, Associate Professor, Human-Technology Interaction Lab, Plaksha University, siddharth.s@plaksha.edu.in
+%     \item \textbf{Prof.\ Anupam Sobti}, Plaksha University, [email]
+% \end{itemize}
+ 
+\end{document}

@@ -1,0 +1,50 @@
+# Pratham Arora - Research Notebook & Technical Portfolio
+
+> "I keep building small, self-tested tools to remove friction from tasks I do myself - and now that AI sits inside almost everything I build or am evaluated with, I want to study what that presence does to a person's actual skill and their trust in it."
+
+## Identity & Background
+- **Name**: Pratham Arora
+- **Institution**: Plaksha University (Mohali, India)
+- **Degree**: B.Tech. in Computer Science & Artificial Intelligence (Graduated July 2026)
+- **Email**: pratham3992@gmail.com
+- **Website**: https://pratham-arora.vercel.app
+- **GitHub**: https://github.com/prats3992
+- **LinkedIn**: https://linkedin.com/in/pratham3992arora
+
+## Research Focus Areas
+
+### 1. Human-AI Interaction Under Time and Trust Pressure
+- Investigating how feedback modalities (embodied non-verbal cues vs. visual HUD spinners vs. verbal fillers) affect user patience, animacy attribution, and immersion during system wait states.
+- Empirical within-subjects experiment ($N=18$) demonstrated that embodied gestures statistically outperform visual spinners ($p < 0.05$, Wilcoxon signed-rank), shifting user attribution from "system lag" to "cognitive reflection".
+- Paper: *Wait for It: A Component-Level Analysis of Latency Feedback Mechanisms for LLM Agents in VR* (Under review, MIT Presence, 2026).
+
+### 2. Characterizing How Models Fail (Physical-World Reasoning)
+- Empirical benchmark of 459 tabletop images with instrument-verified ground truth (digital scale, caliper measurements) across 5 physical estimation tasks (mass, height, volume, material density, center-of-mass).
+- Uncovered the *misidentification-vs-miscalibration dichotomy*: GPT-5.4 fails at object/material identification (confusing steel with plastic), whereas Gemini variants identify objects correctly but overestimate mass by 1.8x–2.5x due to uncalibrated numerical scale.
+- Documented "pixel-coverage cheating": models derive height and volume from bounding-box pixel percentages rather than true 3D perspective geometry. Optical blur collapses physical reasoning across all frontier models.
+- Paper: *QUIVER: Benchmarking and Enhancing Physical Reasoning Abilities of Vision-Language Models* (Submitted to AAAI 2027).
+
+### 3. Production Systems & Friction-Reduction Tooling
+- Built an AST-fingerprinted retrieval system for Cotality, hashing function-level abstract syntax trees to cut Azure OpenAI embedding API costs by 85% across 50,000+ LOC/day polyglot codebases. Migrated from in-memory FAISS to Azure Cosmos DB with IVF vector indexing for durable multi-tenant persistence.
+- Built self-tested friction-reduction tools:
+ - Court-side basketball scoring app: touch-first interface designed for fast-break ergonomics.
+ - Athleda auction slide generator: client-side XLSX parsing, ZIP extraction, and vector PPTX export (`pptxgenjs`) with zero server overhead.
+ - Sem-7 timetable clash-checker: interactive multi-semester conflict visualizer adopted cohort-wide at Plaksha.
+ - VLM physical data annotation app: combined photography with ground-truth instrument logging on mobile.
+
+## Key Routes & Documents
+
+- **Home**: https://pratham-arora.vercel.app/
+- **Investigations**: https://pratham-arora.vercel.app/investigations
+ - VR Latency Study: https://pratham-arora.vercel.app/investigations/vr-latency-study
+ - VLM Physical Reasoning: https://pratham-arora.vercel.app/investigations/vlm-physical-reasoning
+ - Cotality Code RAG: https://pratham-arora.vercel.app/investigations/cotality-rag-tradeoffs
+- **Technical Notes**: https://pratham-arora.vercel.app/notes
+ - Migrating off FAISS to Cosmos DB: https://pratham-arora.vercel.app/notes/migrating-faiss-to-cosmos-db
+ - VLM Pixel-Coverage Shortcut: https://pratham-arora.vercel.app/notes/pixel-coverage-shortcut-vlms
+ - Rebuilding DL & Math Fundamentals: https://pratham-arora.vercel.app/notes/rebuilding-dl-math-fundamentals
+ - Latency vs. Court Speed: https://pratham-arora.vercel.app/notes/latency-vs-court-speed
+- **About & Inquiry Questions**: https://pratham-arora.vercel.app/about
+- **Full Project Archive**: https://pratham-arora.vercel.app/work
+- **Academic Curriculum Vitae**:
+ - LaTeX Source: https://pratham-arora.vercel.app/CV.tex

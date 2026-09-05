@@ -6,15 +6,15 @@ interface MetricCardProps {
 
 export function MetricCard({ label, value, context }: MetricCardProps) {
   return (
-    <div className="border border-[var(--border)] rounded-md p-4 bg-[var(--bg-elevated)]">
-      <p className="font-mono font-medium text-xl text-[var(--accent)] leading-none mb-1.5">
+    <div className="border border-[var(--border)] rounded p-4 bg-[var(--bg-elevated)]">
+      <p className="font-mono font-bold text-heading-sm text-[var(--accent)] leading-none mb-1.5">
         {value}
       </p>
-      <p className="text-[13px] font-medium text-[var(--text-primary)] leading-tight">
+      <p className="text-caption font-medium text-[var(--text-primary)] leading-tight">
         {label}
       </p>
       {context && (
-        <p className="text-2xs text-[var(--text-tertiary)] mt-1">{context}</p>
+        <p className="text-data text-[var(--text-tertiary)] mt-1">{context}</p>
       )}
     </div>
   )

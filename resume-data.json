@@ -142,7 +142,7 @@
     {
       "id": "vr-llm-agent",
       "title": "VR LLM Conversational Agent",
-      "description": "Most VR agents have 3–5 second response latency — long enough to break immersion. I built a conversational agent that hits 1.8s average by parallelizing Gemini 2.5 Flash calls with Google Cloud STT/TTS, caching partial results, and preprocessing audio before transmission.",
+      "description": "Most VR agents have 3–5 second response latency - long enough to break immersion. I built a conversational agent that hits 1.8s average by parallelizing Gemini 2.5 Flash calls with Google Cloud STT/TTS, caching partial results, and preprocessing audio before transmission.",
       "longDescription": [
         "Engineered a real-time VR conversational agent integrating Gemini 2.5 Flash with Google Cloud STT/TTS, achieving average response latency of 1.8s through parallel API calls, caching, and audio preprocessing.",
         "Designed within-subjects experimental study (N=18) evaluating three latency feedback mechanisms (embodied gestures, visual indicators, verbal fillers) on perceived animacy and immersion via Godspeed questionnaire.",
@@ -192,7 +192,7 @@
     {
       "id": "kelp-segmentation",
       "title": "Kelp Forest Semantic Segmentation",
-      "description": "Kelp forests are a critical ocean ecosystem — detecting them in satellite imagery is hard because atmospheric interference corrupts images unpredictably. I trained a U-Net with EfficientNet-B3 backbone for segmentation and built a streak-detection pipeline to filter corrupted training images before they hurt model accuracy.",
+      "description": "Kelp forests are a critical ocean ecosystem - detecting them in satellite imagery is hard because atmospheric interference corrupts images unpredictably. I trained a U-Net with EfficientNet-B3 backbone for segmentation and built a streak-detection pipeline to filter corrupted training images before they hurt model accuracy.",
       "longDescription": [
         "Achieved Top 100 finish (top 17%) in a DrivenData satellite imagery competition using U-Net with EfficientNet-B3 backbone for kelp forest segmentation in noisy real-world imagery.",
         "Built streak-detection pipeline using an ensemble of CNN classifiers (ResNet, DenseNet) with hard voting to filter atmospherically corrupted training images, achieving F1 score of 0.952."
@@ -217,7 +217,7 @@
     },
     {
       "id": "anuj-desai-associates",
-      "title": "Anuj Desai Associates — CA Firm Website",
+      "title": "Anuj Desai Associates - CA Firm Website",
       "description": "Designed and shipped a full-stack site for a CA firm with a careers page and a private admin dashboard where firm partners review and manage candidate applications, powered by Firebase Realtime Database.",
       "longDescription": [
         "Designed and shipped a full-stack site for a CA firm with a careers page and a private admin dashboard where firm partners review and manage candidate applications, powered by Firebase Realtime Database.",
