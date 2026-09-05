@@ -11,9 +11,9 @@
   "education": [
     {
       "institution": "Plaksha University",
-      "location": "Mohali, India",
-      "degree": "B.Tech. in Computer Science & AI",
-      "cgpa": "8.20",
+      "location": "Mohali, Punjab, India",
+      "degree": "B.Tech. in Computer Science & Artificial Intelligence",
+      "cgpa": "8.35",
       "startDate": "Aug. 2022",
       "endDate": "July 2026"
     }
@@ -22,62 +22,72 @@
     "languages": [
       "Python",
       "SQL",
-      "JavaScript",
       "TypeScript"
     ],
     "aiMl": [
       "PyTorch",
-      "LangChain",
       "OpenCV",
-      "RAG Pipelines",
-      "Segment Anything (SAM)"
+      "Segment Anything (SAM)",
+      "LangChain"
     ],
     "webBackend": [
       "FastAPI",
       "Node.js",
-      "Next.js (SSR/CSR)",
+      "Next.js",
       "REST APIs",
-      "Pydantic",
-      "Tailwind CSS"
+      "Pydantic"
     ],
     "cloudTools": [
       "Azure (Cosmos DB, OpenAI)",
       "Firebase",
       "FAISS",
+      "Google Cloud",
       "Git/GitHub",
       "Vercel"
     ]
   },
   "researchExperience": [
     {
-      "title": "Undergraduate Researcher",
-      "supervisor": "Visual Benchmarking of VLMs | Sup. Prof. Pankaj Pansari",
+      "title": "Undergraduate Researcher, Vision-Language Model Benchmarking",
+      "supervisor": "Supervisor: Prof. Pankaj Pansari, Plaksha University",
       "organization": "Plaksha University",
-      "startDate": "Jan. 2026",
-      "endDate": "Present",
+      "startDate": "Jan 2026",
+      "endDate": "May 2026",
       "achievements": [
-        "Constructed a 459-image benchmark with instrument-verified ground truth across 5 physical estimation tasks; personally handling all instrument measurements and building a 3-tier blur-degradation pipeline (OpenCV) to test model perceptual robustness.",
-        "Benchmarked 6 VLMs (Gemini 3.1 Pro, GPT-5.4, Gemini-Robotics-ER, Claude Opus 4.7, Gemma 4, Qwen 3.5) across 3 independent runs each, finding performance collapses significantly under image blur across all frontier models.",
-        "Identified a misidentification-vs-miscalibration failure dichotomy via top-10 error analysis per category: GPT-5.4 fails by misidentifying objects, while Gemini variants correctly identify but overestimate weights by 1.8–2.5."
+        "Served as primary data collector for a 459-image benchmark with instrument-verified ground truth across 5 physical estimation tasks, personally performing all instrument measurements and building a 3-tier blur-degradation pipeline (OpenCV) to test model perceptual robustness.",
+        "Independently ran the initial round of experiments across the VLM suite (Gemini 3.1 Pro, Gemini-Robotics-ER, GPT-5.4) before the rest of the team joined, then contributed to experimental design decisions on batch structure and run repetition as the team scaled to cover the remaining models.",
+        "Sole author of the model error analysis: reviewed the 10 worst-performing responses per category per batch across GPT-5.4, Gemini variants, and Gemini-Robotics-ER, identifying a misidentification-vs-miscalibration failure dichotomy: GPT-5.4 fails by misidentifying objects, while Gemini variants correctly identify objects but overestimate weights by 1.8 - 2.5; findings directly informed the reasoning-distillation prompts later used to fine-tune open-weight models.",
+        "Co-authored QUIVER: Benchmarking and Enhancing Physical Reasoning Abilities of Vision-Language Models, submitted to AAAI 2027 (see Publications)."
       ]
     },
     {
       "title": "Undergraduate Researcher",
-      "supervisor": "Supervised by Prof. Sandeep Manjanna",
+      "supervisor": "Supervisor: Prof. Sandeep Manjanna, Plaksha University",
       "organization": "Plaksha University",
-      "startDate": "June 2023",
-      "endDate": "Aug. 2023",
+      "startDate": "Jun 2023",
+      "endDate": "Aug 2023",
       "achievements": [
-        "Developed preprocessing pipeline (contrast adjustment, noise reduction, edge detection) to optimise Segment Anything Model (SAM) for agricultural crop-weed segmentation on sparse datasets, maximising zero-shot segmentation quality on out-of-distribution agricultural imagery.",
+        "Developed a preprocessing pipeline (contrast adjustment, noise reduction, edge detection) to optimize the Segment Anything Model (SAM) for agricultural crop-weed segmentation on sparse datasets, maximizing zero-shot segmentation quality on out-of-distribution agricultural imagery.",
         "Improved batch processing throughput for 10,000+ image datasets by implementing vectorized NumPy operations and Python multiprocessing."
       ]
     }
   ],
   "industryExperience": [
     {
+      "title": "AI & Automation Architect",
+      "company": "Practus Advisors",
+      "location": "Mumbai, India",
+      "startDate": "Jul 2026",
+      "endDate": "Present",
+      "achievements": [
+        "Building automations for the growth office's reporting workflows to cut manual work and help the team extract more value from existing reports.",
+        "Contributing to the firm's in-house ERP build, focused on finance data migration."
+      ]
+    },
+    {
       "title": "Freelance Web Developer",
       "company": "PQRS Research (Dr. Niket Tandon)",
-      "location": "Kolkata",
+      "location": "Remote",
       "startDate": "May 2026",
       "endDate": "Present",
       "achievements": [
@@ -87,13 +97,13 @@
     {
       "title": "AI Engineering Intern",
       "company": "Cotality",
-      "location": "",
-      "startDate": "June 2025",
-      "endDate": "July 2025",
+      "location": "Kolkata, India",
+      "startDate": "Jun 2025",
+      "endDate": "Jul 2025",
       "achievements": [
         "Architected a FastAPI backend with AST-based parsing for 15+ languages, enabling automated documentation generation across polyglot codebases at 50,000+ LOC/day.",
         "Cut AI embedding costs by 85% by building a hash-based system that fingerprints each function's AST and skips re-embedding unchanged code, eliminating redundant Azure OpenAI API calls.",
-        "Built a RAG pipeline using LangChain and Azure OpenAI, backed by Cosmos DB with IVF vector indexing for semantic code retrieval –- migrated from FAISS to support persistent, production-scale storage.",
+        "Built a production RAG pipeline using LangChain and Azure OpenAI, backed by Cosmos DB with IVF vector indexing for semantic code retrieval, serving 17+ enterprise repositories; migrated from FAISS to support persistent, production-scale storage.",
         "Shipped 12 production REST API endpoints with typed Pydantic schemas, powering real-time documentation preview in the client-facing web interface."
       ],
       "metrics": {
@@ -108,34 +118,6 @@
           "url": "https://docs.google.com/document/d/1dtZ9-4tBXvBmNzhmxh4pAvohxTniWtH-M9lDnvHBUPI/edit?usp=sharing"
         }
       ]
-    },
-    {
-      "title": "Freelance Web Developer",
-      "company": "Anuj Desai Associates",
-      "location": "",
-      "startDate": "May 2025",
-      "endDate": "",
-      "achievements": [
-        "Delivered a full-stack site with a public careers page and a Firebase-backed admin dashboard, giving firm partners a private portal to review and manage job applications.",
-        "Secured admin access via Google OAuth with an email allowlist (Firebase Auth), enforcing partner-only access without a separate auth backend.",
-        "Built a GitHub-editable content layer so the client can update site copy post-handoff without developer involvement."
-      ],
-      "links": [
-        {
-          "label": "Site",
-          "url": "https://anujdesaiassociates.com"
-        }
-      ]
-    },
-    {
-      "title": "Software Development Engineer Intern",
-      "company": "Orangewood Labs (Robotics)",
-      "location": "",
-      "startDate": "June 2024",
-      "endDate": "July 2024",
-      "achievements": [
-        "Designed modular LLM task-planning system for a food-preparation robotic arm, decoupling high-level intent logic from low-level actuation to enable parallel development across firmware and AI teams."
-      ]
     }
   ],
   "projects": [
@@ -145,8 +127,8 @@
       "description": "Most VR agents have 3–5 second response latency - long enough to break immersion. I built a conversational agent that hits 1.8s average by parallelizing Gemini 2.5 Flash calls with Google Cloud STT/TTS, caching partial results, and preprocessing audio before transmission.",
       "longDescription": [
         "Engineered a real-time VR conversational agent integrating Gemini 2.5 Flash with Google Cloud STT/TTS, achieving average response latency of 1.8s through parallel API calls, caching, and audio preprocessing.",
-        "Designed within-subjects experimental study (N=18) evaluating three latency feedback mechanisms (embodied gestures, visual indicators, verbal fillers) on perceived animacy and immersion via Godspeed questionnaire.",
-        "Proved via Wilcoxon signed-rank test (p<0.05) that embodied gestures significantly outperform visual loading indicators; co-authored paper submitted to MIT's Presence journal (under review)."
+        "Designed a within-subjects experimental study (N=18) evaluating three latency feedback mechanisms (embodied gestures, visual indicators, verbal fillers) using the Godspeed questionnaire, covering dimensions including perceived animacy and immersion.",
+        "Proved via Wilcoxon signed-rank test (p<0.05) that embodied gestures significantly outperform visual loading indicators; co-authored Wait for It: A Component-Level Analysis of Latency Feedback Mechanisms for LLM Agents in VR, under review at MIT's Presence (see Publications)."
       ],
       "tags": [
         "Unity",
@@ -194,8 +176,8 @@
       "title": "Kelp Forest Semantic Segmentation",
       "description": "Kelp forests are a critical ocean ecosystem - detecting them in satellite imagery is hard because atmospheric interference corrupts images unpredictably. I trained a U-Net with EfficientNet-B3 backbone for segmentation and built a streak-detection pipeline to filter corrupted training images before they hurt model accuracy.",
       "longDescription": [
-        "Achieved Top 100 finish (top 17%) in a DrivenData satellite imagery competition using U-Net with EfficientNet-B3 backbone for kelp forest segmentation in noisy real-world imagery.",
-        "Built streak-detection pipeline using an ensemble of CNN classifiers (ResNet, DenseNet) with hard voting to filter atmospherically corrupted training images, achieving F1 score of 0.952."
+        "Achieved a Top 100 finish (top 17%) in a DrivenData satellite imagery competition using a U-Net with EfficientNet-B3 backbone for kelp forest segmentation in noisy real-world imagery.",
+        "Built a streak-detection pipeline using an ensemble of CNN classifiers (ResNet, DenseNet) with hard voting to filter atmospherically corrupted training images, achieving an F1 score of 0.952."
       ],
       "tags": [
         "PyTorch",
@@ -242,11 +224,11 @@
     {
       "title": "Athleda – Plaksha Sports Society",
       "subtitle": "Head of Technology",
-      "organization": "Plaksha University",
-      "startDate": "Apr. 2025",
-      "endDate": "Feb. 2026",
+      "organization": "Athleda, Plaksha Sports Society",
+      "startDate": "Apr 2025",
+      "endDate": "Feb 2026",
       "achievements": [
-        "Built and maintained a sports platform serving 500+ students, shipping event registration, live-scoring, and photo galleries, while mentoring 2 junior developers through code reviews and production deployments."
+        "Built and maintained a sports platform serving 500+ students, mentoring 2 junior developers through code reviews and production deployments."
       ],
       "links": [
         {
@@ -258,12 +240,12 @@
     {
       "title": "LEAP.AI @ Plaksha",
       "titleProgression": "Web Developer → Head of Web Development",
-      "organization": "Plaksha University",
+      "organization": "LEAP.AI @ Plaksha",
       "location": "Plaksha University",
-      "startDate": "Feb. 2024",
-      "endDate": "Feb. 2025",
+      "startDate": "Feb 2024",
+      "endDate": "Feb 2025",
       "achievements": [
-        "Contributed as a core developer on a team of 7–8, then led the team through 2 full platform redesigns as Head, growing the AI club site to 800+ monthly users for events, workshops, and project showcases."
+        "Led a team of 7 - 8 through 2 full platform redesigns, growing the AI club site to 800+ monthly users."
       ],
       "subtitle": "Web Developer → Head of Web Development",
       "links": [
@@ -271,6 +253,15 @@
           "label": "Site",
           "url": "https://leapai.club/"
         }
+      ]
+    },
+    {
+      "title": "Cohort Representative",
+      "organization": "CSAI'22, Plaksha University",
+      "startDate": "Oct 2024",
+      "endDate": "Jul 2026",
+      "achievements": [
+        "Coordinated grading-component scheduling across professors to prevent burnout, and built a web tool for students to plan their semester calendar around elective options."
       ]
     }
   ]

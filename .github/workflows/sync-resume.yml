@@ -1,11 +1,9 @@
-name: Sync resume.tex → resume-data.json
+name: Sync CV.tex -> resume-data.json
 
 on:
   push:
     paths:
-      - "public/master-resume.tex"
-      - "public/sde.tex"
-      - "public/aiml.tex"
+      - "public/CV.tex"
   workflow_dispatch: # allow manual trigger from GitHub UI
 
 jobs:
@@ -27,7 +25,7 @@ jobs:
           python-version: "3.12"
 
       - name: Run sync script
-        run: python scripts/sync_resume.py --tex public/master-resume.tex --json resume-data.json
+        run: python scripts/sync_resume.py --tex public/CV.tex --json resume-data.json
 
       - name: Check if resume-data.json changed
         id: diff
@@ -40,5 +38,5 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add resume-data.json
-          git commit -m "chore: sync resume-data.json from master-resume.tex [skip ci]"
+          git commit -m "chore: sync resume-data.json from CV.tex [skip ci]"
           git push

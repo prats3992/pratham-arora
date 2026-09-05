@@ -118,8 +118,7 @@ Here's the raw information: [paste details - role, dates, org, what you did, any
 numbers/outcomes]
 
 Steps:
-1. Add/update this in public/master-resume.tex (and sde.tex/aiml.tex if relevant to those
-   variants) following the existing \resumeExperienceHeading / \resumeItem format.
+1. Add/update this in public/CV.tex and/or resume-data.json directly.
 2. Confirm resume-data.json-only fields (featured, metrics, paperBadge, inProgress,
    category, githubUrl, liveUrl, id, date, status) are set directly in resume-data.json
    if needed - the sync script will not create or infer these.
@@ -156,7 +155,7 @@ Requirements:
 ### C - "General site audit before a batch of changes"
 ```
 Before making changes, check:
-1. Does resume-data.json match the latest master-resume.tex? (Diff them or re-run
+1. Does resume-data.json match the latest public/CV.tex? (Diff them or re-run
    scripts/sync_resume.py.)
 2. Are there any new jobs/projects in resume-data.json that should also have a
    content/investigations.ts, content/notes.ts, or content/timeline.ts entry, per
