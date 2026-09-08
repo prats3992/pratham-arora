@@ -45,7 +45,7 @@ export const investigations: Investigation[] = [
     nextQuestion:
       "Does this feedback-channel effect translate to non-embodied generative AI workflows - such as agentic coding assistants that silently 'think' or edit files across 10–30 second windows without visual intermediate state?",
     paperCitation:
-      "P. Arora, A. Lodha, S. Siddharth. 'Wait for It: A Component-Level Analysis of Latency Feedback Mechanisms for LLM Agents in VR.' Under review, MIT Presence, 2026.",
+      "P. Arora, A. Lodha, Siddharth S. 'Wait for It: A Component-Level Analysis of Latency Feedback Mechanisms for LLM Agents in VR.' Under review, MIT Presence, 2026.",
     interactiveType: "latency-comparator",
     metrics: {
       latency: "1.8s avg",

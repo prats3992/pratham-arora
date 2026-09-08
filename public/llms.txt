@@ -28,7 +28,7 @@
 - Built an AST-fingerprinted retrieval system for Cotality, hashing function-level abstract syntax trees to cut Azure OpenAI embedding API costs by 85% across 50,000+ LOC/day polyglot codebases. Migrated from in-memory FAISS to Azure Cosmos DB with IVF vector indexing for durable multi-tenant persistence.
 - Built self-tested friction-reduction tools:
  - Court-side basketball scoring app: touch-first interface designed for fast-break ergonomics.
- - Athleda auction slide generator: client-side XLSX parsing, ZIP extraction, and vector PPTX export (`pptxgenjs`) with zero server overhead.
+ - Athleda auction slide generator: zero-server client-side spreadsheet parsing, in-memory photo extraction, and presentation deck generation.
  - Sem-7 timetable clash-checker: interactive multi-semester conflict visualizer adopted cohort-wide at Plaksha.
  - VLM physical data annotation app: combined photography with ground-truth instrument logging on mobile.
 
@@ -47,4 +47,5 @@
 - **About & Inquiry Questions**: https://pratham-arora.vercel.app/about
 - **Full Project Archive**: https://pratham-arora.vercel.app/work
 - **Academic Curriculum Vitae**:
+ - PDF Document: https://pratham-arora.vercel.app/CV.pdf
  - LaTeX Source: https://pratham-arora.vercel.app/CV.tex

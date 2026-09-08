@@ -65,7 +65,14 @@ export function FrictionTimeline() {
               {activeMilestone.title}
             </h3>
             <p className="text-caption text-[var(--text-tertiary)] mt-0.5">
-              {activeMilestone.context}
+              {activeMilestone.context.includes("MIT Presence") ? (
+                <>
+                  HCI Research /{" "}
+                  <span className="text-[var(--accent)] font-medium">MIT Presence (Under Review)</span>
+                </>
+              ) : (
+                activeMilestone.context
+              )}
             </p>
           </div>
           {activeMilestone.link && (

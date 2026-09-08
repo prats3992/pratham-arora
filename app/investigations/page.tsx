@@ -37,7 +37,7 @@ export default function InvestigationsPage() {
                   {inv.paperBadge && (
                     <>
                       <span>·</span>
-                      <span className="text-[var(--text-secondary)]">{inv.paperBadge}</span>
+                      <span className="text-[var(--accent)] font-medium">{inv.paperBadge}</span>
                     </>
                   )}
                 </div>

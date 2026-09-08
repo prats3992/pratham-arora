@@ -28,32 +28,64 @@ export const timelineMilestones: TimelineMilestone[] = [
     tags: ["Ergonomics", "UI Under Pressure", "Next.js", "Touch UX"],
   },
   {
-    id: "athleda-slides",
-    year: "2025",
-    title: "Athleda Player Auction Slide Generator",
-    context: "Head of Technology, Athleda Sports Society",
-    domain: "Ergonomics & Tools",
+    id: "cotality-ast",
+    year: "Jun 2025",
+    title: "AST-Fingerprinted Code RAG Pipeline",
+    context: "AI Engineering Intern, Cotality",
+    domain: "Systems & Data",
     friction:
-      "Preparing annual sports player auctions required manually building hundreds of PowerPoint slides by cross-referencing messy spreadsheet columns with student registration photos.",
+      "Automating code documentation across 15+ languages at 50,000+ LOC/day was causing prohibitive vector embedding costs because naive text-chunking re-embedded files even when only whitespace or comments changed.",
     toolBuilt:
-      "A zero-server in-browser generation portal (`design-auctions`). Parses Excel sheets client-side, extracts ZIP photo bundles in memory, fuzzy-matches names to images, and renders vector-sharp PowerPoint decks directly via `pptxgenjs`.",
+      "An AST-based parser that computes cryptographic hashes for individual function subtrees, skipping vector re-embedding for unchanged AST nodes. Paired with a migration from FAISS to Azure Cosmos DB with IVF vector indexing for durable multi-tenant persistence.",
     takeaway:
-      "Executing heavy media processing directly inside the browser eliminated sensitive photo uploads and server costs entirely. Built and packaged for incoming student leadership before finishing my tenure.",
-    tags: ["Client-Side Processing", "pptxgenjs", "SheetJS", "Automation"],
+      "Cut API costs by 85%. Proved that syntactic AST structure, not raw text chunks, is the correct abstraction for code AI caching, cost control, and retrieval trust.",
+    tags: ["FastAPI", "AST Parsing", "Azure Cosmos DB", "Azure OpenAI"],
+    link: "/investigations/cotality-rag-tradeoffs",
+    linkText: "Read Cotality Case Study",
   },
   {
     id: "timetable-clash",
-    year: "2024–2025",
+    year: "Aug 2025",
     title: "Sem-7 Timetable Clash-Checker & Plaksha Timetable",
     context: "CSAI'22 Cohort Representative & Campus-Wide Tool",
     domain: "Systems & Data",
     friction:
-      "Selecting elective courses for Semester 7 caused rampant scheduling collisions across student cohorts. Static PDF and Excel schedules made multi-semester conflict verification nearly impossible.",
+      "Selecting elective courses for Semester 7 caused rampant scheduling collisions across student cohorts. Static schedules made multi-course conflict verification nearly impossible.",
     toolBuilt:
-      "Started as a lightweight conflict checker used across the entire Batch of '22 (all majors). Expanded it into `plaksha-timetable`, a full portal with real-time calendar conflict detection, bulk Excel admin diffing, and .ics calendar exports.",
+      "Started as a lightweight conflict checker used across the entire Batch of '22. Expanded it into `plaksha-timetable`, a full portal with real-time calendar conflict detection, bulk admin schedule diffing, and .ics calendar exports.",
     takeaway:
-      "What began as a localized tool to stop peers from missing graduation requirements grew into an institutional scheduling portal delivered to the Academic Office.",
+      "What began as a localized tool in August 2025 to stop peers from missing graduation requirements grew into an institutional scheduling portal delivered to the Academic Office.",
     tags: ["Course Planning", "Conflict Detection", "Next.js", "Firebase"],
+  },
+  {
+    id: "vr-latency",
+    year: "Late 2025",
+    title: "VR Conversational Latency Study",
+    context: "HCI Research / MIT Presence (Under Review)",
+    domain: "Human-AI Interaction",
+    friction:
+      "VR conversational agents exhibit 2–4s inference lags that break user presence. Shaving milliseconds off frontier LLMs hits a hard network and inference floor.",
+    toolBuilt:
+      "A Unity-based conversational agent (Gemini 2.5 Flash + Google Cloud STT/TTS at 1.8s) instrumented with three latency-feedback conditions (embodied gestures, visual HUD indicators, verbal fillers) evaluated via a formal within-subjects empirical study (N=18).",
+    takeaway:
+      "Embodied non-verbal gestures significantly beat visual spinners (p < 0.05). Proved that user perception of latency is governed by the feedback channel rather than the stopwatch number.",
+    tags: ["VR", "Human-AI Interaction", "Within-Subjects Study", "Unity"],
+    link: "/investigations/vr-latency-study",
+    linkText: "Read VR Latency Investigation",
+  },
+  {
+    id: "athleda-slides",
+    year: "2026",
+    title: "Athleda Player Auction Slide Generator",
+    context: "Athleda Sports Society (Built Post-Tenure)",
+    domain: "Ergonomics & Tools",
+    friction:
+      "Preparing annual sports player auctions required manually building hundreds of PowerPoint slides by cross-referencing spreadsheet columns with student registration photos.",
+    toolBuilt:
+      "A zero-server in-browser generation portal (`design-auctions`). Parses spreadsheets client-side, extracts ZIP photo bundles in memory, fuzzy-matches student names to photos, and renders vector-sharp presentation decks directly in the browser.",
+    takeaway:
+      "Executing heavy media processing directly inside the browser eliminated photo uploads and server costs entirely. Built after stepping down from leadership to solve a recurring auction bottleneck for incoming organizers.",
+    tags: ["Client-Side Processing", "Automation", "In-Browser Generation", "Workflow Tools"],
   },
   {
     id: "vlm-annotation",
@@ -70,37 +102,5 @@ export const timelineMilestones: TimelineMilestone[] = [
     tags: ["Research Tooling", "Data Ground-Truth", "Mobile UX", "Workflow Design"],
     link: "/investigations/vlm-physical-reasoning",
     linkText: "Read VLM Investigation",
-  },
-  {
-    id: "cotality-ast",
-    year: "2025",
-    title: "AST-Fingerprinted Code RAG Pipeline",
-    context: "AI Engineering Intern, Cotality",
-    domain: "Systems & Data",
-    friction:
-      "Automating code documentation across 15+ languages at 50,000+ LOC/day was causing prohibitive vector embedding costs because naive text-chunking re-embedded files even when only whitespace or comments changed.",
-    toolBuilt:
-      "An AST-based parser that computes cryptographic hashes for individual function subtrees, skipping vector re-embedding for unchanged AST nodes. Paired with a migration from FAISS to Azure Cosmos DB with IVF vector indexing for durable multi-tenant persistence.",
-    takeaway:
-      "Cut API costs by 85%. Proved that syntactic AST structure, not raw text chunks, is the correct abstraction for code AI caching, cost control, and retrieval trust.",
-    tags: ["FastAPI", "AST Parsing", "Azure Cosmos DB", "Azure OpenAI"],
-    link: "/investigations/cotality-rag-tradeoffs",
-    linkText: "Read Cotality Case Study",
-  },
-  {
-    id: "vr-latency",
-    year: "2025–2026",
-    title: "VR Conversational Latency Study",
-    context: "HCI Research / MIT Presence (Under Review)",
-    domain: "Human-AI Interaction",
-    friction:
-      "VR conversational agents exhibit 2–4s inference lags that break user presence. Shaving milliseconds off frontier LLMs hits a hard network and inference floor.",
-    toolBuilt:
-      "A Unity-based conversational agent (Gemini 2.5 Flash + Google Cloud STT/TTS at 1.8s) instrumented with three latency-feedback conditions (embodied gestures, visual HUD indicators, verbal fillers) evaluated via a formal within-subjects empirical study (N=18).",
-    takeaway:
-      "Embodied non-verbal gestures significantly beat visual spinners (p < 0.05). Proved that user perception of latency is governed by the feedback channel rather than the stopwatch number.",
-    tags: ["VR", "Human-AI Interaction", "Within-Subjects Study", "Unity"],
-    link: "/investigations/vr-latency-study",
-    linkText: "Read VR Latency Investigation",
   },
 ]

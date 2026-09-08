@@ -113,7 +113,7 @@ export default function Home() {
             </div>
 
             <div className="pt-4 border-t border-[var(--border)] flex items-center justify-between text-caption font-mono">
-              <span className="text-data text-[var(--text-tertiary)]">MIT Presence (Under Review)</span>
+              <span className="text-data text-[var(--accent)] font-medium">MIT Presence (Under Review)</span>
               <Link
                 href={`/investigations/${vrInvestigation.slug}`}
                 className="text-[var(--text-primary)] hover:text-[var(--accent)] transition-colors font-medium"
@@ -146,7 +146,7 @@ export default function Home() {
             </div>
 
             <div className="pt-4 border-t border-[var(--border)] flex items-center justify-between text-caption font-mono">
-              <span className="text-data text-[var(--text-tertiary)]">Submitted to AAAI 2027</span>
+              <span className="text-data text-[var(--accent)] font-medium">Submitted to AAAI 2027</span>
               <Link
                 href={`/investigations/${vlmInvestigation.slug}`}
                 className="text-[var(--text-primary)] hover:text-[var(--accent)] transition-colors font-medium"
@@ -290,12 +290,14 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap gap-1.5 pt-1">
               {[
-                "Linear Algebra (Strang)",
-                "Matrix Calculus / Backprop by hand",
+                "Vectors & Vector Spaces",
+                "Basic ML Foundations",
+                "Calculus (Single/Multivariable)",
+                "Matrix Algebra & Decompositions",
+                "Classical ML from Scratch",
+                "Deep Learning from First Principles",
                 "Within-Subjects Study Design",
-                "Statistical Hypothesis Testing (Wilcoxon)",
-                "Attention Ops from Scratch",
-                "Spatial Calibration",
+                "Statistical Testing (Wilcoxon)",
               ].map((skill) => (
                 <span
                   key={skill}

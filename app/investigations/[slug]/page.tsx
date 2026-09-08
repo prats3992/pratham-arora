@@ -76,7 +76,7 @@ export default async function InvestigationDetailPage({ params }: Props) {
           {inv.paperBadge && (
             <>
               <span>·</span>
-              <span className="text-[var(--text-secondary)]">{inv.paperBadge}</span>
+              <span className="text-[var(--accent)] font-medium">{inv.paperBadge}</span>
             </>
           )}
           <span>·</span>

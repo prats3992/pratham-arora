@@ -51,13 +51,13 @@ export const technicalNotes: Note[] = [
     readingTime: "3 min read",
     category: "Personal Growth / Research",
     summary:
-      "Why I stepped back from high-level PyTorch APIs to re-derive matrix calculus, write attention mechanisms from raw tensor ops, and shore up mathematical foundations.",
-    tags: ["Deep Learning", "Linear Algebra", "First Principles", "Self-Study"],
+      "Why I stepped back from high-level PyTorch APIs to rebuild math fundamentals in a deliberate sequence: vectors -> basic ML -> calculus -> matrix algebra -> basic ML -> deep learning from scratch.",
+    tags: ["Vectors & Spaces", "Calculus & Matrices", "Classical ML", "Deep Learning", "First Principles"],
     content: [
       "After spending months evaluating vision-language models and building production RAG pipelines, I noticed a personal gap that made me uneasy. I was very effective at wiring together APIs, writing custom loss loops in PyTorch, and tuning hyperparameters. But whenever I read frontier research papers on diffusion mechanics or Riemannian manifolds in latent space, I felt the friction of relying on intuition rather than rigorous mathematical fluency.",
       "High-level libraries are deceptive: they make it effortless to train a model without truly understanding the spectral properties of the weight matrices, or how singular value decomposition relates to low-rank adaptation.",
-      "I decided to spend dedicated morning hours rebuilding these foundations from scratch: working through Gilbert Strang's linear algebra problem sets, deriving backpropagation by hand across non-standard topologies, and implementing self-attention using only raw multidimensional arrays without autograd.",
-      "It is humbling to step back from shipping high-level features to wrestle with matrix calculus. But if my goal is to conduct genuine research into model interpretability and physical grounding, mathematical rigor is not optional.",
+      "I structured a deliberate rebuilding trajectory from the ground up: starting from vectors and vector spaces, applying them directly to basic ML algorithms (linear models and nearest neighbors), progressing through single- and multivariable calculus, diving deep into matrix algebra and decompositions (Strang), returning to basic ML with that deeper geometric foundation, and finally advancing into deep learning architectures written from raw tensor operations without autograd.",
+      "It is humbling to step back from shipping high-level features to wrestle with derivations by hand. But if my goal is to conduct genuine research into model interpretability and physical grounding, mathematical rigor is not optional.",
     ],
   },
   {

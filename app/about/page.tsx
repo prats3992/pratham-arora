@@ -120,7 +120,7 @@ export default function AboutPage() {
               <span className="font-mono text-data text-[var(--accent)] shrink-0">Under review, MIT Presence (2026)</span>
             </div>
             <p className="text-caption text-[var(--text-tertiary)] font-mono">
-              <strong>P. Arora</strong>, A. Lodha, S. Siddharth
+              <strong>P. Arora</strong>, A. Lodha, Siddharth S.
             </p>
             <div className="pt-1">
               <Link
@@ -137,7 +137,7 @@ export default function AboutPage() {
               <h3 className="font-bold text-[var(--text-primary)]">
                 QUIVER: Benchmarking and Enhancing Physical Reasoning Abilities of Vision-Language Models
               </h3>
-              <span className="font-mono text-data text-[var(--text-tertiary)] shrink-0">Submitted to AAAI 2027</span>
+              <span className="font-mono text-data text-[var(--accent)] font-medium shrink-0">Submitted to AAAI 2027</span>
             </div>
             <p className="text-caption text-[var(--text-tertiary)] font-mono">
               V. Lalwani, A. Shafiq, <strong>P. Arora</strong>, M. K. Gurumurthy, P. Pansari
@@ -178,18 +178,6 @@ export default function AboutPage() {
           <div className="py-3.5 space-y-0.5">
             <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
               <span className="font-medium text-[var(--text-primary)]">
-                AI Engineering Intern <span className="text-[var(--text-secondary)]"> - Cotality</span>
-              </span>
-              <span className="font-mono text-data text-[var(--text-tertiary)] shrink-0">Jun 2025 – Jul 2025</span>
-            </div>
-            <p className="text-caption text-[var(--text-tertiary)]">
-              Architected FastAPI polyglot documentation engine, built AST-hash dedup cutting embedding costs by 85%, and migrated from FAISS to Azure Cosmos DB with IVF vector search.
-            </p>
-          </div>
-
-          <div className="py-3.5 space-y-0.5">
-            <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-              <span className="font-medium text-[var(--text-primary)]">
                 Freelance Web Developer <span className="text-[var(--text-secondary)]"> - PQRS Research (Dr. Niket Tandon)</span>
               </span>
               <span className="font-mono text-data text-[var(--text-tertiary)] shrink-0">May 2026 – Present</span>
@@ -207,7 +195,19 @@ export default function AboutPage() {
               <span className="font-mono text-data text-[var(--text-tertiary)] shrink-0">Apr 2025 – Feb 2026</span>
             </div>
             <p className="text-caption text-[var(--text-tertiary)]">
-              Built and deployed sports platforms serving 500+ students, shipped real-time match scoring, and built the zero-server auction slides generator.
+              Built and deployed sports platforms serving 500+ students, shipped real-time match scoring, and designed the in-browser auction generation portal.
+            </p>
+          </div>
+
+          <div className="py-3.5 space-y-0.5">
+            <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+              <span className="font-medium text-[var(--text-primary)]">
+                AI Engineering Intern <span className="text-[var(--text-secondary)]"> - Cotality</span>
+              </span>
+              <span className="font-mono text-data text-[var(--text-tertiary)] shrink-0">Jun 2025 – Jul 2025</span>
+            </div>
+            <p className="text-caption text-[var(--text-tertiary)]">
+              Architected FastAPI polyglot documentation engine, built AST-hash dedup cutting embedding costs by 85%, and migrated from FAISS to Azure Cosmos DB with IVF vector search.
             </p>
           </div>
 
@@ -236,10 +236,11 @@ export default function AboutPage() {
           </p>
         </div>
 
-        <div className="pt-2">
+        <div className="pt-2 space-y-2">
           <a
-            href="/CV.tex"
-            download
+            href="/CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="p-4 rounded border border-[var(--border)] bg-[var(--bg-elevated)] hover:border-[var(--accent)]/50 transition-colors group flex items-center justify-between max-w-md"
           >
             <div>
@@ -247,11 +248,21 @@ export default function AboutPage() {
                 Curriculum Vitae (CV)
               </div>
               <div className="text-data text-[var(--text-tertiary)] mt-0.5 font-mono">
-                LaTeX Source · Academic &amp; Research Track
+                PDF Document · Academic &amp; Research Track
               </div>
             </div>
-            <span className="font-mono text-data text-[var(--accent)]">↓ .tex</span>
+            <span className="font-mono text-data text-[var(--accent)]">↗ PDF</span>
           </a>
+          <div className="text-micro font-mono text-[var(--text-tertiary)] pl-1">
+            Also available as{" "}
+            <a
+              href="/CV.tex"
+              download
+              className="text-[var(--text-secondary)] hover:text-[var(--accent)] underline underline-offset-2 transition-colors"
+            >
+              LaTeX source (.tex)
+            </a>
+          </div>
         </div>
       </section>
 
